@@ -1,0 +1,31 @@
+{
+  "devDependencies": {
+    "@eslint/js": "^9.6.0",
+    "@inkline/config": "^1.9.1",
+    "@inkline/plugin": "^1.5.2",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "eslint": "^9.6.0",
+    "eslint-plugin-vue": "^9.26.0",
+    "globals": "^15.7.0",
+    "inkline": "^2.6.1",
+    "prettier": "^3.3.2",
+    "sass": "^1.77.6",
+    "typescript": "^5.5.2",
+    "typescript-eslint": "^7.14.1",
+    "vitepress": "^1.2.3"
+  },
+  "scripts": {
+    "dev": "yarn generate:scss && vitepress dev",
+    "generate:scss": "inkline generate scss -o .vitepress/theme/inkline-variables",
+    "format": "prettier --read .",
+    "format:fix": "prettier --write .",
+    "lint": "eslint -c eslint.config.mjs .vitepress/theme/**/*.{ts,vue}",
+    "lint:fix": "eslint . --ignore-pattern .gitignore --fix",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "dependencies": {
+    "@inkline/inkline": "^4.2.1",
+    "vue": "^3.4.31"
+  }
+}
