@@ -14,6 +14,7 @@
   overflow-x: auto;
   border: var(--gap-1-2) solid var(--body--background-alt);
   background: var(--body--background-alt);
+  transition: var(--transition-background-color), var(--transition-border-color);
   border-radius: var(--border-radius-rounded);
   margin-bottom: var(--gap);
   margin-inline: var(--gap-1-8);

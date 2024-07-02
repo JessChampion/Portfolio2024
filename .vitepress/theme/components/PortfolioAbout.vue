@@ -154,6 +154,7 @@ import PortfolioSection from "./PortfolioSection.vue";
 
 .passions {
   background: var(--body--background-alt);
+  transition: var(--transition-background-color);
   border-radius: var(--border-radius-rounded);
   margin-bottom: var(--gap-1-2);
 
@@ -169,6 +170,7 @@ import PortfolioSection from "./PortfolioSection.vue";
 
   &__card {
     background: var(--body--background-alt2);
+    transition: var(--transition-background-color);
     border-radius: var(--border-radius-rounded) var(--border-radius-rounded)
       var(--border-radius-rounded) var(--border-top-left-radius-lg);
     padding: var(--gap);
@@ -209,6 +211,6 @@ import PortfolioSection from "./PortfolioSection.vue";
 .icon {
   width: 2rem;
   height: 2rem;
-  color: var(--body--color);
+  transition: var(--transition-color);
 }
 </style>

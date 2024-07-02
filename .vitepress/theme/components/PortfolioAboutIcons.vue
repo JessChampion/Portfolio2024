@@ -366,6 +366,6 @@ section {
 .icon {
   width: 2rem;
   height: 2rem;
-  color: var(--body--color);
+  transition: var(--transition-color);
 }
 </style>

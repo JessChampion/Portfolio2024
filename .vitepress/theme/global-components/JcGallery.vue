@@ -115,8 +115,7 @@ const goTo = (index) => {
     border: none;
 
     .inkline-icon {
-      transition: transform var(--transition-timing-function)
-        var(--transition-duration);
+      transition: var(--transition-transform);
     }
 
     &:hover,

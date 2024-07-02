@@ -129,6 +129,7 @@ const handleKeyPress = (event) => {
 <style lang="scss">
 .nav-list__item {
   background-color: var(--body--background-alt2);
+  transition: var(--transition-background-color);
 }
 </style>
 
@@ -140,6 +141,7 @@ const handleKeyPress = (event) => {
   margin: var(--gap) auto;
   padding: var(--gap) 0 var(--gap) var(--gap-15);
   border-left: var(--border-width-bold) solid var(--body--color);
+  transition: var(--transition-border-color);
   max-width: var(--container-max-width);
 
   &__item {
@@ -158,8 +160,7 @@ const handleKeyPress = (event) => {
       right: var(--gap-1-2);
       top: var(--gap-1-2);
       color: var(--body--color);
-      transition: transform var(--transition-timing-function)
-        var(--transition-duration);
+      transition: var(--transition-color), var(--transition-transform);
 
       &:hover,
       &:focus,
@@ -175,6 +176,8 @@ const handleKeyPress = (event) => {
   grid-template-columns: 1fr;
   gap: var(--gap);
   color: var(--body--color);
+  transition: var(--transition-color);
+
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-normal);
   padding: var(--gap-1-2);

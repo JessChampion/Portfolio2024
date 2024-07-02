@@ -29,6 +29,7 @@ defineProps({
   code {
     background: var(--body--color);
     color: var(--body--background);
+    transition: var(--transition-color), var(--transition-background-color);
   }
 }
 </style>

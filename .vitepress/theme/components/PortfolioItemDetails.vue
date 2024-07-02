@@ -32,6 +32,7 @@ const technologies = [
   grid-template-columns: 1fr 1fr;
   padding: 0 var(--gap-1-2) var(--gap-15);
   border-bottom: var(--border-top-width) solid var(--body--background);
+  transition: var(--transition-border-color);
 
   ul {
     list-style: none;

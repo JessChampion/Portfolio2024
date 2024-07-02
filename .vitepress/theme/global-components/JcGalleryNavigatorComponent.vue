@@ -44,8 +44,7 @@ defineProps({
     height: 1.25rem;
     width: 1.25rem;
     padding: 0;
-    transition: transform var(--transition-timing-function)
-      var(--transition-duration);
+    transition: var(--transition-transform), var(--transition-background-color);
 
     &.active {
       background: var(--color-primary) !important;

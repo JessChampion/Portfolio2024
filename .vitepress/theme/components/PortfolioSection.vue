@@ -58,11 +58,11 @@ const toggle = () => {
     background: none;
     border: none;
     color: var(--body--color);
+    transition: var(--transition-color);
 
     .inkline-icon {
       transform: rotate(-90deg);
-      transition: transform var(--transition-timing-function)
-        var(--transition-duration);
+      transition: var(--transition-transform), var(--transition-color);
     }
 
     &:hover,

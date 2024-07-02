@@ -62,7 +62,7 @@ $transition-background: background 250ms ease-in;
     margin: 0 auto;
     max-width: $size-card-width-sm;
     position: relative;
-    transition: $transition-slide;
+    transition: $transition-slide, var(--transition-border-color);
     width: 100%;
 
     @media screen and (min-width: var(--breakpoint-sm)) {
