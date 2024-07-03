@@ -8,10 +8,20 @@ const inklineConfig: UserOptions = {
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "jesschampion",
-  description: "Jess Champion's portfolio website",
+  title: "Jess Champion - Software Developer",
+  description:
+    "Jess Champion's portfolio. New Zealand based Software developer, web developer, UX and design.",
   srcDir: "./src",
   head: [
+    [
+      "script",
+      {},
+      `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5PB7PZ29');`,
+    ],
     ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
     [
       "link",

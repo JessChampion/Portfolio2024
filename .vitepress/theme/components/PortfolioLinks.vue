@@ -71,10 +71,13 @@ import ComponentSafeMailTo from "../global-components/ComponentSafeMailTo.vue";
   .icon {
     width: 2rem;
     height: 2rem;
+    color: var(--body--color);
+    transition: var(--transition-color);
   }
 
   li {
-    transition: var(--transition-transform);
+    transition: var(--transition-transform), var(--transition-color);
+
     &:hover,
     &:focus,
     &:active {

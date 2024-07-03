@@ -3,80 +3,84 @@
 @import "@inkline/inkline/css/utilities";
 
 :root {
-    /**
+  /**
            * Gap variables
            */
-    --gap: var(--margin-top);
-    --gap-125: calc(var(--margin-top) * 1.25);
-    --gap-15: calc(var(--margin-top) * 1.5);
-    --gap-175: calc(var(--margin-top) * 1.75);
-    --gap-2: var(--margin-top-2);
-    --gap-3: var(--margin-top-3);
-    --gap-4: var(--margin-top-4);
-    --gap-5: var(--margin-top-5);
-    --gap-1-5: var(--margin-top-1-5);
-    --gap-1-4: var(--margin-top-1-4);
-    --gap-3-4: var(--margin-top-3-4);
-    --gap-1-3: var(--margin-top-1-3);
-    --gap-2-3: var(--margin-top-2-3);
-    --gap-1-2: var(--margin-top-1-2);
+  --gap: var(--margin-top);
+  --gap-125: calc(var(--margin-top) * 1.25);
+  --gap-15: calc(var(--margin-top) * 1.5);
+  --gap-175: calc(var(--margin-top) * 1.75);
+  --gap-2: var(--margin-top-2);
+  --gap-3: var(--margin-top-3);
+  --gap-4: var(--margin-top-4);
+  --gap-5: var(--margin-top-5);
+  --gap-1-5: var(--margin-top-1-5);
+  --gap-1-4: var(--margin-top-1-4);
+  --gap-3-4: var(--margin-top-3-4);
+  --gap-1-3: var(--margin-top-1-3);
+  --gap-2-3: var(--margin-top-2-3);
+  --gap-1-2: var(--margin-top-1-2);
 
-    --container-max-width: 50rem;
-    --container-max-width-lg: 60rem;
+  --container-max-width: 50rem;
+  --container-max-width-lg: 60rem;
 
-    --transition-color: color var(--transition-timing-function) var(--transition-duration);
-    --transition-background-color: background-color var(--transition-timing-function) var(--transition-duration);
-    --transition-border-color: border-color var(--transition-timing-function) var(--transition-duration);
-    --transition-transform: transform var(--transition-timing-function) var(--transition-duration);
-    --transform-hover: scale(1.25);
+  --transition-color: color var(--transition-timing-function)
+    var(--transition-duration);
+  --transition-background-color: background-color
+    var(--transition-timing-function) var(--transition-duration);
+  --transition-border-color: border-color var(--transition-timing-function)
+    var(--transition-duration);
+  --transition-transform: transform var(--transition-timing-function)
+    var(--transition-duration);
+  --transform-hover: scale(1.25);
 
-    --border-width-bold: 0.15rem;
-    --border: var(--border-width-bold) solid var(--body--border-top-color);
-    --border-radius-rounded: 1rem;
+  --border-width-bold: 0.15rem;
+  --border: var(--border-width-bold) solid var(--body--border-top-color);
+  --border-radius-rounded: 1rem;
 }
 
 @include breakpoint-down(sm) {
-    :root {
-        --font-size: 1rem;
-    }
+  :root {
+    --font-size: 1rem;
+  }
 }
 
 body {
-    font-weight: var(--font-weight-light);
-    font-family: var(--font-family-primary-base);
+  font-weight: var(--font-weight-light);
+  font-family: var(--font-family-primary-base);
 
-    .container {
-        max-width: var(--container-max-width-lg);
-        margin-inline: auto;
-    }
+  .container {
+    max-width: var(--container-max-width-lg);
+    margin-inline: auto;
+  }
 
+  color: var(--body--color);
+  background-color: var(--body--background);
+  transition: var(--transition-background-color), var(--transition-color);
+
+  a,
+  a:visited {
+    transition: var(--transition-color);
     color: var(--body--color);
-    background-color: var(--body--background);
-    transition: var(--transition-background-color), var(--transition-color);
-
-    a,
-    a:visited {
-        transition: var(--transition-color);
-        color: var(--body--color);
-    }
+  }
 }
 
 html,
 body,
 #app {
-    min-height: 100%;
-    height: 100%;
+  min-height: 100%;
+  height: 100%;
 
-    * {
-        outline-color: var(--color-primary);
-    }
+  * {
+    outline-color: var(--color-primary);
+  }
 }
 
 #app {
-    overflow: auto;
+  overflow: auto;
 }
 
 code {
-    font-family: var(--font-family-primary-monospace);
-    color: var(--color-light);
+  font-family: var(--font-family-primary-monospace);
+  color: var(--color-light);
 }
