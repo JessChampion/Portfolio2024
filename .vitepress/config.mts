@@ -85,4 +85,7 @@ export default defineConfig({
       noExternal: ["@inkline/inkline"],
     },
   },
+  sitemap: {
+    hostname: "https://jesschampion.co.nz",
+  },
 });
