@@ -76,25 +76,29 @@ const goTo = (index) => {
 </template>
 
 <style lang="scss">
-.gallery-modal .modal-wrapper .modal {
-  pointer-events: none;
+.gallery-modal .modal-wrapper {
+  background: var(--color-black-alpha-95);
+  .modal {
+    pointer-events: none;
+    max-width: 90vw;
 
-  .modal-body {
-    background: none;
-    border: none;
-    border-radius: var(--border-top-left-radius-lg);
-    padding: var(--gap-1-2);
-    pointer-events: auto;
-    position: relative;
-  }
+    .modal-body {
+      background: none;
+      border: none;
+      border-radius: var(--border-top-left-radius-lg);
+      padding: var(--gap-1-2);
+      pointer-events: auto;
+      position: relative;
+    }
 
-  > .modal-footer {
-    background: none;
-    border: none;
-    margin: 0 auto 0;
-    max-width: 100%;
-    overflow: hidden;
-    padding: 0;
+    > .modal-footer {
+      background: none;
+      border: none;
+      margin: 0 auto 0;
+      max-width: 100%;
+      overflow: hidden;
+      padding: 0;
+    }
   }
 }
 </style>

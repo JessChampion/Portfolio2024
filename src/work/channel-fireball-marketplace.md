@@ -21,6 +21,7 @@ Note: the platform was acquired by a competitor and is no longer live.
 </jc-gallery>
 
 ## Architecture and Build
+
 coming soon.
 
 ### Responsive Design

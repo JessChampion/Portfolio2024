@@ -1,29 +1,60 @@
-<script>
-import { reactive } from "vue";
+<script setup>
+import { defineProps, onMounted, onUnmounted, ref, watch } from "vue";
 
-export default {
-  props: {
-    type: {
-      type: String,
-      validator: function (value) {
-        const MOCKUP_TYPES = {
-          mobile: "mobile",
-          tablet: "tablet",
-          desktop: "desktop",
-        };
-        return Object.keys(MOCKUP_TYPES).indexOf(value) !== -1;
-      },
-      default: "mobile",
-    },
-    setup(props) {
-      const state = reactive({
-        type: props.type,
-      });
+const SCROLL_TOLERANCE = 0.5;
 
-      return { state };
+defineProps({
+  type: {
+    type: String,
+    validator: function (value) {
+      const MOCKUP_TYPES = {
+        mobile: "mobile",
+        tablet: "tablet",
+        desktop: "desktop",
+      };
+      return Object.keys(MOCKUP_TYPES).indexOf(value) !== -1;
     },
+    default: "mobile",
   },
-};
+});
+
+const hasContentOverflow = ref(false);
+const isMaxScroll = ref(false);
+const wrapRef = ref(null);
+const elementHeight = ref(0);
+const scrollPosition = ref(0);
+
+onMounted(() => {
+  if (wrapRef.value) {
+    // ResizeObserver to update elementHeight
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        elementHeight.value = entry.contentRect.height;
+      }
+    });
+    resizeObserver.observe(wrapRef.value);
+
+    // Event listener to update scrollPosition
+    const handleScroll = () => {
+      scrollPosition.value = wrapRef.value.scrollTop;
+    };
+    wrapRef.value.addEventListener("scroll", handleScroll);
+
+    // Cleanup
+    onUnmounted(() => {
+      wrapRef.value.removeEventListener("scroll", handleScroll);
+      resizeObserver.disconnect();
+    });
+  }
+});
+
+watch([elementHeight, scrollPosition], ([wrapHeight, scrollPosition]) => {
+  const contentHeight = wrapRef.value.children[0].height;
+  const scrollHeight = wrapRef.value.scrollHeight;
+  hasContentOverflow.value = contentHeight - wrapHeight > SCROLL_TOLERANCE;
+  isMaxScroll.value =
+    scrollHeight - scrollPosition - wrapHeight < SCROLL_TOLERANCE;
+});
 </script>
 
 <template>
@@ -33,8 +64,48 @@ export default {
   >
     <div class="mockup__inner">
       <div class="mockup__header" role="presentation"></div>
-      <div class="mockup__wrap">
+      <div class="mockup__wrap" ref="wrapRef">
         <slot></slot>
+      </div>
+      <div class="mockup__hint" v-if="hasContentOverflow && !isMaxScroll">
+        <svg
+          class="zoom-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+        >
+          <title>Zoom</title>
+          <path
+            fill="currentColor"
+            d="M27.132 23.827l-6.632-5.641c-0.686-0.617-1.419-0.9-2.011-0.873 1.566-1.834 2.511-4.213 2.511-6.813 0-5.799-4.701-10.5-10.5-10.5s-10.5 4.701-10.5 10.5 4.701 10.5 10.5 10.5c2.6 0 4.98-0.946 6.813-2.511-0.027 0.592 0.256 1.326 0.873 2.011l5.641 6.632c0.966 1.073 2.544 1.164 3.506 0.201s0.872-2.54-0.201-3.506zM10.5 17.5c-3.866 0-7-3.134-7-7s3.134-7 7-7 7 3.134 7 7-3.134 7-7 7z"
+          />
+
+          <path
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            d="M6 10.5 L 15 10.5 M 10.5 6 L 10.5 15"
+          />
+        </svg>
+        <svg
+          class="scroll-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 28 28"
+        >
+          <title>scroll</title>
+          <g
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path class="scroll-line one" d="M5 2 L 14 8 L 23 2" />
+            <path class="scroll-line two" d="M5 11 L 14 17 L 23 11" />
+            <path class="scroll-line three" d="M5 20 L 14 26 L 23 20" />
+          </g>
+        </svg>
       </div>
       <div class="mockup__footer" role="presentation"></div>
     </div>
@@ -53,6 +124,17 @@ $color-highlight-light: #f0f0f0;
 $color-highlight-white: #fff;
 $transition-slide: transform 500ms ease-in-out;
 $transition-background: background 250ms ease-in;
+
+@keyframes scroll {
+  0%,
+  50%,
+  100% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+}
 
 .mockup {
   &__inner {
@@ -269,6 +351,58 @@ $transition-background: background 250ms ease-in;
         width: var(--gap);
         left: calc(50% - #{calc(var(--gap) * 4 / 7)});
         bottom: calc(var(--gap) * -4 / 3);
+      }
+    }
+  }
+
+  &__hint {
+    position: relative;
+
+    .scroll-icon,
+    .zoom-icon {
+      position: absolute;
+      right: 0.5rem;
+      bottom: 0.5rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      color: $color-highlight-dark;
+
+      .gallery--open & {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+
+    .zoom-icon {
+      right: -0.15rem;
+      bottom: -0.15rem;
+      color: var(--color-primary);
+      opacity: 0.75;
+
+      .gallery--open & {
+        display: none;
+      }
+    }
+
+    .scroll-icon {
+      display: none;
+
+      .gallery--open & {
+        display: block;
+      }
+
+      .scroll-line {
+        opacity: 0.5;
+        animation: scroll 3s infinite 0s;
+        transition: opacity var(--transition-timing-function) 1s;
+
+        &.two {
+          animation-delay: 0.25s;
+        }
+
+        &.three {
+          animation-delay: 0.5s;
+        }
       }
     }
   }

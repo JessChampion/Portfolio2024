@@ -40,7 +40,7 @@ const handleGoTo = (index, event) => {
 .display {
   display: grid;
   gap: var(--gap-1-2);
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   pointer-events: none;
 
@@ -66,6 +66,11 @@ const handleGoTo = (index, event) => {
     background: none;
     pointer-events: auto;
     max-height: 100%;
+    margin-left: auto;
+    &:last-of-type {
+      margin-left: 0;
+      margin-right: auto;
+    }
 
     &:disabled {
       visibility: hidden;

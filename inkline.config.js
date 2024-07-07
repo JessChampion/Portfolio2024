@@ -31,11 +31,11 @@ export default defineConfig({
         blue: "#3465a6",
         purple: "#7146de",
         pink: "#A63D34",
-        white: "#ffffff",
+        white: "#f7f6f5",
         light: "#f7f6f5",
         gray: "#8A8C97",
         dark: "#1C2238",
-        black: "#000000",
+        black: "#030305",
         primary: "<% theme.color.blue %>",
         secondary: "<% theme.color.purple %>",
         info: "<% theme.color.teal %>",
@@ -637,6 +637,26 @@ export default defineConfig({
             },
             "alpha-90": {
               alpha: 0.9,
+            },
+          },
+          black: {
+            "alpha-10": {
+              alpha: 0.1,
+            },
+            "alpha-25": {
+              alpha: 0.25,
+            },
+            "alpha-50": {
+              alpha: 0.5,
+            },
+            "alpha-75": {
+              alpha: 0.75,
+            },
+            "alpha-90": {
+              alpha: 0.9,
+            },
+            "alpha-95": {
+              alpha: 0.95,
             },
           },
         },

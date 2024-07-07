@@ -142,25 +142,31 @@ watch(
 <template>
   <IForm class="nav-list-controls" aria-controls="#timeline">
     <IFormGroup class="filter">
-      <IFormLabel size="sm">Filter by technology</IFormLabel>
-      <ISelect
-        v-model="filteredBy"
-        :options="allTechnologies"
-        placeholder="Select..."
-        clearable
-        size="sm"
-      />
+      <label>
+        <span class="label">Filter by technology</span>
+        <ISelect
+          v-model="filteredBy"
+          :options="allTechnologies"
+          placeholder="Select..."
+          clearable
+          size="sm"
+          id="filterBy"
+        />
+      </label>
     </IFormGroup>
     <IFormGroup class="mode">
-      <IFormLabel size="sm">View by</IFormLabel>
-      <IRadioButtons
-        size="sm"
-        v-model="timelineMode"
-        :options="[
-          { id: 'year', label: 'Year' },
-          { id: 'company', label: 'Company' },
-        ]"
-      />
+      <label>
+        <span class="label">View by</span>
+        <IRadioButtons
+          id="viewMode"
+          size="sm"
+          v-model="timelineMode"
+          :options="[
+            { id: 'year', label: 'Year' },
+            { id: 'company', label: 'Company' },
+          ]"
+        />
+      </label>
     </IFormGroup>
   </IForm>
   <ul id="timeline" class="nav-list">
@@ -309,10 +315,17 @@ watch(
   border-radius: var(--border-radius-rounded) var(--border-radius-rounded)
     var(--border-radius-rounded) 0;
 
-  .form-label {
-    margin-bottom: 0;
-    padding: var(--gap-3-4) var(--gap-1-2);
-    max-width: fit-content;
+  label {
+    display: flex;
+    align-items: baseline;
+    padding: var(--gap-1-3) 0 var(--gap-1-4);
+
+    .label {
+      font-size: var(--font-size-sm);
+      margin-bottom: 0;
+      padding: 0 var(--gap-1-2);
+      max-width: fit-content;
+    }
   }
 
   .form-group {
