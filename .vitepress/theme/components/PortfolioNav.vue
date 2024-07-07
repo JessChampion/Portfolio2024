@@ -3,15 +3,76 @@ import { useData, useRoute } from "vitepress";
 import PortfolioTags from "./PortfolioTags.vue";
 
 import menuItems from "../menu";
-import { computed, onMounted, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import PortfolioItemDetails from "./PortfolioItemDetails.vue";
 
-// https://vitepress.dev/reference/runtime-api#usedata
-const { page } = useData();
+function getYearFromRange(year) {
+  return year.includes("-") ? Number(year.split("-")[1]) : Number(year);
+}
 
-const route = useRoute();
+function groupByCompany(acc, item) {
+  const company = item.org.split("-")[0];
+  if (!acc[company]) {
+    acc[company] = [];
+  }
+  acc[company].push(item);
+  return acc;
+}
 
-const scrollToCurrent = (path) => {
+function groupByYear(acc, item) {
+  const year = getYearFromRange(item.year);
+  if (!acc[year]) acc[year] = []; // Initialize the array if it doesn't exist
+  acc[year].push(item);
+  return acc;
+}
+
+function filterByTechnology(technologyFilter) {
+  return (item) =>
+    !technologyFilter ||
+    item.technologies?.top?.includes(technologyFilter) ||
+    item.technologies?.additional?.includes(technologyFilter);
+}
+
+function sortByYear(a, b) {
+  return getYearFromRange(b.year) - getYearFromRange(a.year);
+}
+
+function sortEntriesByYear([_a, [a]], [_b, [b]]) {
+  return sortByYear(a, b);
+}
+
+function groupDisplayedItems(items, type = "year", filteredBy = undefined) {
+  if (!items) {
+    return [];
+  }
+  const displayed = items
+    .filter(filterByTechnology(filteredBy))
+    .reduce(type === "company" ? groupByCompany : groupByYear, {});
+  return Object.entries(displayed).sort(sortEntriesByYear);
+}
+
+function talleyTechnologies(items) {
+  const techCounts = items.value.reduce((acc, item) => {
+    const technologies = [
+      ...(item.technologies?.top || []),
+      ...(item.technologies?.additional || []),
+    ];
+    technologies.forEach((tech) => {
+      if (!acc[tech]) {
+        acc[tech] = 1;
+      } else {
+        acc[tech]++;
+      }
+    });
+    return acc;
+  }, {});
+
+  return Object.entries(techCounts)
+    .sort(([_a, countA], [_b, countB]) => countB - countA) // Sort by count in descending order
+    .map(([tech, count]) => ({ id: tech, label: `${tech} (${count})` })); // Format for display
+}
+
+function scrollToCurrent(path) {
   if (path.startsWith("/work/")) {
     const item =
       document.querySelector(`a[href="${path}"]`) ||
@@ -19,6 +80,44 @@ const scrollToCurrent = (path) => {
     setTimeout(() => {
       item?.scrollIntoView({ behavior: "smooth" });
     });
+  }
+}
+
+const { page } = useData();
+
+const route = useRoute();
+
+const timelineMode = ref("year");
+
+const filteredBy = ref(undefined);
+
+const publishedMenuItems = computed(() =>
+  menuItems.filter((item) => item.published).sort(sortByYear),
+);
+
+const allTechnologies = computed(() => talleyTechnologies(publishedMenuItems));
+
+const groupedMenuItems = computed(() =>
+  groupDisplayedItems(
+    publishedMenuItems.value,
+    timelineMode.value,
+    filteredBy.value,
+  ),
+);
+
+const handleKeyPress = (event) => {
+  if (event.key === " ") {
+    event.currentTarget.click();
+  } else if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+    event.preventDefault();
+    const currentListItem = event.currentTarget.parentElement;
+    const isDown = event.key === "ArrowDown";
+    const sibling = isDown ? "nextElementSibling" : "previousElementSibling";
+    const fallback = isDown ? "firstElementChild" : "lastElementChild";
+    const targetListItem =
+      currentListItem[sibling] || currentListItem.parentElement[fallback];
+    const targetLink = targetListItem?.querySelector("a");
+    targetLink?.focus();
   }
 };
 
@@ -30,98 +129,93 @@ watch(
     scrollToCurrent(newPath);
   },
 );
-
-const sortYearDesc = (a, b) => {
-  const year = `${b.year}`.localeCompare(`${a.year}`);
-  return year === 0 ? b.sort - a.sort : year;
-};
-
-const publishedMenuItems = computed(() =>
-  menuItems.filter((item) => item.published).sort(sortYearDesc),
-);
-
-const handleKeyPress = (event) => {
-  if (event.key === " ") {
-    event.currentTarget.click();
-  }
-  // arrow down
-  if (event.key === "ArrowDown") {
-    event.preventDefault();
-    const currentListItem = event.currentTarget.parentElement;
-    const nextListItem =
-      currentListItem?.nextElementSibling ||
-      currentListItem?.parentElement?.firstElementChild;
-    const nextLink = nextListItem?.querySelector("a");
-    if (nextLink) {
-      nextLink.focus();
-    }
-  }
-  // arrow up
-  if (event.key === "ArrowUp") {
-    event.preventDefault();
-    const currentListItem = event.currentTarget.parentElement;
-    const prevListItem =
-      currentListItem?.previousElementSibling ||
-      currentListItem?.parentElement?.lastElementChild;
-    const prevLink = prevListItem?.querySelector("a");
-    if (prevLink) {
-      prevLink.focus();
-    }
-  }
-};
 </script>
 
 <template>
-  <ul class="nav-list">
-    <li
-      v-for="item in publishedMenuItems"
-      :key="item.link"
-      :aria-label="item.title"
-      class="nav-list__item"
-    >
-      <a
-        @keydown="handleKeyPress"
-        :class="`item ${item.title === page.title ? 'active' : ''}`"
-        :href="item.title === page.title ? '#' : item.link"
-        :aria-current="item.title === page.title ? 'page' : undefined"
-        tabindex="0"
-      >
-        <div class="item__details">
-          <dl class="stats">
-            <dt class="_visually-hidden">Year</dt>
-            <dd>{{ item.year }}</dd>
-            <dt class="_visually-hidden">Organisation</dt>
-            <dd class="org">{{ item.org }}</dd>
-          </dl>
-          <strong class="item__title">{{ item.title }}</strong>
-          <p class="item__summary">{{ item.summary }}</p>
-          <PortfolioTags
-            label="key technologies"
-            :tags="item.technologies.top"
-            v-if="item.title !== page.title"
-          />
-        </div>
-        <div
-          :class="`= image -thumbnail thumbnail thumbnail--${item.thumbnailOrientation}`"
-          v-if="item.title !== page.title"
-        >
-          <img
-            :src="item.thumbnail"
-            :alt="`thumbnail for ${item.title}`"
-            class="image -fluid"
-          />
-        </div>
-      </a>
-      <a v-if="item.title === page.title" href="/" class="close">
-        <IIcon name="ink-times" alt="close" />
-      </a>
-      <PortfolioItemDetails
-        :item="page.frontmatter"
-        v-if="item.title === page.title"
+  <IForm class="nav-list-controls" aria-controls="#timeline">
+    <IFormGroup class="filter">
+      <IFormLabel size="sm">Filter by technology</IFormLabel>
+      <ISelect
+        v-model="filteredBy"
+        :options="allTechnologies"
+        placeholder="Select..."
+        clearable
+        size="sm"
       />
-      <div class="current-page" v-if="page.title === item.title">
-        <slot />
+    </IFormGroup>
+    <IFormGroup class="mode">
+      <IFormLabel size="sm">View by</IFormLabel>
+      <IRadioButtons
+        size="sm"
+        v-model="timelineMode"
+        :options="[
+          { id: 'year', label: 'Year' },
+          { id: 'company', label: 'Company' },
+        ]"
+      />
+    </IFormGroup>
+  </IForm>
+  <ul id="timeline" class="nav-list">
+    <li
+      v-for="[groupKey, items] in groupedMenuItems"
+      :key="groupKey"
+      class="nav-list__item-group"
+    >
+      <div class="nav-list__group-label">
+        {{ groupKey }}
       </div>
+      <ul class="nav-list--nested">
+        <li
+          v-for="item in items"
+          :key="item.link"
+          :aria-label="item.title"
+          class="nav-list__item"
+        >
+          <a
+            @keydown="handleKeyPress"
+            :class="`item ${item.title === page.title ? 'active' : ''}`"
+            :href="item.title === page.title ? '#' : item.link"
+            :aria-current="item.title === page.title ? 'page' : undefined"
+            tabindex="0"
+          >
+            <div class="item__details">
+              <dl class="stats">
+                <dt class="_visually-hidden">Year</dt>
+                <dd>{{ item.year }}</dd>
+                <dt class="_visually-hidden">Organisation</dt>
+                <dd class="org">{{ item.org }}</dd>
+              </dl>
+              <strong class="item__title">{{ item.title }}</strong>
+              <p class="item__summary">{{ item.summary }}</p>
+              <PortfolioTags
+                label="key technologies"
+                :tags="item.technologies.top"
+                v-if="item.title !== page.title"
+              />
+            </div>
+            <div
+              :class="`= image -thumbnail thumbnail thumbnail--${item.thumbnailOrientation}`"
+              v-if="item.title !== page.title"
+            >
+              <img
+                :src="item.thumbnail"
+                :alt="`thumbnail for ${item.title}`"
+                class="image -fluid"
+              />
+            </div>
+          </a>
+          <a v-if="item.title === page.title" href="/" class="close">
+            <IIcon name="ink-times" alt="close" />
+          </a>
+          <PortfolioItemDetails
+            :item="page.frontmatter"
+            v-if="item.title === page.title"
+          />
+          <div class="current-page" v-if="page.title === item.title">
+            <slot />
+          </div>
+        </li>
+      </ul>
     </li>
   </ul>
 </template>
@@ -131,18 +225,120 @@ const handleKeyPress = (event) => {
   background-color: var(--body--background-alt2);
   transition: var(--transition-background-color);
 }
+
+.nav-list-controls {
+  .checkable-button-group.radio-buttons {
+    .button {
+      border: var(--border-top-width) solid var(--body--color-alt);
+      background: var(--body--color-alt);
+      margin: 0;
+      padding: var(--gap-1-2) var(--gap-3-4);
+
+      &,
+      &:not(.-active),
+      &:not(.-active):not(.-disabled):hover,
+      &:not(.-active):not(.-disabled):focus {
+        border-color: var(--body--color-alt);
+        background: var(--body--background) !important;
+      }
+
+      &.-active {
+        background-color: var(--body--color-alt) !important;
+      }
+
+      &:first-of-type {
+        border-radius: var(--border-radius-rounded) 0 0
+          var(--border-radius-rounded);
+        border-right: 0;
+      }
+
+      &:last-of-type {
+        border-radius: 0 var(--border-radius-rounded)
+          var(--border-radius-rounded) 0;
+      }
+    }
+  }
+
+  .select-wrapper {
+    .input-wrapper {
+      .input-suffix {
+        padding: 0 var(--gap-1-4);
+
+        .select-caret {
+          margin-left: 0;
+        }
+      }
+
+      .input-icon.input-clear {
+        margin-right: var(--gap-1-3);
+        position: relative;
+        top: -0.1rem;
+        height: 1.2rem;
+        width: 1.2rem;
+      }
+    }
+  }
+}
 </style>
 
 <style lang="scss" scoped>
 @import "../inkline-variables/mixins.scss";
 
+.nav-list-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  border: var(--border-width-bold) solid var(--body--color);
+  border-radius: var(--border-radius-rounded) var(--border-radius-rounded)
+    var(--border-radius-rounded) 0;
+
+  .form-label {
+    margin-bottom: 0;
+    padding: var(--gap-3-4) var(--gap-1-2);
+    max-width: fit-content;
+  }
+
+  .form-group {
+    align-items: baseline;
+    display: inline-flex;
+    padding-right: var(--gap-1-3);
+    width: fit-content;
+
+    & + .form-group {
+      margin: 0;
+    }
+  }
+
+  .checkable-button-group.radio-buttons {
+    border: none;
+    background: none;
+    padding: 0;
+    display: flex;
+    min-width: fit-content;
+  }
+}
+
 .nav-list {
   list-style: none;
-  margin: var(--gap) auto;
-  padding: var(--gap) 0 var(--gap) var(--gap-15);
+  padding: var(--gap) 0 0;
+  margin: 0;
   border-left: var(--border-width-bold) solid var(--body--color);
   transition: var(--transition-border-color);
   max-width: var(--container-max-width);
+
+  &--nested {
+    list-style: none;
+    margin: var(--gap-1-2) auto;
+    padding: var(--gap) 0 var(--gap) var(--gap-15);
+
+    max-width: 100%;
+  }
+
+  &__group-label {
+    padding: var(--gap-1-4) var(--gap);
+    border-bottom: var(--border-width-bold) solid var(--body--color);
+    width: max-content;
+  }
 
   &__item {
     border-radius: var(--border-radius-rounded);

@@ -2,8 +2,14 @@
 import Layout from "./Layout.vue";
 import type { Theme } from "vitepress";
 import { Inkline } from "@inkline/inkline";
+import "./style.scss";
+import JcMockup from "./global-components/JcMockup.vue";
+import JcGallery from "./global-components/JcGallery.vue";
+import ComponentSafeMailTo from "./global-components/ComponentSafeMailTo.vue";
 import {
   IButton,
+  IForm,
+  IFormLabel,
   IHeader,
   IIcon,
   ILayout,
@@ -13,11 +19,10 @@ import {
   ILayoutHeader,
   IModal,
   IModalContainer,
+  IRadioButtons,
+  IFormGroup,
+  ISelect,
 } from "@inkline/inkline/components";
-import "./style.scss";
-import JcMockup from "./global-components/JcMockup.vue";
-import JcGallery from "./global-components/JcGallery.vue";
-import ComponentSafeMailTo from "./global-components/ComponentSafeMailTo.vue";
 
 export default {
   Layout,
@@ -34,6 +39,11 @@ export default {
         ILayoutHeader,
         IModal,
         IModalContainer,
+        IForm,
+        IFormLabel,
+        IFormGroup,
+        IRadioButtons,
+        ISelect,
       },
       color: "",
       colorMode: "dark",

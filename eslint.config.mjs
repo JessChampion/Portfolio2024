@@ -11,4 +11,18 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   ...pluginVue.configs["flat/essential"],
+  ...[
+    {
+      rules: {
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            argsIgnorePattern: "^_",
+            varsIgnorePattern: "^_",
+            caughtErrorsIgnorePattern: "^_",
+          },
+        ],
+      },
+    },
+  ],
 ];

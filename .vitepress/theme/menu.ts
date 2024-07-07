@@ -23,6 +23,23 @@ type WorkItems = WorkItem[];
 
 export default [
   {
+    link: "/work/study-it/",
+    org: "The Ministry of Education",
+    year: "2019",
+    sort: 1,
+    title: "StudyIt",
+    menu: "work",
+    thumbnail: "/work-media/studyit-phone.jpg",
+    thumbnailOrientation: "portrait",
+    published: true,
+    tasks: ["Tech Lead", "Frontend Dev", "Backend Dev"],
+    technologies: {
+      top: ["Vue", "GraphQL", "Discourse"],
+      additional: ["RamdaJS", "SCSS", "SilverStripe", "CircleCI"],
+    },
+    summary: "A Study platform for NCEA Students",
+  },
+  {
     link: "/work/aviation-ipad-app/",
     org: "MetService",
     year: 2013,
@@ -161,23 +178,6 @@ export default [
       additional: ["SCSS", "CircleCI"],
     },
     summary: "A collection of resources for teachers",
-  },
-  {
-    link: "/work/study-it/",
-    org: "The Ministry of Education",
-    year: "2019",
-    sort: 1,
-    title: "StudyIt",
-    menu: "work",
-    thumbnail: "/work-media/studyit-phone.jpg",
-    thumbnailOrientation: "portrait",
-    published: true,
-    tasks: ["Tech Lead", "Frontend Dev", "Backend Dev"],
-    technologies: {
-      top: ["Vue", "GraphQL", "Discourse"],
-      additional: ["RamdaJS", "SCSS", "SilverStripe", "CircleCI"],
-    },
-    summary: "A Study platform for NCEA Students",
   },
   {
     link: "/work/the-hub/",

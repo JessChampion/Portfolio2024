@@ -120,6 +120,7 @@ export default defineConfig({
             color: "var(--color-dark-alpha-50)",
           },
           color: "var(--color-dark)",
+          colorAlt: "var(--color-light-shade-50)",
         },
         grid: {
           columns: 12,
@@ -805,6 +806,7 @@ export default defineConfig({
             color: "var(--color-light-alpha-50)",
           },
           color: "var(--color-light)",
+          colorAlt: "var(--color-dark-tint-150)",
         },
       },
     },

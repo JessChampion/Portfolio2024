@@ -6,7 +6,6 @@ const props = defineProps({
 });
 
 const handleGoTo = (index, event) => {
-  console.log("handleGoTo", index, event);
   event.preventDefault();
   event.stopPropagation();
   props.goTo(index);

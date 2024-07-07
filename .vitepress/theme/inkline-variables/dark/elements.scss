@@ -1,19 +1,20 @@
 .dark-theme {
-    /**
+  /**
      * Code variables
      */
-    --code--color: var(--color-red);
-    --code--background: var(--color-gray-900);
+  --code--color: var(--color-red);
+  --code--background: var(--color-gray-900);
 
-    /**
+  /**
      * Body variables
      */
-    --body--background: var(--color-dark);
-    --body--color: var(--color-light);
-    --body--background-alt: var(--color-dark-shade-50);
-    --body--background-alt2: var(--color-light-alpha-10);
-    --body--border-top-color: var(--color-light-alpha-50);
-    --body--border-right-color: var(--color-light-alpha-50);
-    --body--border-bottom-color: var(--color-light-alpha-50);
-    --body--border-left-color: var(--color-light-alpha-50);
+  --body--background: var(--color-dark);
+  --body--color: var(--color-light);
+  --body--background-alt: var(--color-dark-shade-50);
+  --body--background-alt2: var(--color-light-alpha-10);
+  --body--border-top-color: var(--color-light-alpha-50);
+  --body--border-right-color: var(--color-light-alpha-50);
+  --body--border-bottom-color: var(--color-light-alpha-50);
+  --body--border-left-color: var(--color-light-alpha-50);
+  --body--color-alt: var(--color-dark-tint-150);
 }
