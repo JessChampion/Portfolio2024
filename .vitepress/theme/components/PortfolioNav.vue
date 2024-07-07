@@ -125,6 +125,10 @@ const handleKeyPress = (event) => {
   }
 };
 
+const clearFilters = () => {
+  filteredBy.value = undefined;
+};
+
 onMounted(() => setTimeout(() => scrollToCurrent(route.path)));
 
 watch(
@@ -222,6 +226,15 @@ watch(
       </ul>
     </li>
   </ul>
+  <div class="clear-action">
+    <IButton
+      size="sm"
+      v-if="filteredBy"
+      aria-controls="#timeline"
+      @click="clearFilters"
+      >Clear filters</IButton
+    >
+  </div>
 </template>
 
 <style lang="scss">
@@ -448,5 +461,12 @@ watch(
   dd {
     margin: 0;
   }
+}
+
+.clear-action {
+  display: flex;
+  justify-content: center;
+  padding-bottom: var(--gap);
+  width: 100%;
 }
 </style>
