@@ -1,22 +1,6 @@
 ---
-layout: work
-org: MetService
-year: 2013
-sort: 5
 title: Aviation iPad App
-menu: work
 published: false
-thumbnail: /work-media/aviationIpad1.png
-thumbnailOrientation: portrait
-tasks:
-  - UX Design
-  - Frontend Dev
-  - Backend Dev
-technologies:
-  top:
-    - Objective C
-    - Java
-  additional:
 summary: A B2B aviation weather iPad app for commercial pilots.
 ---
 

@@ -1,23 +1,6 @@
 ---
-layout: work
-org: SilverStripe - for Superu
-year: 2017-2018
-sort: 2
 title: The Hub
-menu: work
-thumbnail: /work-media/hub-phone.png
-thumbnailOrientation: portrait
 published: true
-tasks:
-  - Frontend Dev
-  - Backend Dev
-technologies:
-  top:
-    - SilverStripe
-    - JavaScript
-    - Vue
-  additional:
-    - SCSS
 summary: A catalog of NZ Government funded social science research publications
 ---
 

@@ -1,24 +1,6 @@
 ---
-layout: work
-org: Solnet - for Fonterra
-year: 2014
-sort: 2
 title: Farm Source Jobs
-menu: work
-thumbnail: /work-media/FSJobsThumbnail.png
-thumbnailOrientation: portrait
 published: true
-tasks:
-  - Frontend Dev
-technologies:
-  top:
-    - JavaScript
-    - CSS
-    - SilverStripe
-  additional:
-    - PHP
-    - Jasmine
-    - JQuery
 summary: A digital employment platform for the dairy industry.
 ---
 

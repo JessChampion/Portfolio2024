@@ -1,22 +1,6 @@
 ---
-layout: work
-org: Solnet - for MBIE
-year: 2014
-sort: 5
 title: Employee cost calculator
-menu: work
-thumbnail: /work-media/ECC-Thumbnail2.png
-thumbnailOrientation: portrait
 published: true
-tasks:
-  - Frontend Dev
-  - Backend Dev
-technologies:
-  top:
-    - AngularJS
-    - SCSS
-  additional:
-    - Java
 summary: An interactive tool for businesses.
 ---
 

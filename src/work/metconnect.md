@@ -1,28 +1,6 @@
 ---
-layout: work
-org: MetService
-year: 2012
-sort: 5
 title: MetConnect International
 published: true
-menu: work
-thumbnail: /work-media/metconnectThumbnail.jpg
-thumbnailOrientation: landscape
-classNames: work--met
-tasks:
-  - UX Design
-  - Frontend Dev
-  - Backend Dev
-technologies:
-  top:
-    - JQuery
-    - Java
-    - CSS
-  additional:
-    - HTML
-    - MySQL
-    - Cucumber
-    - Jasmine
 summary: A commercial weather platform
 ---
 

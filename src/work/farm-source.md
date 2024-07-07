@@ -1,24 +1,6 @@
 ---
-layout: work
-org: Solnet - for Fonterra
-year: 2013-2015
-sort: 5
 title: Farm Source
-menu: work
-thumbnail: /work-media/FarmSourceThumbnail.png
-thumbnailOrientation: portrait
 published: true
-tasks:
-  - Frontend Dev
-technologies:
-  top:
-    - AngularJS
-    - SilverStripe
-  additional:
-    - CSS
-    - PostgresSQL
-    - Jasmine
-    - Jenkins
 summary: A complete rebuild of Fonterra's online farmer portal.
 ---
 

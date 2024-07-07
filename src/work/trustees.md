@@ -1,29 +1,6 @@
 ---
-layout: work
-org: Solnet - for Trustees Executors
-year: 2017
-sort: 5
 title: Trustees Webapp
-menu: work
-thumbnail: /work-media/Trustees-Account.jpg
-thumbnailOrientation: portrait
 published: true
-tasks:
-  - Frontend Dev
-  - Backend Dev
-technologies:
-  top:
-    - React
-    - Node
-    - TypeScript
-  additional:
-    - Hapi
-    - RamdaJS
-    - PostCSS
-    - Relay
-    - SOAP
-    - SQL
-    - Jest
 summary: A wealth management with a modern user experience.
 ---
 

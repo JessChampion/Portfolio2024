@@ -95,6 +95,10 @@ const publishedMenuItems = computed(() =>
   menuItems.filter((item) => item.published).sort(sortByYear),
 );
 
+const selectedItem = computed(() =>
+  publishedMenuItems.value.find((item) => item.title === page.value.title),
+);
+
 const allTechnologies = computed(() => talleyTechnologies(publishedMenuItems));
 
 const groupedMenuItems = computed(() =>
@@ -208,7 +212,7 @@ watch(
             <IIcon name="ink-times" alt="close" />
           </a>
           <PortfolioItemDetails
-            :item="page.frontmatter"
+            :item="selectedItem"
             v-if="item.title === page.title"
           />
           <div class="current-page" v-if="page.title === item.title">

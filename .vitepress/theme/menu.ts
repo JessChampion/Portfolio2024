@@ -35,7 +35,14 @@ export default [
     tasks: ["Tech Lead", "Frontend Dev", "Backend Dev"],
     technologies: {
       top: ["Vue", "GraphQL", "Discourse"],
-      additional: ["RamdaJS", "SCSS", "SilverStripe", "CircleCI"],
+      additional: [
+        "RamdaJS",
+        "SCSS",
+        "SilverStripe",
+        "PHP",
+        "CircleCI",
+        "JavaScript",
+      ],
     },
     summary: "A Study platform for NCEA Students",
   },
@@ -64,7 +71,7 @@ export default [
     menu: "work",
     thumbnail: "/work-media/cfb-marketplace-desktop.png",
     thumbnailOrientation: "portrait",
-    published: false,
+    published: true,
     tasks: ["Frontend Dev", "UX and UI design"],
     technologies: {
       top: ["React", "TypeScript", "Strapi"],
@@ -98,7 +105,7 @@ export default [
     published: true,
     tasks: ["Frontend Dev", "Backend Dev"],
     technologies: {
-      top: ["AngularJS", "SCSS"],
+      top: ["AngularJS", "JavaScript", "SCSS"],
       additional: ["Java"],
     },
     summary: "An interactive tool for businesses.",
@@ -115,8 +122,8 @@ export default [
     published: true,
     tasks: ["Frontend Dev"],
     technologies: {
-      top: ["AngularJS", "SilverStripe"],
-      additional: ["CSS", "PostgresSQL", "Jasmine", "Jenkins"],
+      top: ["AngularJS", "SilverStripe", "JavaScript"],
+      additional: ["CSS", "PostgresSQL", "PHP", "Jasmine", "Jenkins"],
     },
     summary: "A complete rebuild of Fonterra's online farmer portal.",
   },
@@ -174,8 +181,8 @@ export default [
     published: true,
     tasks: ["Tech Lead", "Frontend Dev", "Backend Dev"],
     technologies: {
-      top: ["Vue", "Algolia", "SilverStripe"],
-      additional: ["SCSS", "CircleCI"],
+      top: ["Vue", "Algolia", "SilverStripe", "PHP"],
+      additional: ["SCSS", "CircleCI", "JavaScript"],
     },
     summary: "A collection of resources for teachers",
   },
@@ -191,7 +198,7 @@ export default [
     published: true,
     tasks: ["Frontend Dev", "Backend Dev"],
     technologies: {
-      top: ["SilverStripe", "JavaScript", "Vue"],
+      top: ["SilverStripe", "JavaScript", "Vue", "PHP"],
       additional: ["SCSS"],
     },
     summary:
