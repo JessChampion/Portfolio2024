@@ -1,6 +1,6 @@
-@import "./inkline-variables/index";
-@import "@inkline/inkline/css/index";
-@import "@inkline/inkline/css/utilities";
+@use "./inkline-variables/index" as *;
+@use "@inkline/inkline/css/index";
+@use "@inkline/inkline/css/utilities";
 
 :root {
   /**

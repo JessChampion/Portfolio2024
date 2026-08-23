@@ -305,7 +305,7 @@ watch(
 </style>
 
 <style lang="scss" scoped>
-@import "../inkline-variables/mixins.scss";
+@use "../inkline-variables/mixins.scss" as *;
 
 .nav-list-controls {
   display: flex;

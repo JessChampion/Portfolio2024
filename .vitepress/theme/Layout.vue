@@ -65,7 +65,7 @@ const { isLanding } = reactive({ isLanding: frontmatter.value.home === true });
 </template>
 
 <style lang="scss">
-@import "./inkline-variables/mixins.scss";
+@use "./inkline-variables/mixins.scss" as *;
 
 .layout.layout-grid {
   display: grid;

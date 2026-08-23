@@ -146,7 +146,7 @@ import PortfolioSection from "./PortfolioSection.vue";
 </template>
 
 <style lang="scss" scoped>
-@import "../inkline-variables/mixins.scss";
+@use "../inkline-variables/mixins.scss" as *;
 
 .section {
   padding-inline: var(--gap-1-2);

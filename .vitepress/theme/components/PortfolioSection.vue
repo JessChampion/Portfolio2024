@@ -46,7 +46,7 @@ const toggle = () => {
 </template>
 
 <style lang="scss" scoped>
-@import "../inkline-variables/mixins.scss";
+@use "../inkline-variables/mixins.scss" as *;
 
 .section {
   &__toggle {
