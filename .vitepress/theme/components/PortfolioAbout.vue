@@ -1,20 +1,37 @@
 <script setup>
-import PortfolioRow from "./PortfolioRow.vue";
 import PortfolioSection from "./PortfolioSection.vue";
 </script>
 
 <template>
-  <div class="section">
+  <div class="_max-width:100%">
     <p>
-      I'm a software developer with over twelve years of experience specializing
-      in JavaScript and front-end web technologies. I graduated with a Bachelor
-      of Computing and Mathematical Science with First Class Honours in 2011. My
-      career spans roles in product development, operations, and agency-based
-      solution delivery.
+      I'm a digital product engineer specialising in JavaScript and web
+      technologies, with strong experience in Node.js, TypeScript, and React. I
+      graduated in 2011 with a Bachelor of Computing and Mathematical Science
+      with First Class Honours.
+    </p>
+    <p>
+      I spent five years of my early career in operational development - ITIL
+      certified, diagnosing and fixing production issues in high-traffic
+      codebases - for some of New Zealand's leading brands. This experience gave
+      me a close-up view of how development practices and patterns - and
+      anti-patterns - play out over a system’s lifespan, reinforcing my
+      commitment to maintainable, well-documented systems that earn long-term
+      trust from the business and its customers.
+    </p>
+
+    <p>
+      Since moving into delivery teams, I've put those lessons into practice:
+      getting the fundamentals right before the polish, and reaching for Agile
+      practices as tools that fit the team and the problem rather than following
+      one method by the book. I care about a team's culture and process as much
+      as its code. Both can be engineered to hold up under real-world pressure,
+      and a team does its best work when it owns and experiments with its own
+      practices.
     </p>
     <h3 class="h4 _margin-top:2 _margin-bottom:1">Passionate about</h3>
     <div>
-      <PortfolioSection class="passions">
+      <PortfolioSection class="passions" is-open>
         <template #header>
           <h4 class="h5 _margin-bottom:0">Quality and maintainability</h4>
         </template>
@@ -22,136 +39,34 @@ import PortfolioSection from "./PortfolioSection.vue";
           Maximising solution lifespan through pragmatic technical excellence
           and a focus on maintainability including:
         </p>
-        <ul>
-          <li>Modular and reusable code architecture</li>
-          <li>Code standards, readability and best practices</li>
-          <li>Automated testing</li>
-          <li>Documentation</li>
-          <li>Code reviews</li>
-          <li>Continuous improvement via refactoring</li>
-        </ul>
       </PortfolioSection>
-      <PortfolioSection class="passions">
+      <PortfolioSection class="passions" is-open>
         <template #header>
-          <h4 class="h5 _margin-bottom:0">Solving problems</h4>
+          <h4 class="h5 _margin-bottom:0">High performing teams</h4>
         </template>
-        <ul>
-          <li>
-            Creating elegant solutions to complex problems, whether they be
-            client, technology or team problems.
-          </li>
-          <li>
-            Sharing my knowledge and experience with various agile practices and
-            methodologies, to help the team deliver value to the client, more
-            effectively.
-          </li>
-        </ul>
+        <p></p>
       </PortfolioSection>
-      <PortfolioSection class="passions">
+      <PortfolioSection class="passions" is-open>
         <template #header>
-          <h4 class="h5 _margin-bottom:0">Creativity</h4>
+          <h4 class="h5 _margin-bottom:0">Collaboration</h4>
         </template>
-        <ul>
-          <li>Enjoys new technical challenges</li>
-          <li>Ux design and information visualisation</li>
-          <li>An eye for visual design</li>
-          <li>
-            Experience creating personas, wireframes, paper prototypes and
-            designing user flows.
-          </li>
-          <li>Creating user delight.</li>
-        </ul>
+        <p></p>
+      </PortfolioSection>
+      <PortfolioSection class="passions" is-open>
+        <template #header>
+          <h4 class="h5 _margin-bottom:0">Product and Design</h4>
+        </template>
+        <p></p>
       </PortfolioSection>
     </div>
   </div>
-  <div class="section _margin-bottom:2">
-    <h3 class="h4 _margin-top:2 _margin-bottom:1">Skills</h3>
-    <PortfolioRow>
-      <div class="skills">
-        <div class="skills__card">
-          <h4>JavaScript</h4>
-          <ul>
-            <li>JavaScript</li>
-            <li>ES6+</li>
-            <li>Vue JS</li>
-            <li>React + Redux</li>
-          </ul>
-        </div>
-        <div class="skills__card">
-          <h4>Backend</h4>
-          <ul>
-            <li>PHP</li>
-            <li>Node JS</li>
-            <li>Java</li>
-            <li>CMSs</li>
-          </ul>
-        </div>
-        <div class="skills__card">
-          <h4>Web</h4>
-          <ul>
-            <li>Semantic HTML 5</li>
-            <li>CSS 3</li>
-            <li>Sass</li>
-            <li>Accessibility</li>
-          </ul>
-        </div>
-        <div class="skills__card">
-          <h4>Tools</h4>
-          <ul>
-            <li>Git</li>
-            <li>Dependancy managers</li>
-            <li>Continuous integration</li>
-            <li>Webpack</li>
-          </ul>
-        </div>
-        <div class="skills__card">
-          <h4>Practices</h4>
-          <ul>
-            <li>Unit testing</li>
-            <li>Search Engine Optimisation</li>
-            <li>Creating and consuming APIs</li>
-            <li>Knowledge Management</li>
-          </ul>
-        </div>
-        <div class="skills__card">
-          <h4>Design</h4>
-          <ul>
-            <li>User Experience</li>
-            <li>Wireframes &amp; Prototyping</li>
-            <li>Technical Solution Design</li>
-            <li>Code Architecture</li>
-          </ul>
-        </div>
-        <div class="skills__card">
-          <h4>Delivery</h4>
-          <ul>
-            <li>Agile Methodologies</li>
-            <li>Running Projects</li>
-            <li>JIRA and Confluence</li>
-            <li>Software Development Lifecycle</li>
-          </ul>
-        </div>
-        <div class="skills__card">
-          <h4>Business</h4>
-          <ul>
-            <li>Estimation & statements of work</li>
-            <li>Recruitment and Interviewing</li>
-            <li>Digital Strategy</li>
-            <li>Service Design</li>
-          </ul>
-        </div>
-      </div>
-    </PortfolioRow>
-  </div>
+  <!--  <div class="section _margin-bottom:2">-->
+  <!--    <h3 class="h4 _margin-top:2 _margin-bottom:1">Recent projects</h3>-->
+  <!--    <PortfolioRow></PortfolioRow>-->
+  <!--  </div>-->
 </template>
-
 <style lang="scss" scoped>
 @use "../inkline-variables/mixins.scss" as *;
-
-.section {
-  padding-inline: var(--gap-1-2);
-}
-
 .passions {
   background: var(--body--background-alt);
   transition: var(--transition-background-color);

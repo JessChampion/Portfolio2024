@@ -57,6 +57,7 @@ body {
   color: var(--body--color);
   background-color: var(--body--background);
   transition: var(--transition-background-color), var(--transition-color);
+  margin: 0;
 
   a,
   a:visited {

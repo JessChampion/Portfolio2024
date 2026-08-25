@@ -9,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-  <ul class="navigator">
+  <ul class="navigator" v-if="totalChildren > 1">
     <li v-for="index in totalChildren" :key="index">
       <IButton
         circle

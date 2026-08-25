@@ -69,8 +69,8 @@ import {
   default9 as default10,
   extractRefHTMLElement,
   interpolate,
-  renderSvg,
-} from "./chunk-H34Q54F2.js";
+  renderSvg
+} from "./chunk-HNOEO4N5.js";
 import {
   computed,
   createApp,
@@ -85,9 +85,11 @@ import {
   ref,
   resolveComponent,
   unref,
-  watch,
-} from "./chunk-MYN6HZ3U.js";
-import { __export } from "./chunk-PZ5AY32C.js";
+  watch
+} from "./chunk-TUPNW6KC.js";
+import {
+  __export
+} from "./chunk-PZ5AY32C.js";
 
 // node_modules/@inkline/inkline/i18n/messages/en.mjs
 var en = {
@@ -95,14 +97,13 @@ var en = {
     alpha: ({ params }) => {
       let context;
       switch (true) {
-        case (params == null ? void 0 : params.allowSpaces) &&
-          (params == null ? void 0 : params.allowDashes):
+        case ((params == null ? void 0 : params.allowSpaces) && (params == null ? void 0 : params.allowDashes)):
           context = "letters, spaces, and dashes";
           break;
-        case params == null ? void 0 : params.allowSpaces:
+        case (params == null ? void 0 : params.allowSpaces):
           context = "letters and spaces";
           break;
-        case params == null ? void 0 : params.allowDashes:
+        case (params == null ? void 0 : params.allowDashes):
           context = "letters and dashes";
           break;
         default:
@@ -110,17 +111,18 @@ var en = {
       }
       return `Please enter ${context} only.`;
     },
-    alphanumeric: ({ params }) => {
+    alphanumeric: ({
+      params
+    }) => {
       let context;
       switch (true) {
-        case (params == null ? void 0 : params.allowSpaces) &&
-          (params == null ? void 0 : params.allowDashes):
+        case ((params == null ? void 0 : params.allowSpaces) && (params == null ? void 0 : params.allowDashes)):
           context = "letters, numbers, spaces, and dashes";
           break;
-        case params == null ? void 0 : params.allowSpaces:
+        case (params == null ? void 0 : params.allowSpaces):
           context = "letters, numbers, and spaces";
           break;
-        case params == null ? void 0 : params.allowDashes:
+        case (params == null ? void 0 : params.allowDashes):
           context = "letters, numbers, and dashes";
           break;
         default:
@@ -128,17 +130,18 @@ var en = {
       }
       return `Please enter ${context} only.`;
     },
-    number: ({ params }) => {
+    number: ({
+      params
+    }) => {
       let context;
       switch (true) {
-        case (params == null ? void 0 : params.allowNegative) &&
-          (params == null ? void 0 : params.allowDecimal):
+        case ((params == null ? void 0 : params.allowNegative) && (params == null ? void 0 : params.allowDecimal)):
           context = "positive or negative decimal numbers";
           break;
-        case params == null ? void 0 : params.allowNegative:
+        case (params == null ? void 0 : params.allowNegative):
           context = "positive or negative numbers";
           break;
-        case params == null ? void 0 : params.allowDecimal:
+        case (params == null ? void 0 : params.allowDecimal):
           context = "decimal numbers";
           break;
         default:
@@ -163,17 +166,18 @@ var en = {
     },
     required: "Please enter a value for this field.",
     sameAs: "Please make sure that the two values match.",
-    custom: "Please enter a correct value for this field.",
+    custom: "Please enter a correct value for this field."
   },
   modals: {
     confirm: "Confirm",
-    cancel: "Cancel",
-  },
+    cancel: "Cancel"
+  }
 };
 
 // node_modules/@grozav/utils/hasClass.mjs
 function hasClass(element, className) {
-  if (!element || !className) return false;
+  if (!element || !className)
+    return false;
   if (className.indexOf(" ") !== -1)
     throw new Error("Class name should not contain spaces.");
   if (element.classList) {
@@ -185,12 +189,14 @@ function hasClass(element, className) {
 
 // node_modules/@grozav/utils/addClass.mjs
 function addClass(element, classes) {
-  if (!element) return;
+  if (!element)
+    return;
   let currentClass = element.className;
   const classList = (classes || "").split(" ");
   for (let i = 0, j = classList.length; i < j; i++) {
     const className = classList[i];
-    if (!className) continue;
+    if (!className)
+      continue;
     if (element.classList) {
       element.classList.add(className);
     } else if (!hasClass(element, className)) {
@@ -207,11 +213,9 @@ function clone(source) {
   if (Array.isArray(source)) {
     const target = source.slice().map(clone);
     const targetKeys = Object.keys(target);
-    Object.keys(source)
-      .filter((key) => !targetKeys.includes(key))
-      .forEach((key) => {
-        target[key] = source[key];
-      });
+    Object.keys(source).filter((key) => !targetKeys.includes(key)).forEach((key) => {
+      target[key] = source[key];
+    });
     return target;
   } else if (typeof source === "object") {
     return Object.keys(source).reduce((acc, key) => {
@@ -231,7 +235,7 @@ var keymap = {
   left: ["ArrowLeft", "Left", 37],
   up: ["ArrowUp", "Up", 38],
   right: ["ArrowRight", "Right", 39],
-  down: ["ArrowDown", "Down", 40],
+  down: ["ArrowDown", "Down", 40]
 };
 
 // node_modules/@grozav/utils/eventBus.mjs
@@ -264,16 +268,13 @@ function createEventBus() {
   return {
     on: on2,
     off: off2,
-    emit,
+    emit
   };
 }
 
 // node_modules/@grozav/utils/isFocusable.mjs
 function isFocusable(element) {
-  if (
-    element.tabIndex > 0 ||
-    (element.tabIndex === 0 && element.getAttribute("tabIndex") !== null)
-  ) {
+  if (element.tabIndex > 0 || element.tabIndex === 0 && element.getAttribute("tabIndex") !== null) {
     return true;
   }
   if (element.disabled) {
@@ -300,7 +301,8 @@ function focusAttempt(element) {
   }
   try {
     element.focus();
-  } catch (e) {}
+  } catch (e) {
+  }
   return typeof window !== "undefined" && document.activeElement === element;
 }
 
@@ -326,14 +328,7 @@ var isKey = (key, e) => {
 
 // node_modules/@grozav/utils/isVisible.mjs
 function isVisible(element) {
-  return (
-    Boolean(element) &&
-    Boolean(
-      element.offsetWidth ||
-        element.offsetHeight ||
-        element.getClientRects().length,
-    )
-  );
+  return Boolean(element) && Boolean(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
 }
 
 // node_modules/@grozav/utils/off.mjs
@@ -349,7 +344,8 @@ function detachEventBinding(element, event, handler) {
 }
 var _off = () => {
   if (typeof window === "undefined") {
-    return () => {};
+    return () => {
+    };
   }
   if (window.document.removeEventListener) {
     return removeEventListenerBinding;
@@ -372,7 +368,8 @@ function attachEventBinding(element, event, handler) {
 }
 var _on = () => {
   if (typeof window === "undefined") {
-    return () => {};
+    return () => {
+    };
   }
   if (window.document.addEventListener) {
     return addEventListenerBinding;
@@ -462,8 +459,8 @@ function translate(path, scope = {}) {
 var i18n = {
   locale: "en",
   messages: {
-    en,
-  },
+    en
+  }
 };
 function setLocale(locale) {
   i18n.locale = locale;
@@ -476,7 +473,7 @@ var breakpoints = {
   md: [768, 991],
   lg: [992, 1199],
   xl: [1200, 1399],
-  xxl: [1400, Infinity],
+  xxl: [1400, Infinity]
 };
 var breakpointKeys = ["", "xs", "sm", "md", "lg", "xl", "xxl"];
 
@@ -486,7 +483,7 @@ var eventValueMap = {
   blur: (e) => e.target.value,
   focus: (e) => e.target.value,
   mouseenter: (e) => e.target.value,
-  mouseleave: (e) => e.target.value,
+  mouseleave: (e) => e.target.value
 };
 
 // node_modules/@inkline/inkline/constants/ids.mjs
@@ -523,7 +520,7 @@ function createModalService(eventBus) {
     },
     hideAll: () => {
       eventBus.emit("hideAll", {});
-    },
+    }
   };
 }
 
@@ -538,7 +535,7 @@ function createToastService(eventBus) {
     },
     hideAll: () => {
       eventBus.emit("hideAll", {});
-    },
+    }
   };
 }
 
@@ -557,7 +554,7 @@ var keymap2 = {
   left: ["ArrowLeft", "Left", 37],
   up: ["ArrowUp", "Up", 38],
   right: ["ArrowRight", "Right", 39],
-  down: ["ArrowDown", "Down", 40],
+  down: ["ArrowDown", "Down", 40]
 };
 
 // node_modules/@inkline/inkline/constants/validation.mjs
@@ -568,11 +565,11 @@ var defaultValidationStateValues = {
   touched: false,
   valid: true,
   invalid: false,
-  errors: [],
+  errors: []
 };
 var defaultValidationFieldValues = {
   value: void 0,
-  validators: [],
+  validators: []
 };
 var reservedValidationFields = [
   "value",
@@ -583,7 +580,7 @@ var reservedValidationFields = [
   "touched",
   "valid",
   "invalid",
-  "errors",
+  "errors"
 ];
 
 // node_modules/@inkline/inkline/composables/modals/builder.mjs
@@ -594,170 +591,153 @@ function useModalBuilder() {
 // node_modules/@inkline/inkline/composables/modals/alert.mjs
 function useAlert() {
   const builder = useModalBuilder();
-  return (options) =>
-    new Promise((resolve) => {
-      const id = uid("alert");
-      builder.show({
-        id,
-        type: "alert",
-        onClose: () => resolve(),
-        header: options.title,
-        body: options.message,
-        footer:
-          options.footer ||
-          h(
-            default6,
-            {
-              onClick: () => {
-                builder.hide({ id });
-              },
-              color: "primary",
-              ...options.confirmButtonProps,
-            },
-            () => options.confirmButtonText ?? translate("modals.confirm"),
-          ),
-        ...options,
-      });
+  return (options) => new Promise((resolve) => {
+    const id = uid("alert");
+    builder.show({
+      id,
+      type: "alert",
+      onClose: () => resolve(),
+      header: options.title,
+      body: options.message,
+      footer: options.footer || h(
+        default6,
+        {
+          onClick: () => {
+            builder.hide({ id });
+          },
+          color: "primary",
+          ...options.confirmButtonProps
+        },
+        () => options.confirmButtonText ?? translate("modals.confirm")
+      ),
+      ...options
     });
+  });
 }
 
 // node_modules/@inkline/inkline/composables/modals/confirm.mjs
 function useConfirm() {
   const builder = useModalBuilder();
-  return (options) =>
-    new Promise((resolve) => {
-      const id = uid("confirm");
-      builder.show({
-        id,
-        type: "confirm",
-        onClose: () => resolve(false),
-        header: options.title,
-        body: options.message,
-        footer:
-          options.footer ||
-          h("div", [
-            h(
-              default6,
-              {
-                onClick: () => {
-                  builder.hide({ id });
-                  resolve(false);
-                },
-                ...options.cancelButtonProps,
-              },
-              () => options.cancelButtonText ?? translate("modals.cancel"),
-            ),
-            h(
-              default6,
-              {
-                onClick: () => {
-                  builder.hide({ id });
-                  resolve(true);
-                },
-                color: "primary",
-                ...options.confirmButtonProps,
-              },
-              () => options.confirmButtonText ?? translate("modals.confirm"),
-            ),
-          ]),
-        ...options,
-      });
+  return (options) => new Promise((resolve) => {
+    const id = uid("confirm");
+    builder.show({
+      id,
+      type: "confirm",
+      onClose: () => resolve(false),
+      header: options.title,
+      body: options.message,
+      footer: options.footer || h("div", [
+        h(
+          default6,
+          {
+            onClick: () => {
+              builder.hide({ id });
+              resolve(false);
+            },
+            ...options.cancelButtonProps
+          },
+          () => options.cancelButtonText ?? translate("modals.cancel")
+        ),
+        h(
+          default6,
+          {
+            onClick: () => {
+              builder.hide({ id });
+              resolve(true);
+            },
+            color: "primary",
+            ...options.confirmButtonProps
+          },
+          () => options.confirmButtonText ?? translate("modals.confirm")
+        )
+      ]),
+      ...options
     });
+  });
 }
 
 // node_modules/@inkline/inkline/composables/modals/prompt.mjs
 function usePrompt() {
   const modalService2 = useModalBuilder();
-  return (options) =>
-    new Promise((resolve, reject) => {
-      const id = uid("prompt");
-      const { schema, form, validate } = useForm(
-        options.schema || {
-          input: {
-            validators: ["required"],
+  return (options) => new Promise((resolve, reject) => {
+    const id = uid("prompt");
+    const { schema, form, validate } = useForm(
+      options.schema || {
+        input: {
+          validators: ["required"]
+        }
+      }
+    );
+    const disabled = computed(() => schema.value.invalid || schema.value.pristine);
+    modalService2.show({
+      id,
+      type: "prompt",
+      onClose: () => reject(new Error("Prompt cancelled")),
+      header: options.title,
+      body: options.body || h("div", [
+        h("p", options.message),
+        h(
+          default20,
+          {
+            modelValue: schema,
+            "onUpdate:modelValue"(value) {
+              schema.value = value;
+            }
           },
-        },
-      );
-      const disabled = computed(
-        () => schema.value.invalid || schema.value.pristine,
-      );
-      modalService2.show({
-        id,
-        type: "prompt",
-        onClose: () => reject(new Error("Prompt cancelled")),
-        header: options.title,
-        body:
-          options.body ||
-          h("div", [
-            h("p", options.message),
-            h(
-              default20,
-              {
-                modelValue: schema,
-                "onUpdate:modelValue"(value) {
-                  schema.value = value;
+          () => [
+            ...options.inputs ?? [
+              h(default21, {}, () => [
+                h(default27, {
+                  name: "input",
+                  placeholder: "Enter a value...",
+                  ...options.inputProps
+                }),
+                h(default22, {
+                  for: "input"
+                })
+              ])
+            ]
+          ]
+        )
+      ]),
+      footer: options.footer || markRaw(
+        defineComponent({
+          setup() {
+            return () => h("div", [
+              h(
+                default6,
+                {
+                  onClick: () => {
+                    modalService2.hide({ id });
+                    reject(new Error("Prompt cancelled"));
+                  },
+                  ...options.cancelButtonProps
                 },
-              },
-              () => [
-                ...(options.inputs ?? [
-                  h(default21, {}, () => [
-                    h(default27, {
-                      name: "input",
-                      placeholder: "Enter a value...",
-                      ...options.inputProps,
-                    }),
-                    h(default22, {
-                      for: "input",
-                    }),
-                  ]),
-                ]),
-              ],
-            ),
-          ]),
-        footer:
-          options.footer ||
-          markRaw(
-            defineComponent({
-              setup() {
-                return () =>
-                  h("div", [
-                    h(
-                      default6,
-                      {
-                        onClick: () => {
-                          modalService2.hide({ id });
-                          reject(new Error("Prompt cancelled"));
-                        },
-                        ...options.cancelButtonProps,
-                      },
-                      () =>
-                        options.cancelButtonText ?? translate("modals.cancel"),
-                    ),
-                    h(
-                      default6,
-                      {
-                        onClick: async () => {
-                          await validate();
-                          if (schema.value.valid) {
-                            modalService2.hide({ id });
-                            resolve(form.value);
-                          }
-                        },
-                        disabled: disabled.value,
-                        color: "primary",
-                        ...options.confirmButtonProps,
-                      },
-                      () =>
-                        options.confirmButtonText ??
-                        translate("modals.confirm"),
-                    ),
-                  ]);
-              },
-            }),
-          ),
-        ...options,
-      });
+                () => options.cancelButtonText ?? translate("modals.cancel")
+              ),
+              h(
+                default6,
+                {
+                  onClick: async () => {
+                    await validate();
+                    if (schema.value.valid) {
+                      modalService2.hide({ id });
+                      resolve(form.value);
+                    }
+                  },
+                  disabled: disabled.value,
+                  color: "primary",
+                  ...options.confirmButtonProps
+                },
+                () => options.confirmButtonText ?? translate("modals.confirm")
+              )
+            ]);
+          }
+        })
+      ),
+      ...options
     });
+  });
 }
 
 // node_modules/@inkline/inkline/composables/useClickOutside.mjs
@@ -771,10 +751,7 @@ function useClickOutside(props) {
     if (!isVisible(props.elementRef.value) || !target) {
       return;
     }
-    if (
-      props.elementRef.value === target ||
-      props.elementRef.value.contains(target)
-    ) {
+    if (props.elementRef.value === target || props.elementRef.value.contains(target)) {
       return;
     }
     fn(event);
@@ -795,21 +772,19 @@ function useClickOutside(props) {
 function useCollapsible(props) {
   const open = ref(props.modelValue.value);
   const collapsible = ref(
-    typeof props.collapse.value === "boolean" ? props.collapse.value : false,
+    typeof props.collapse.value === "boolean" ? props.collapse.value : false
   );
-  const windowWidth = ref(
-    typeof window !== "undefined" ? window.innerWidth : 0,
-  );
+  const windowWidth = ref(typeof window !== "undefined" ? window.innerWidth : 0);
   const classes = computed(() => ({
     "-open": open.value,
     "-collapsible": collapsible.value,
-    [`-collapse-${props.collapse.value}`]: Boolean(props.collapse.value),
+    [`-collapse-${props.collapse.value}`]: Boolean(props.collapse.value)
   }));
   watch(
     () => props.modelValue.value,
     (value) => {
       open.value = value;
-    },
+    }
   );
   onMounted(() => {
     if (typeof window !== "undefined") {
@@ -826,8 +801,7 @@ function useCollapsible(props) {
     if (props.collapse.value === true || props.collapse.value === false) {
       collapsible.value = props.collapse.value;
     } else {
-      collapsible.value =
-        windowWidth.value <= breakpoints[props.collapse.value][1];
+      collapsible.value = windowWidth.value <= breakpoints[props.collapse.value][1];
     }
   }
   function setOpen(value) {
@@ -844,10 +818,7 @@ function useCollapsible(props) {
     }
     if (typeof props.collapse.value !== "boolean") {
       const currentWindowWidth = window.innerWidth;
-      if (
-        windowWidth.value <= breakpoints[props.collapse.value][1] &&
-        currentWindowWidth > breakpoints[props.collapse.value][1]
-      ) {
+      if (windowWidth.value <= breakpoints[props.collapse.value][1] && currentWindowWidth > breakpoints[props.collapse.value][1]) {
         setOpen(false);
       }
       windowWidth.value = window.innerWidth;
@@ -868,29 +839,13 @@ function useComponentColor(props) {
   const color = computed(() => {
     var _a, _b, _c;
     let colorClass = props.currentColor.value || "light";
-    if (
-      !props.currentColor.value &&
-      (inkline == null ? void 0 : inkline.options)
-    ) {
-      if (
-        (_a = inkline.options.componentOptions[props.componentName]) == null
-          ? void 0
-          : _a.color
-      ) {
-        colorClass =
-          (_b = inkline.options.componentOptions[props.componentName]) == null
-            ? void 0
-            : _b.color;
+    if (!props.currentColor.value && (inkline == null ? void 0 : inkline.options)) {
+      if ((_a = inkline.options.componentOptions[props.componentName]) == null ? void 0 : _a.color) {
+        colorClass = (_b = inkline.options.componentOptions[props.componentName]) == null ? void 0 : _b.color;
       } else if (inkline.options.color) {
         colorClass = inkline.options.color;
       } else if (inkline.options.colorMode === "system") {
-        colorClass =
-          typeof window !== "undefined" &&
-          ((_c = window.matchMedia) == null
-            ? void 0
-            : _c.call(window, "(prefers-color-scheme: dark)").matches)
-            ? "dark"
-            : "light";
+        colorClass = typeof window !== "undefined" && ((_c = window.matchMedia) == null ? void 0 : _c.call(window, "(prefers-color-scheme: dark)").matches) ? "dark" : "light";
       } else {
         colorClass = inkline.options.colorMode;
       }
@@ -906,19 +861,9 @@ function useComponentSize(props) {
   const size2 = computed(() => {
     var _a, _b;
     let sizeClass = props.currentSize.value || "md";
-    if (
-      !props.currentSize.value &&
-      (inkline == null ? void 0 : inkline.options)
-    ) {
-      if (
-        (_a = inkline.options.componentOptions[props.componentName]) == null
-          ? void 0
-          : _a.size
-      ) {
-        sizeClass =
-          (_b = inkline.options.componentOptions[props.componentName]) == null
-            ? void 0
-            : _b.size;
+    if (!props.currentSize.value && (inkline == null ? void 0 : inkline.options)) {
+      if ((_a = inkline.options.componentOptions[props.componentName]) == null ? void 0 : _a.size) {
+        sizeClass = (_b = inkline.options.componentOptions[props.componentName]) == null ? void 0 : _b.size;
       } else if (inkline.options.size) {
         sizeClass = inkline.options.size;
       }
@@ -954,7 +899,7 @@ var alpha = {
   "tr-TR": /^[A-ZÇĞİıÖŞÜ]+$/i,
   "uk-UA": /^[А-ЩЬЮЯЄIЇҐі]+$/i,
   "ku-IQ": /^[ئابپتجچحخدرڕزژسشعغفڤقکگلڵمنوۆھەیێيطؤثآإأكضصةظذ]+$/i,
-  ar: /^[ءآأؤإئابةتثجحخدذرزسشصضطظعغفقكلمنهوىيًٌٍَُِّْٰ]+$/,
+  ar: /^[ءآأؤإئابةتثجحخدذرزسشصضطظعغفقكلمنهوىيًٌٍَُِّْٰ]+$/
   // eslint-disable-line no-misleading-character-class
 };
 var alphanumeric = {
@@ -982,12 +927,12 @@ var alphanumeric = {
   "tr-TR": /^[0-9A-ZÇĞİıÖŞÜ]+$/i,
   "uk-UA": /^[0-9А-ЩЬЮЯЄIЇҐі]+$/i,
   "ku-IQ": /^[٠١٢٣٤٥٦٧٨٩0-9ئابپتجچحخدرڕزژسشعغفڤقکگلڵمنوۆھەیێيطؤثآإأكضصةظذ]+$/i,
-  ar: /^[٠١٢٣٤٥٦٧٨٩0-9ءآأؤإئابةتثجحخدذرزسشصضطظعغفقكلمنهوىيًٌٍَُِّْٰ]+$/,
+  ar: /^[٠١٢٣٤٥٦٧٨٩0-9ءآأؤإئابةتثجحخدذرزسشصضطظعغفقكلمنهوىيًٌٍَُِّْٰ]+$/
   // eslint-disable-line no-misleading-character-class
 };
 var decimal = {
   "en-US": ".",
-  ar: "٫",
+  ar: "٫"
 };
 var arabicLocales = [
   "AE",
@@ -1006,7 +951,7 @@ var arabicLocales = [
   "SD",
   "SY",
   "TN",
-  "YE",
+  "YE"
 ];
 var englishLocales = ["AU", "GB", "HK", "IN", "NZ", "ZA", "ZM"];
 var dotDecimal = ["ar-EG", "ar-LB", "ar-LY"];
@@ -1033,7 +978,7 @@ var commaDecimal = [
   "sr-RS",
   "sv-SE",
   "tr-TR",
-  "uk-UA",
+  "uk-UA"
 ];
 englishLocales.forEach((locale) => {
   alpha[`en-${locale}`] = alpha["en-US"];
@@ -1105,7 +1050,7 @@ var custom = async (value, options) => {
   if ((value == null ? void 0 : value.constructor) === Array) {
     let valid = true;
     for (const v of value) {
-      valid = valid && (await options.validator(v, options));
+      valid = valid && await options.validator(v, options);
     }
     return valid;
   }
@@ -1129,8 +1074,7 @@ var number = (value, options) => {
 };
 
 // node_modules/@inkline/inkline/validation/validators/email.mjs
-var validator =
-  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+var validator = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 var email = (value) => {
   if ((value == null ? void 0 : value.constructor) === Array) {
     return value.every((v) => !v || validator.test(String(v)));
@@ -1157,9 +1101,7 @@ var max = (value, options) => {
 // node_modules/@inkline/inkline/validation/validators/maxLength.mjs
 var maxLength = (value, options) => {
   if (typeof options.value === "undefined") {
-    console.error(
-      'The "value" option must be specified for "maxLength" validator.',
-    );
+    console.error('The "value" option must be specified for "maxLength" validator.');
     return true;
   }
   if (typeof value === "undefined" || value === null) {
@@ -1193,9 +1135,7 @@ var min = (value, options) => {
 // node_modules/@inkline/inkline/validation/validators/minLength.mjs
 var minLength = (value, options) => {
   if (typeof options.value === "undefined") {
-    console.error(
-      'The "value" option must be specified for "minLength" validator.',
-    );
+    console.error('The "value" option must be specified for "minLength" validator.');
     return true;
   }
   if (typeof value === "undefined" || value === null) {
@@ -1227,15 +1167,13 @@ var required = (value, options) => {
 // node_modules/@inkline/inkline/validation/validators/sameAs.mjs
 var sameAs = (value, options) => {
   if (!options.target) {
-    console.error(
-      'The "target" option must be specified for "sameAs" validator.',
-    );
+    console.error('The "target" option must be specified for "sameAs" validator.');
     return false;
   }
   const targetSchema = getValueByPath(options.schema, options.target);
   if (!targetSchema) {
     throw new Error(
-      `Could not find target with name '${options.target}' in 'sameAs' validator.`,
+      `Could not find target with name '${options.target}' in 'sameAs' validator.`
     );
   }
   return value === targetSchema.value;
@@ -1243,11 +1181,7 @@ var sameAs = (value, options) => {
 
 // node_modules/@inkline/inkline/types/guards/validation.mjs
 function isFormField(schema) {
-  return (
-    Object.keys(schema).length === 0 ||
-    schema.hasOwnProperty("value") ||
-    schema.hasOwnProperty("validators")
-  );
+  return Object.keys(schema).length === 0 || schema.hasOwnProperty("value") || schema.hasOwnProperty("validators");
 }
 function isFormFieldArray(schema) {
   return Array.isArray(schema) && schema.every(isFormField);
@@ -1264,7 +1198,7 @@ function createFormFieldSchema(field) {
   return {
     ...defaultValidationStateValues,
     ...defaultValidationFieldValues,
-    ...field,
+    ...field
   };
 }
 function createFormArraySchema(items) {
@@ -1277,14 +1211,18 @@ function createFormArraySchema(items) {
 }
 function createFormSchema(schema) {
   const resolved = {
-    ...defaultValidationStateValues,
+    ...defaultValidationStateValues
   };
   for (const key of Object.keys(schema)) {
     const field = schema[key];
     if (Array.isArray(field)) {
-      resolved[key] = createFormArraySchema(field);
+      resolved[key] = createFormArraySchema(
+        field
+      );
     } else if (isFormGroup(field)) {
-      resolved[key] = createSchema(field);
+      resolved[key] = createSchema(
+        field
+      );
     } else if (isFormField(field)) {
       resolved[key] = createFormFieldSchema(field);
     }
@@ -1298,7 +1236,7 @@ function createSchema(schema) {
 // node_modules/@inkline/inkline/validation/schema/createSchemaFromDefaults.mjs
 function createSchemaFromDefaults(defaultValues) {
   const resolved = {
-    ...defaultValidationStateValues,
+    ...defaultValidationStateValues
   };
   for (const key of Object.keys(defaultValues)) {
     const field = defaultValues[key];
@@ -1313,7 +1251,7 @@ function createSchemaFromDefaults(defaultValues) {
       resolved[key] = createSchemaFromDefaults(field);
     } else {
       resolved[key] = createFormFieldSchema({
-        value: field,
+        value: field
       });
     }
   }
@@ -1329,14 +1267,18 @@ function serializeSchema(schema) {
     }
     const schemaField = schema[key];
     if (Array.isArray(schemaField)) {
-      serializedSchema[key] = schemaField.map((item) => {
-        if (isFormGroup(item)) {
-          return serializeSchema(item);
+      serializedSchema[key] = schemaField.map(
+        (item) => {
+          if (isFormGroup(item)) {
+            return serializeSchema(item);
+          }
+          return item.value;
         }
-        return item.value;
-      });
+      );
     } else if (isFormGroup(schemaField)) {
-      serializedSchema[key] = serializeSchema(schemaField);
+      serializedSchema[key] = serializeSchema(
+        schemaField
+      );
     } else if (isFormField(schemaField)) {
       serializedSchema[key] = schemaField.value;
     }
@@ -1347,7 +1289,7 @@ function serializeSchema(schema) {
 // node_modules/@inkline/inkline/validation/schema/setSchemaStateRecursively.mjs
 function setSchemaStateRecursively(schema, values) {
   const resolvedSchema = {
-    ...schema,
+    ...schema
   };
   Object.keys(values).forEach((key) => {
     const value = values[key];
@@ -1355,14 +1297,15 @@ function setSchemaStateRecursively(schema, values) {
       resolvedSchema[key] = value;
     }
   });
-  Object.keys(schema)
-    .filter((key) => !reservedValidationFields.includes(key))
-    .forEach((key) => {
-      const field = schema[key];
-      if (typeof schema[key] === "object" || Array.isArray(schema[key])) {
-        resolvedSchema[key] = setSchemaStateRecursively(field, values);
-      }
-    });
+  Object.keys(schema).filter((key) => !reservedValidationFields.includes(key)).forEach((key) => {
+    const field = schema[key];
+    if (typeof schema[key] === "object" || Array.isArray(schema[key])) {
+      resolvedSchema[key] = setSchemaStateRecursively(
+        field,
+        values
+      );
+    }
+  });
   return resolvedSchema;
 }
 
@@ -1378,7 +1321,7 @@ var validators = {
   min,
   minLength,
   required,
-  sameAs,
+  sameAs
 };
 function registerValidator(name, validator2) {
   validators[name] = validator2;
@@ -1391,31 +1334,27 @@ function unregisterValidator(name) {
 async function validateFormField(schema, path = "", rootSchema) {
   const errors = [];
   const resolvedSchema = {
-    ...schema,
+    ...schema
   };
   let valid = true;
   for (const rawValidator of resolvedSchema.validators || []) {
     const validator2 = {
-      ...(typeof rawValidator === "string"
-        ? { name: rawValidator }
-        : rawValidator),
+      ...typeof rawValidator === "string" ? { name: rawValidator } : rawValidator,
       schema: rootSchema,
-      path,
+      path
     };
     const valueIsValid = await validators[validator2.name](
       resolvedSchema.value,
-      validator2,
+      validator2
     );
     if (!valueIsValid) {
       const { name, message, ...params } = validator2;
       const i18nParams = {
         name: path.split(".").pop(),
         value: schema.value,
-        params,
+        params
       };
-      const errorMessage =
-        (message instanceof Function ? message() : message) ||
-        translate(`validation.${name}`, i18nParams);
+      const errorMessage = (message instanceof Function ? message() : message) || translate(`validation.${name}`, i18nParams);
       errors.push({ name, message: errorMessage, path });
     }
     valid = valid && valueIsValid;
@@ -1428,32 +1367,24 @@ async function validateFormField(schema, path = "", rootSchema) {
 async function validateFormFieldArray(schema, path = "", rootSchema) {
   return Promise.all(
     schema.map((item, index) => {
-      return validateFormField(
-        item,
-        path ? `${path}.${index}` : `${index}`,
-        rootSchema,
-      );
-    }),
+      return validateFormField(item, path ? `${path}.${index}` : `${index}`, rootSchema);
+    })
   );
 }
 async function validateFormArray(schema, path = "", rootSchema) {
   return Promise.all(
     schema.map((item, index) => {
-      return validateForm(
-        item,
-        path ? `${path}.${index}` : `${index}`,
-        rootSchema,
-      );
-    }),
+      return validateForm(item, path ? `${path}.${index}` : `${index}`, rootSchema);
+    })
   );
 }
 async function validateForm(schema, name = "", rootSchema) {
   const resolvedSchema = {
-    ...schema,
+    ...schema
   };
   let valid = true;
   const resolvedSchemaKeys = Object.keys(resolvedSchema).filter(
-    (key) => !reservedValidationFields.includes(key),
+    (key) => !reservedValidationFields.includes(key)
   );
   for (const key of resolvedSchemaKeys) {
     const field = resolvedSchema[key];
@@ -1462,29 +1393,31 @@ async function validateForm(schema, name = "", rootSchema) {
       resolvedSchema[key] = await validateFormFieldArray(
         field,
         name ? `${name}.${key}` : `${key}`,
-        rootSchema,
+        rootSchema
       );
     } else if (isFormGroupArray(field)) {
       resolvedSchema[key] = await validateFormArray(
         field,
         name ? `${name}.${key}` : `${key}`,
-        rootSchema,
+        rootSchema
       );
     } else if (isFormField(field)) {
       resolvedSchema[key] = await validateFormField(
         field,
         name ? `${name}.${key}` : key,
-        rootSchema,
+        rootSchema
       );
     } else if (isFormGroup(field)) {
       resolvedSchema[key] = await validateForm(
         field,
         name ? `${name}.${key}` : key,
-        rootSchema,
+        rootSchema
       );
     }
     if (Array.isArray(resolvedSchema[key])) {
-      fieldIsValid = resolvedSchema[key].every((item) => item.valid);
+      fieldIsValid = resolvedSchema[key].every(
+        (item) => item.valid
+      );
     } else {
       fieldIsValid = resolvedSchema[key].valid;
     }
@@ -1508,7 +1441,7 @@ function useForm(formSchema) {
   return {
     form,
     schema,
-    validate,
+    validate
   };
 }
 
@@ -1526,14 +1459,9 @@ function useLinkable(props) {
   });
   const tag = computed(() => {
     var _a;
-    const routerComponent =
-      (_a = inkline == null ? void 0 : inkline.options) == null
-        ? void 0
-        : _a.routerComponent;
+    const routerComponent = (_a = inkline == null ? void 0 : inkline.options) == null ? void 0 : _a.routerComponent;
     if (props.to.value && routerComponent) {
-      return typeof routerComponent === "string"
-        ? resolveComponent(routerComponent)
-        : routerComponent;
+      return typeof routerComponent === "string" ? resolveComponent(routerComponent) : routerComponent;
     } else if (props.href.value) {
       return "a";
     } else {
@@ -1553,35 +1481,31 @@ function useModal() {
     ...builder,
     alert,
     confirm,
-    prompt,
+    prompt
   };
 }
 
 // node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
 var sides = ["top", "right", "bottom", "left"];
 var alignments = ["start", "end"];
-var placements = sides.reduce(
-  (acc, side) =>
-    acc.concat(side, side + "-" + alignments[0], side + "-" + alignments[1]),
-  [],
-);
+var placements = sides.reduce((acc, side) => acc.concat(side, side + "-" + alignments[0], side + "-" + alignments[1]), []);
 var min2 = Math.min;
 var max2 = Math.max;
 var round = Math.round;
 var floor = Math.floor;
 var createCoords = (v) => ({
   x: v,
-  y: v,
+  y: v
 });
 var oppositeSideMap = {
   left: "right",
   right: "left",
   bottom: "top",
-  top: "bottom",
+  top: "bottom"
 };
 var oppositeAlignmentMap = {
   start: "end",
-  end: "start",
+  end: "start"
 };
 function clamp(start, value, end) {
   return max2(start, min2(value, end));
@@ -1614,14 +1538,7 @@ function getAlignmentSides(placement, rects, rtl) {
   const alignment = getAlignment(placement);
   const alignmentAxis = getAlignmentAxis(placement);
   const length = getAxisLength(alignmentAxis);
-  let mainAlignmentSide =
-    alignmentAxis === "x"
-      ? alignment === (rtl ? "end" : "start")
-        ? "right"
-        : "left"
-      : alignment === "start"
-        ? "bottom"
-        : "top";
+  let mainAlignmentSide = alignmentAxis === "x" ? alignment === (rtl ? "end" : "start") ? "right" : "left" : alignment === "start" ? "bottom" : "top";
   if (rects.reference[length] > rects.floating[length]) {
     mainAlignmentSide = getOppositePlacement(mainAlignmentSide);
   }
@@ -1629,17 +1546,10 @@ function getAlignmentSides(placement, rects, rtl) {
 }
 function getExpandedPlacements(placement) {
   const oppositePlacement = getOppositePlacement(placement);
-  return [
-    getOppositeAlignmentPlacement(placement),
-    oppositePlacement,
-    getOppositeAlignmentPlacement(oppositePlacement),
-  ];
+  return [getOppositeAlignmentPlacement(placement), oppositePlacement, getOppositeAlignmentPlacement(oppositePlacement)];
 }
 function getOppositeAlignmentPlacement(placement) {
-  return placement.replace(
-    /start|end/g,
-    (alignment) => oppositeAlignmentMap[alignment],
-  );
+  return placement.replace(/start|end/g, (alignment) => oppositeAlignmentMap[alignment]);
 }
 function getSideList(side, isStart, rtl) {
   const lr = ["left", "right"];
@@ -1670,10 +1580,7 @@ function getOppositeAxisPlacements(placement, flipAlignment, direction, rtl) {
   return list;
 }
 function getOppositePlacement(placement) {
-  return placement.replace(
-    /left|right|bottom|top/g,
-    (side) => oppositeSideMap[side],
-  );
+  return placement.replace(/left|right|bottom|top/g, (side) => oppositeSideMap[side]);
 }
 function expandPaddingObject(padding) {
   return {
@@ -1681,21 +1588,24 @@ function expandPaddingObject(padding) {
     right: 0,
     bottom: 0,
     left: 0,
-    ...padding,
+    ...padding
   };
 }
 function getPaddingObject(padding) {
-  return typeof padding !== "number"
-    ? expandPaddingObject(padding)
-    : {
-        top: padding,
-        right: padding,
-        bottom: padding,
-        left: padding,
-      };
+  return typeof padding !== "number" ? expandPaddingObject(padding) : {
+    top: padding,
+    right: padding,
+    bottom: padding,
+    left: padding
+  };
 }
 function rectToClientRect(rect) {
-  const { x, y, width, height } = rect;
+  const {
+    x,
+    y,
+    width,
+    height
+  } = rect;
   return {
     width,
     height,
@@ -1704,13 +1614,16 @@ function rectToClientRect(rect) {
     right: x + width,
     bottom: y + height,
     x,
-    y,
+    y
   };
 }
 
 // node_modules/@floating-ui/core/dist/floating-ui.core.mjs
 function computeCoordsFromPlacement(_ref, placement, rtl) {
-  let { reference, floating } = _ref;
+  let {
+    reference,
+    floating
+  } = _ref;
   const sideAxis = getSideAxis(placement);
   const alignmentAxis = getAlignmentAxis(placement);
   const alignLength = getAxisLength(alignmentAxis);
@@ -1724,31 +1637,31 @@ function computeCoordsFromPlacement(_ref, placement, rtl) {
     case "top":
       coords = {
         x: commonX,
-        y: reference.y - floating.height,
+        y: reference.y - floating.height
       };
       break;
     case "bottom":
       coords = {
         x: commonX,
-        y: reference.y + reference.height,
+        y: reference.y + reference.height
       };
       break;
     case "right":
       coords = {
         x: reference.x + reference.width,
-        y: commonY,
+        y: commonY
       };
       break;
     case "left":
       coords = {
         x: reference.x - floating.width,
-        y: commonY,
+        y: commonY
       };
       break;
     default:
       coords = {
         x: reference.x,
-        y: reference.y,
+        y: reference.y
       };
   }
   switch (getAlignment(placement)) {
@@ -1766,28 +1679,32 @@ var computePosition = async (reference, floating, config) => {
     placement = "bottom",
     strategy = "absolute",
     middleware = [],
-    platform: platform2,
+    platform: platform2
   } = config;
   const validMiddleware = middleware.filter(Boolean);
-  const rtl = await (platform2.isRTL == null
-    ? void 0
-    : platform2.isRTL(floating));
+  const rtl = await (platform2.isRTL == null ? void 0 : platform2.isRTL(floating));
   let rects = await platform2.getElementRects({
     reference,
     floating,
-    strategy,
+    strategy
   });
-  let { x, y } = computeCoordsFromPlacement(rects, placement, rtl);
+  let {
+    x,
+    y
+  } = computeCoordsFromPlacement(rects, placement, rtl);
   let statefulPlacement = placement;
   let middlewareData = {};
   let resetCount = 0;
   for (let i = 0; i < validMiddleware.length; i++) {
-    const { name, fn } = validMiddleware[i];
+    const {
+      name,
+      fn
+    } = validMiddleware[i];
     const {
       x: nextX,
       y: nextY,
       data,
-      reset,
+      reset
     } = await fn({
       x,
       y,
@@ -1799,8 +1716,8 @@ var computePosition = async (reference, floating, config) => {
       platform: platform2,
       elements: {
         reference,
-        floating,
-      },
+        floating
+      }
     });
     x = nextX != null ? nextX : x;
     y = nextY != null ? nextY : y;
@@ -1808,8 +1725,8 @@ var computePosition = async (reference, floating, config) => {
       ...middlewareData,
       [name]: {
         ...middlewareData[name],
-        ...data,
-      },
+        ...data
+      }
     };
     if (reset && resetCount <= 50) {
       resetCount++;
@@ -1818,16 +1735,16 @@ var computePosition = async (reference, floating, config) => {
           statefulPlacement = reset.placement;
         }
         if (reset.rects) {
-          rects =
-            reset.rects === true
-              ? await platform2.getElementRects({
-                  reference,
-                  floating,
-                  strategy,
-                })
-              : reset.rects;
+          rects = reset.rects === true ? await platform2.getElementRects({
+            reference,
+            floating,
+            strategy
+          }) : reset.rects;
         }
-        ({ x, y } = computeCoordsFromPlacement(rects, statefulPlacement, rtl));
+        ({
+          x,
+          y
+        } = computeCoordsFromPlacement(rects, statefulPlacement, rtl));
       }
       i = -1;
     }
@@ -1837,7 +1754,7 @@ var computePosition = async (reference, floating, config) => {
     y,
     placement: statefulPlacement,
     strategy,
-    middlewareData,
+    middlewareData
   };
 };
 async function detectOverflow(state, options) {
@@ -1845,88 +1762,55 @@ async function detectOverflow(state, options) {
   if (options === void 0) {
     options = {};
   }
-  const { x, y, platform: platform2, rects, elements, strategy } = state;
+  const {
+    x,
+    y,
+    platform: platform2,
+    rects,
+    elements,
+    strategy
+  } = state;
   const {
     boundary = "clippingAncestors",
     rootBoundary = "viewport",
     elementContext = "floating",
     altBoundary = false,
-    padding = 0,
+    padding = 0
   } = evaluate(options, state);
   const paddingObject = getPaddingObject(padding);
   const altContext = elementContext === "floating" ? "reference" : "floating";
   const element = elements[altBoundary ? altContext : elementContext];
-  const clippingClientRect = rectToClientRect(
-    await platform2.getClippingRect({
-      element: (
-        (_await$platform$isEle = await (platform2.isElement == null
-          ? void 0
-          : platform2.isElement(element))) != null
-          ? _await$platform$isEle
-          : true
-      )
-        ? element
-        : element.contextElement ||
-          (await (platform2.getDocumentElement == null
-            ? void 0
-            : platform2.getDocumentElement(elements.floating))),
-      boundary,
-      rootBoundary,
-      strategy,
-    }),
-  );
-  const rect =
-    elementContext === "floating"
-      ? {
-          x,
-          y,
-          width: rects.floating.width,
-          height: rects.floating.height,
-        }
-      : rects.reference;
-  const offsetParent = await (platform2.getOffsetParent == null
-    ? void 0
-    : platform2.getOffsetParent(elements.floating));
-  const offsetScale = (await (platform2.isElement == null
-    ? void 0
-    : platform2.isElement(offsetParent)))
-    ? (await (platform2.getScale == null
-        ? void 0
-        : platform2.getScale(offsetParent))) || {
-        x: 1,
-        y: 1,
-      }
-    : {
-        x: 1,
-        y: 1,
-      };
-  const elementClientRect = rectToClientRect(
-    platform2.convertOffsetParentRelativeRectToViewportRelativeRect
-      ? await platform2.convertOffsetParentRelativeRectToViewportRelativeRect({
-          elements,
-          rect,
-          offsetParent,
-          strategy,
-        })
-      : rect,
-  );
+  const clippingClientRect = rectToClientRect(await platform2.getClippingRect({
+    element: ((_await$platform$isEle = await (platform2.isElement == null ? void 0 : platform2.isElement(element))) != null ? _await$platform$isEle : true) ? element : element.contextElement || await (platform2.getDocumentElement == null ? void 0 : platform2.getDocumentElement(elements.floating)),
+    boundary,
+    rootBoundary,
+    strategy
+  }));
+  const rect = elementContext === "floating" ? {
+    x,
+    y,
+    width: rects.floating.width,
+    height: rects.floating.height
+  } : rects.reference;
+  const offsetParent = await (platform2.getOffsetParent == null ? void 0 : platform2.getOffsetParent(elements.floating));
+  const offsetScale = await (platform2.isElement == null ? void 0 : platform2.isElement(offsetParent)) ? await (platform2.getScale == null ? void 0 : platform2.getScale(offsetParent)) || {
+    x: 1,
+    y: 1
+  } : {
+    x: 1,
+    y: 1
+  };
+  const elementClientRect = rectToClientRect(platform2.convertOffsetParentRelativeRectToViewportRelativeRect ? await platform2.convertOffsetParentRelativeRectToViewportRelativeRect({
+    elements,
+    rect,
+    offsetParent,
+    strategy
+  }) : rect);
   return {
-    top:
-      (clippingClientRect.top - elementClientRect.top + paddingObject.top) /
-      offsetScale.y,
-    bottom:
-      (elementClientRect.bottom -
-        clippingClientRect.bottom +
-        paddingObject.bottom) /
-      offsetScale.y,
-    left:
-      (clippingClientRect.left - elementClientRect.left + paddingObject.left) /
-      offsetScale.x,
-    right:
-      (elementClientRect.right -
-        clippingClientRect.right +
-        paddingObject.right) /
-      offsetScale.x,
+    top: (clippingClientRect.top - elementClientRect.top + paddingObject.top) / offsetScale.y,
+    bottom: (elementClientRect.bottom - clippingClientRect.bottom + paddingObject.bottom) / offsetScale.y,
+    left: (clippingClientRect.left - elementClientRect.left + paddingObject.left) / offsetScale.x,
+    right: (elementClientRect.right - clippingClientRect.right + paddingObject.right) / offsetScale.x
   };
 }
 var arrow = (options) => ({
@@ -1940,16 +1824,19 @@ var arrow = (options) => ({
       rects,
       platform: platform2,
       elements,
-      middlewareData,
+      middlewareData
     } = state;
-    const { element, padding = 0 } = evaluate(options, state) || {};
+    const {
+      element,
+      padding = 0
+    } = evaluate(options, state) || {};
     if (element == null) {
       return {};
     }
     const paddingObject = getPaddingObject(padding);
     const coords = {
       x,
-      y,
+      y
     };
     const axis = getAlignmentAxis(placement);
     const length = getAxisLength(axis);
@@ -1958,61 +1845,37 @@ var arrow = (options) => ({
     const minProp = isYAxis ? "top" : "left";
     const maxProp = isYAxis ? "bottom" : "right";
     const clientProp = isYAxis ? "clientHeight" : "clientWidth";
-    const endDiff =
-      rects.reference[length] +
-      rects.reference[axis] -
-      coords[axis] -
-      rects.floating[length];
+    const endDiff = rects.reference[length] + rects.reference[axis] - coords[axis] - rects.floating[length];
     const startDiff = coords[axis] - rects.reference[axis];
-    const arrowOffsetParent = await (platform2.getOffsetParent == null
-      ? void 0
-      : platform2.getOffsetParent(element));
+    const arrowOffsetParent = await (platform2.getOffsetParent == null ? void 0 : platform2.getOffsetParent(element));
     let clientSize = arrowOffsetParent ? arrowOffsetParent[clientProp] : 0;
-    if (
-      !clientSize ||
-      !(await (platform2.isElement == null
-        ? void 0
-        : platform2.isElement(arrowOffsetParent)))
-    ) {
+    if (!clientSize || !await (platform2.isElement == null ? void 0 : platform2.isElement(arrowOffsetParent))) {
       clientSize = elements.floating[clientProp] || rects.floating[length];
     }
     const centerToReference = endDiff / 2 - startDiff / 2;
-    const largestPossiblePadding =
-      clientSize / 2 - arrowDimensions[length] / 2 - 1;
+    const largestPossiblePadding = clientSize / 2 - arrowDimensions[length] / 2 - 1;
     const minPadding = min2(paddingObject[minProp], largestPossiblePadding);
     const maxPadding = min2(paddingObject[maxProp], largestPossiblePadding);
     const min$1 = minPadding;
     const max3 = clientSize - arrowDimensions[length] - maxPadding;
-    const center =
-      clientSize / 2 - arrowDimensions[length] / 2 + centerToReference;
+    const center = clientSize / 2 - arrowDimensions[length] / 2 + centerToReference;
     const offset3 = clamp(min$1, center, max3);
-    const shouldAddOffset =
-      !middlewareData.arrow &&
-      getAlignment(placement) != null &&
-      center !== offset3 &&
-      rects.reference[length] / 2 -
-        (center < min$1 ? minPadding : maxPadding) -
-        arrowDimensions[length] / 2 <
-        0;
-    const alignmentOffset = shouldAddOffset
-      ? center < min$1
-        ? center - min$1
-        : center - max3
-      : 0;
+    const shouldAddOffset = !middlewareData.arrow && getAlignment(placement) != null && center !== offset3 && rects.reference[length] / 2 - (center < min$1 ? minPadding : maxPadding) - arrowDimensions[length] / 2 < 0;
+    const alignmentOffset = shouldAddOffset ? center < min$1 ? center - min$1 : center - max3 : 0;
     return {
       [axis]: coords[axis] + alignmentOffset,
       data: {
         [axis]: offset3,
         centerOffset: center - offset3 - alignmentOffset,
-        ...(shouldAddOffset && {
-          alignmentOffset,
-        }),
+        ...shouldAddOffset && {
+          alignmentOffset
+        }
       },
-      reset: shouldAddOffset,
+      reset: shouldAddOffset
     };
-  },
+  }
 });
-var flip = function (options) {
+var flip = function(options) {
   if (options === void 0) {
     options = {};
   }
@@ -2027,7 +1890,7 @@ var flip = function (options) {
         rects,
         initialPlacement,
         platform: platform2,
-        elements,
+        elements
       } = state;
       const {
         mainAxis: checkMainAxis = true,
@@ -2038,41 +1901,22 @@ var flip = function (options) {
         flipAlignment = true,
         ...detectOverflowOptions
       } = evaluate(options, state);
-      if (
-        (_middlewareData$arrow = middlewareData.arrow) != null &&
-        _middlewareData$arrow.alignmentOffset
-      ) {
+      if ((_middlewareData$arrow = middlewareData.arrow) != null && _middlewareData$arrow.alignmentOffset) {
         return {};
       }
       const side = getSide(placement);
       const initialSideAxis = getSideAxis(initialPlacement);
       const isBasePlacement = getSide(initialPlacement) === initialPlacement;
-      const rtl = await (platform2.isRTL == null
-        ? void 0
-        : platform2.isRTL(elements.floating));
-      const fallbackPlacements =
-        specifiedFallbackPlacements ||
-        (isBasePlacement || !flipAlignment
-          ? [getOppositePlacement(initialPlacement)]
-          : getExpandedPlacements(initialPlacement));
+      const rtl = await (platform2.isRTL == null ? void 0 : platform2.isRTL(elements.floating));
+      const fallbackPlacements = specifiedFallbackPlacements || (isBasePlacement || !flipAlignment ? [getOppositePlacement(initialPlacement)] : getExpandedPlacements(initialPlacement));
       const hasFallbackAxisSideDirection = fallbackAxisSideDirection !== "none";
       if (!specifiedFallbackPlacements && hasFallbackAxisSideDirection) {
-        fallbackPlacements.push(
-          ...getOppositeAxisPlacements(
-            initialPlacement,
-            flipAlignment,
-            fallbackAxisSideDirection,
-            rtl,
-          ),
-        );
+        fallbackPlacements.push(...getOppositeAxisPlacements(initialPlacement, flipAlignment, fallbackAxisSideDirection, rtl));
       }
       const placements2 = [initialPlacement, ...fallbackPlacements];
       const overflow = await detectOverflow(state, detectOverflowOptions);
       const overflows = [];
-      let overflowsData =
-        ((_middlewareData$flip = middlewareData.flip) == null
-          ? void 0
-          : _middlewareData$flip.overflows) || [];
+      let overflowsData = ((_middlewareData$flip = middlewareData.flip) == null ? void 0 : _middlewareData$flip.overflows) || [];
       if (checkMainAxis) {
         overflows.push(overflow[side]);
       }
@@ -2080,63 +1924,39 @@ var flip = function (options) {
         const sides2 = getAlignmentSides(placement, rects, rtl);
         overflows.push(overflow[sides2[0]], overflow[sides2[1]]);
       }
-      overflowsData = [
-        ...overflowsData,
-        {
-          placement,
-          overflows,
-        },
-      ];
+      overflowsData = [...overflowsData, {
+        placement,
+        overflows
+      }];
       if (!overflows.every((side2) => side2 <= 0)) {
         var _middlewareData$flip2, _overflowsData$filter;
-        const nextIndex =
-          (((_middlewareData$flip2 = middlewareData.flip) == null
-            ? void 0
-            : _middlewareData$flip2.index) || 0) + 1;
+        const nextIndex = (((_middlewareData$flip2 = middlewareData.flip) == null ? void 0 : _middlewareData$flip2.index) || 0) + 1;
         const nextPlacement = placements2[nextIndex];
         if (nextPlacement) {
           return {
             data: {
               index: nextIndex,
-              overflows: overflowsData,
+              overflows: overflowsData
             },
             reset: {
-              placement: nextPlacement,
-            },
+              placement: nextPlacement
+            }
           };
         }
-        let resetPlacement =
-          (_overflowsData$filter = overflowsData
-            .filter((d) => d.overflows[0] <= 0)
-            .sort((a, b) => a.overflows[1] - b.overflows[1])[0]) == null
-            ? void 0
-            : _overflowsData$filter.placement;
+        let resetPlacement = (_overflowsData$filter = overflowsData.filter((d) => d.overflows[0] <= 0).sort((a, b) => a.overflows[1] - b.overflows[1])[0]) == null ? void 0 : _overflowsData$filter.placement;
         if (!resetPlacement) {
           switch (fallbackStrategy) {
             case "bestFit": {
               var _overflowsData$filter2;
-              const placement2 =
-                (_overflowsData$filter2 = overflowsData
-                  .filter((d) => {
-                    if (hasFallbackAxisSideDirection) {
-                      const currentSideAxis = getSideAxis(d.placement);
-                      return (
-                        currentSideAxis === initialSideAxis || // Create a bias to the `y` side axis due to horizontal
-                        // reading directions favoring greater width.
-                        currentSideAxis === "y"
-                      );
-                    }
-                    return true;
-                  })
-                  .map((d) => [
-                    d.placement,
-                    d.overflows
-                      .filter((overflow2) => overflow2 > 0)
-                      .reduce((acc, overflow2) => acc + overflow2, 0),
-                  ])
-                  .sort((a, b) => a[1] - b[1])[0]) == null
-                  ? void 0
-                  : _overflowsData$filter2[0];
+              const placement2 = (_overflowsData$filter2 = overflowsData.filter((d) => {
+                if (hasFallbackAxisSideDirection) {
+                  const currentSideAxis = getSideAxis(d.placement);
+                  return currentSideAxis === initialSideAxis || // Create a bias to the `y` side axis due to horizontal
+                  // reading directions favoring greater width.
+                  currentSideAxis === "y";
+                }
+                return true;
+              }).map((d) => [d.placement, d.overflows.filter((overflow2) => overflow2 > 0).reduce((acc, overflow2) => acc + overflow2, 0)]).sort((a, b) => a[1] - b[1])[0]) == null ? void 0 : _overflowsData$filter2[0];
               if (placement2) {
                 resetPlacement = placement2;
               }
@@ -2150,53 +1970,54 @@ var flip = function (options) {
         if (placement !== resetPlacement) {
           return {
             reset: {
-              placement: resetPlacement,
-            },
+              placement: resetPlacement
+            }
           };
         }
       }
       return {};
-    },
+    }
   };
 };
 async function convertValueToCoords(state, options) {
-  const { placement, platform: platform2, elements } = state;
-  const rtl = await (platform2.isRTL == null
-    ? void 0
-    : platform2.isRTL(elements.floating));
+  const {
+    placement,
+    platform: platform2,
+    elements
+  } = state;
+  const rtl = await (platform2.isRTL == null ? void 0 : platform2.isRTL(elements.floating));
   const side = getSide(placement);
   const alignment = getAlignment(placement);
   const isVertical = getSideAxis(placement) === "y";
   const mainAxisMulti = ["left", "top"].includes(side) ? -1 : 1;
   const crossAxisMulti = rtl && isVertical ? -1 : 1;
   const rawValue = evaluate(options, state);
-  let { mainAxis, crossAxis, alignmentAxis } =
-    typeof rawValue === "number"
-      ? {
-          mainAxis: rawValue,
-          crossAxis: 0,
-          alignmentAxis: null,
-        }
-      : {
-          mainAxis: 0,
-          crossAxis: 0,
-          alignmentAxis: null,
-          ...rawValue,
-        };
+  let {
+    mainAxis,
+    crossAxis,
+    alignmentAxis
+  } = typeof rawValue === "number" ? {
+    mainAxis: rawValue,
+    crossAxis: 0,
+    alignmentAxis: null
+  } : {
+    mainAxis: 0,
+    crossAxis: 0,
+    alignmentAxis: null,
+    ...rawValue
+  };
   if (alignment && typeof alignmentAxis === "number") {
     crossAxis = alignment === "end" ? alignmentAxis * -1 : alignmentAxis;
   }
-  return isVertical
-    ? {
-        x: crossAxis * crossAxisMulti,
-        y: mainAxis * mainAxisMulti,
-      }
-    : {
-        x: mainAxis * mainAxisMulti,
-        y: crossAxis * crossAxisMulti,
-      };
+  return isVertical ? {
+    x: crossAxis * crossAxisMulti,
+    y: mainAxis * mainAxisMulti
+  } : {
+    x: mainAxis * mainAxisMulti,
+    y: crossAxis * crossAxisMulti
+  };
 }
-var offset = function (options) {
+var offset = function(options) {
   if (options === void 0) {
     options = 0;
   }
@@ -2205,16 +2026,14 @@ var offset = function (options) {
     options,
     async fn(state) {
       var _middlewareData$offse, _middlewareData$arrow;
-      const { x, y, placement, middlewareData } = state;
+      const {
+        x,
+        y,
+        placement,
+        middlewareData
+      } = state;
       const diffCoords = await convertValueToCoords(state, options);
-      if (
-        placement ===
-          ((_middlewareData$offse = middlewareData.offset) == null
-            ? void 0
-            : _middlewareData$offse.placement) &&
-        (_middlewareData$arrow = middlewareData.arrow) != null &&
-        _middlewareData$arrow.alignmentOffset
-      ) {
+      if (placement === ((_middlewareData$offse = middlewareData.offset) == null ? void 0 : _middlewareData$offse.placement) && (_middlewareData$arrow = middlewareData.arrow) != null && _middlewareData$arrow.alignmentOffset) {
         return {};
       }
       return {
@@ -2222,13 +2041,13 @@ var offset = function (options) {
         y: y + diffCoords.y,
         data: {
           ...diffCoords,
-          placement,
-        },
+          placement
+        }
       };
-    },
+    }
   };
 };
-var shift = function (options) {
+var shift = function(options) {
   if (options === void 0) {
     options = {};
   }
@@ -2236,24 +2055,31 @@ var shift = function (options) {
     name: "shift",
     options,
     async fn(state) {
-      const { x, y, placement } = state;
+      const {
+        x,
+        y,
+        placement
+      } = state;
       const {
         mainAxis: checkMainAxis = true,
         crossAxis: checkCrossAxis = false,
         limiter = {
           fn: (_ref) => {
-            let { x: x2, y: y2 } = _ref;
+            let {
+              x: x2,
+              y: y2
+            } = _ref;
             return {
               x: x2,
-              y: y2,
+              y: y2
             };
-          },
+          }
         },
         ...detectOverflowOptions
       } = evaluate(options, state);
       const coords = {
         x,
-        y,
+        y
       };
       const overflow = await detectOverflow(state, detectOverflowOptions);
       const crossAxis = getSideAxis(getSide(placement));
@@ -2277,16 +2103,16 @@ var shift = function (options) {
       const limitedCoords = limiter.fn({
         ...state,
         [mainAxis]: mainAxisCoord,
-        [crossAxis]: crossAxisCoord,
+        [crossAxis]: crossAxisCoord
       });
       return {
         ...limitedCoords,
         data: {
           x: limitedCoords.x - x,
-          y: limitedCoords.y - y,
-        },
+          y: limitedCoords.y - y
+        }
       };
-    },
+    }
   };
 };
 
@@ -2299,19 +2125,11 @@ function getNodeName(node) {
 }
 function getWindow(node) {
   var _node$ownerDocument;
-  return (
-    (node == null || (_node$ownerDocument = node.ownerDocument) == null
-      ? void 0
-      : _node$ownerDocument.defaultView) || window
-  );
+  return (node == null || (_node$ownerDocument = node.ownerDocument) == null ? void 0 : _node$ownerDocument.defaultView) || window;
 }
 function getDocumentElement(node) {
   var _ref;
-  return (_ref =
-    (isNode(node) ? node.ownerDocument : node.document) || window.document) ==
-    null
-    ? void 0
-    : _ref.documentElement;
+  return (_ref = (isNode(node) ? node.ownerDocument : node.document) || window.document) == null ? void 0 : _ref.documentElement;
 }
 function isNode(value) {
   return value instanceof Node || value instanceof getWindow(value).Node;
@@ -2320,25 +2138,22 @@ function isElement(value) {
   return value instanceof Element || value instanceof getWindow(value).Element;
 }
 function isHTMLElement(value) {
-  return (
-    value instanceof HTMLElement ||
-    value instanceof getWindow(value).HTMLElement
-  );
+  return value instanceof HTMLElement || value instanceof getWindow(value).HTMLElement;
 }
 function isShadowRoot(value) {
   if (typeof ShadowRoot === "undefined") {
     return false;
   }
-  return (
-    value instanceof ShadowRoot || value instanceof getWindow(value).ShadowRoot
-  );
+  return value instanceof ShadowRoot || value instanceof getWindow(value).ShadowRoot;
 }
 function isOverflowElement(element) {
-  const { overflow, overflowX, overflowY, display } = getComputedStyle(element);
-  return (
-    /auto|scroll|overlay|hidden|clip/.test(overflow + overflowY + overflowX) &&
-    !["inline", "contents"].includes(display)
-  );
+  const {
+    overflow,
+    overflowX,
+    overflowY,
+    display
+  } = getComputedStyle(element);
+  return /auto|scroll|overlay|hidden|clip/.test(overflow + overflowY + overflowX) && !["inline", "contents"].includes(display);
 }
 function isTableElement(element) {
   return ["table", "td", "th"].includes(getNodeName(element));
@@ -2355,19 +2170,7 @@ function isTopLayer(element) {
 function isContainingBlock(element) {
   const webkit = isWebKit();
   const css = getComputedStyle(element);
-  return (
-    css.transform !== "none" ||
-    css.perspective !== "none" ||
-    (css.containerType ? css.containerType !== "normal" : false) ||
-    (!webkit && (css.backdropFilter ? css.backdropFilter !== "none" : false)) ||
-    (!webkit && (css.filter ? css.filter !== "none" : false)) ||
-    ["transform", "perspective", "filter"].some((value) =>
-      (css.willChange || "").includes(value),
-    ) ||
-    ["paint", "layout", "strict", "content"].some((value) =>
-      (css.contain || "").includes(value),
-    )
-  );
+  return css.transform !== "none" || css.perspective !== "none" || (css.containerType ? css.containerType !== "normal" : false) || !webkit && (css.backdropFilter ? css.backdropFilter !== "none" : false) || !webkit && (css.filter ? css.filter !== "none" : false) || ["transform", "perspective", "filter"].some((value) => (css.willChange || "").includes(value)) || ["paint", "layout", "strict", "content"].some((value) => (css.contain || "").includes(value));
 }
 function getContainingBlock(element) {
   let currentNode = getParentNode(element);
@@ -2396,24 +2199,25 @@ function getNodeScroll(element) {
   if (isElement(element)) {
     return {
       scrollLeft: element.scrollLeft,
-      scrollTop: element.scrollTop,
+      scrollTop: element.scrollTop
     };
   }
   return {
     scrollLeft: element.pageXOffset,
-    scrollTop: element.pageYOffset,
+    scrollTop: element.pageYOffset
   };
 }
 function getParentNode(node) {
   if (getNodeName(node) === "html") {
     return node;
   }
-  const result =
+  const result = (
     // Step into the shadow DOM of the parent of a slotted node.
     node.assignedSlot || // DOM Element detected.
     node.parentNode || // ShadowRoot detected.
-    (isShadowRoot(node) && node.host) || // Fallback.
-    getDocumentElement(node);
+    isShadowRoot(node) && node.host || // Fallback.
+    getDocumentElement(node)
+  );
   return isShadowRoot(result) ? result.host : result;
 }
 function getNearestOverflowAncestor(node) {
@@ -2435,26 +2239,12 @@ function getOverflowAncestors(node, list, traverseIframes) {
     traverseIframes = true;
   }
   const scrollableAncestor = getNearestOverflowAncestor(node);
-  const isBody =
-    scrollableAncestor ===
-    ((_node$ownerDocument2 = node.ownerDocument) == null
-      ? void 0
-      : _node$ownerDocument2.body);
+  const isBody = scrollableAncestor === ((_node$ownerDocument2 = node.ownerDocument) == null ? void 0 : _node$ownerDocument2.body);
   const win = getWindow(scrollableAncestor);
   if (isBody) {
-    return list.concat(
-      win,
-      win.visualViewport || [],
-      isOverflowElement(scrollableAncestor) ? scrollableAncestor : [],
-      win.frameElement && traverseIframes
-        ? getOverflowAncestors(win.frameElement)
-        : [],
-    );
+    return list.concat(win, win.visualViewport || [], isOverflowElement(scrollableAncestor) ? scrollableAncestor : [], win.frameElement && traverseIframes ? getOverflowAncestors(win.frameElement) : []);
   }
-  return list.concat(
-    scrollableAncestor,
-    getOverflowAncestors(scrollableAncestor, [], traverseIframes),
-  );
+  return list.concat(scrollableAncestor, getOverflowAncestors(scrollableAncestor, [], traverseIframes));
 }
 
 // node_modules/@floating-ui/dom/dist/floating-ui.dom.mjs
@@ -2465,8 +2255,7 @@ function getCssDimensions(element) {
   const hasOffset = isHTMLElement(element);
   const offsetWidth = hasOffset ? element.offsetWidth : width;
   const offsetHeight = hasOffset ? element.offsetHeight : height;
-  const shouldFallback =
-    round(width) !== offsetWidth || round(height) !== offsetHeight;
+  const shouldFallback = round(width) !== offsetWidth || round(height) !== offsetHeight;
   if (shouldFallback) {
     width = offsetWidth;
     height = offsetHeight;
@@ -2474,7 +2263,7 @@ function getCssDimensions(element) {
   return {
     width,
     height,
-    $: shouldFallback,
+    $: shouldFallback
   };
 }
 function unwrapElement(element) {
@@ -2486,7 +2275,11 @@ function getScale(element) {
     return createCoords(1);
   }
   const rect = domElement.getBoundingClientRect();
-  const { width, height, $ } = getCssDimensions(domElement);
+  const {
+    width,
+    height,
+    $
+  } = getCssDimensions(domElement);
   let x = ($ ? round(rect.width) : rect.width) / width;
   let y = ($ ? round(rect.height) : rect.height) / height;
   if (!x || !Number.isFinite(x)) {
@@ -2497,7 +2290,7 @@ function getScale(element) {
   }
   return {
     x,
-    y,
+    y
   };
 }
 var noOffsets = createCoords(0);
@@ -2508,27 +2301,19 @@ function getVisualOffsets(element) {
   }
   return {
     x: win.visualViewport.offsetLeft,
-    y: win.visualViewport.offsetTop,
+    y: win.visualViewport.offsetTop
   };
 }
 function shouldAddVisualOffsets(element, isFixed, floatingOffsetParent) {
   if (isFixed === void 0) {
     isFixed = false;
   }
-  if (
-    !floatingOffsetParent ||
-    (isFixed && floatingOffsetParent !== getWindow(element))
-  ) {
+  if (!floatingOffsetParent || isFixed && floatingOffsetParent !== getWindow(element)) {
     return false;
   }
   return isFixed;
 }
-function getBoundingClientRect(
-  element,
-  includeScale,
-  isFixedStrategy,
-  offsetParent,
-) {
+function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetParent) {
   if (includeScale === void 0) {
     includeScale = false;
   }
@@ -2547,36 +2332,22 @@ function getBoundingClientRect(
       scale = getScale(element);
     }
   }
-  const visualOffsets = shouldAddVisualOffsets(
-    domElement,
-    isFixedStrategy,
-    offsetParent,
-  )
-    ? getVisualOffsets(domElement)
-    : createCoords(0);
+  const visualOffsets = shouldAddVisualOffsets(domElement, isFixedStrategy, offsetParent) ? getVisualOffsets(domElement) : createCoords(0);
   let x = (clientRect.left + visualOffsets.x) / scale.x;
   let y = (clientRect.top + visualOffsets.y) / scale.y;
   let width = clientRect.width / scale.x;
   let height = clientRect.height / scale.y;
   if (domElement) {
     const win = getWindow(domElement);
-    const offsetWin =
-      offsetParent && isElement(offsetParent)
-        ? getWindow(offsetParent)
-        : offsetParent;
+    const offsetWin = offsetParent && isElement(offsetParent) ? getWindow(offsetParent) : offsetParent;
     let currentWin = win;
     let currentIFrame = currentWin.frameElement;
     while (currentIFrame && offsetParent && offsetWin !== currentWin) {
       const iframeScale = getScale(currentIFrame);
       const iframeRect = currentIFrame.getBoundingClientRect();
       const css = getComputedStyle(currentIFrame);
-      const left =
-        iframeRect.left +
-        (currentIFrame.clientLeft + parseFloat(css.paddingLeft)) *
-          iframeScale.x;
-      const top =
-        iframeRect.top +
-        (currentIFrame.clientTop + parseFloat(css.paddingTop)) * iframeScale.y;
+      const left = iframeRect.left + (currentIFrame.clientLeft + parseFloat(css.paddingLeft)) * iframeScale.x;
+      const top = iframeRect.top + (currentIFrame.clientTop + parseFloat(css.paddingTop)) * iframeScale.y;
       x *= iframeScale.x;
       y *= iframeScale.y;
       width *= iframeScale.x;
@@ -2591,29 +2362,31 @@ function getBoundingClientRect(
     width,
     height,
     x,
-    y,
+    y
   });
 }
 function convertOffsetParentRelativeRectToViewportRelativeRect(_ref) {
-  let { elements, rect, offsetParent, strategy } = _ref;
+  let {
+    elements,
+    rect,
+    offsetParent,
+    strategy
+  } = _ref;
   const isFixed = strategy === "fixed";
   const documentElement = getDocumentElement(offsetParent);
   const topLayer = elements ? isTopLayer(elements.floating) : false;
-  if (offsetParent === documentElement || (topLayer && isFixed)) {
+  if (offsetParent === documentElement || topLayer && isFixed) {
     return rect;
   }
   let scroll = {
     scrollLeft: 0,
-    scrollTop: 0,
+    scrollTop: 0
   };
   let scale = createCoords(1);
   const offsets = createCoords(0);
   const isOffsetParentAnElement = isHTMLElement(offsetParent);
-  if (isOffsetParentAnElement || (!isOffsetParentAnElement && !isFixed)) {
-    if (
-      getNodeName(offsetParent) !== "body" ||
-      isOverflowElement(documentElement)
-    ) {
+  if (isOffsetParentAnElement || !isOffsetParentAnElement && !isFixed) {
+    if (getNodeName(offsetParent) !== "body" || isOverflowElement(documentElement)) {
       scroll = getNodeScroll(offsetParent);
     }
     if (isHTMLElement(offsetParent)) {
@@ -2627,34 +2400,21 @@ function convertOffsetParentRelativeRectToViewportRelativeRect(_ref) {
     width: rect.width * scale.x,
     height: rect.height * scale.y,
     x: rect.x * scale.x - scroll.scrollLeft * scale.x + offsets.x,
-    y: rect.y * scale.y - scroll.scrollTop * scale.y + offsets.y,
+    y: rect.y * scale.y - scroll.scrollTop * scale.y + offsets.y
   };
 }
 function getClientRects(element) {
   return Array.from(element.getClientRects());
 }
 function getWindowScrollBarX(element) {
-  return (
-    getBoundingClientRect(getDocumentElement(element)).left +
-    getNodeScroll(element).scrollLeft
-  );
+  return getBoundingClientRect(getDocumentElement(element)).left + getNodeScroll(element).scrollLeft;
 }
 function getDocumentRect(element) {
   const html = getDocumentElement(element);
   const scroll = getNodeScroll(element);
   const body = element.ownerDocument.body;
-  const width = max2(
-    html.scrollWidth,
-    html.clientWidth,
-    body.scrollWidth,
-    body.clientWidth,
-  );
-  const height = max2(
-    html.scrollHeight,
-    html.clientHeight,
-    body.scrollHeight,
-    body.clientHeight,
-  );
+  const width = max2(html.scrollWidth, html.clientWidth, body.scrollWidth, body.clientWidth);
+  const height = max2(html.scrollHeight, html.clientHeight, body.scrollHeight, body.clientHeight);
   let x = -scroll.scrollLeft + getWindowScrollBarX(element);
   const y = -scroll.scrollTop;
   if (getComputedStyle(body).direction === "rtl") {
@@ -2664,7 +2424,7 @@ function getDocumentRect(element) {
     width,
     height,
     x,
-    y,
+    y
   };
 }
 function getViewportRect(element, strategy) {
@@ -2679,7 +2439,7 @@ function getViewportRect(element, strategy) {
     width = visualViewport.width;
     height = visualViewport.height;
     const visualViewportBased = isWebKit();
-    if (!visualViewportBased || (visualViewportBased && strategy === "fixed")) {
+    if (!visualViewportBased || visualViewportBased && strategy === "fixed") {
       x = visualViewport.offsetLeft;
       y = visualViewport.offsetTop;
     }
@@ -2688,7 +2448,7 @@ function getViewportRect(element, strategy) {
     width,
     height,
     x,
-    y,
+    y
   };
 }
 function getInnerBoundingClientRect(element, strategy) {
@@ -2704,14 +2464,10 @@ function getInnerBoundingClientRect(element, strategy) {
     width,
     height,
     x,
-    y,
+    y
   };
 }
-function getClientRectFromClippingAncestor(
-  element,
-  clippingAncestor,
-  strategy,
-) {
+function getClientRectFromClippingAncestor(element, clippingAncestor, strategy) {
   let rect;
   if (clippingAncestor === "viewport") {
     rect = getViewportRect(element, strategy);
@@ -2724,33 +2480,24 @@ function getClientRectFromClippingAncestor(
     rect = {
       ...clippingAncestor,
       x: clippingAncestor.x - visualOffsets.x,
-      y: clippingAncestor.y - visualOffsets.y,
+      y: clippingAncestor.y - visualOffsets.y
     };
   }
   return rectToClientRect(rect);
 }
 function hasFixedPositionAncestor(element, stopNode) {
   const parentNode = getParentNode(element);
-  if (
-    parentNode === stopNode ||
-    !isElement(parentNode) ||
-    isLastTraversableNode(parentNode)
-  ) {
+  if (parentNode === stopNode || !isElement(parentNode) || isLastTraversableNode(parentNode)) {
     return false;
   }
-  return (
-    getComputedStyle(parentNode).position === "fixed" ||
-    hasFixedPositionAncestor(parentNode, stopNode)
-  );
+  return getComputedStyle(parentNode).position === "fixed" || hasFixedPositionAncestor(parentNode, stopNode);
 }
 function getClippingElementAncestors(element, cache) {
   const cachedResult = cache.get(element);
   if (cachedResult) {
     return cachedResult;
   }
-  let result = getOverflowAncestors(element, [], false).filter(
-    (el) => isElement(el) && getNodeName(el) !== "body",
-  );
+  let result = getOverflowAncestors(element, [], false).filter((el) => isElement(el) && getNodeName(el) !== "body");
   let currentContainingBlockComputedStyle = null;
   const elementIsFixed = getComputedStyle(element).position === "fixed";
   let currentNode = elementIsFixed ? getParentNode(element) : element;
@@ -2760,17 +2507,7 @@ function getClippingElementAncestors(element, cache) {
     if (!currentNodeIsContaining && computedStyle.position === "fixed") {
       currentContainingBlockComputedStyle = null;
     }
-    const shouldDropCurrentNode = elementIsFixed
-      ? !currentNodeIsContaining && !currentContainingBlockComputedStyle
-      : (!currentNodeIsContaining &&
-          computedStyle.position === "static" &&
-          !!currentContainingBlockComputedStyle &&
-          ["absolute", "fixed"].includes(
-            currentContainingBlockComputedStyle.position,
-          )) ||
-        (isOverflowElement(currentNode) &&
-          !currentNodeIsContaining &&
-          hasFixedPositionAncestor(element, currentNode));
+    const shouldDropCurrentNode = elementIsFixed ? !currentNodeIsContaining && !currentContainingBlockComputedStyle : !currentNodeIsContaining && computedStyle.position === "static" && !!currentContainingBlockComputedStyle && ["absolute", "fixed"].includes(currentContainingBlockComputedStyle.position) || isOverflowElement(currentNode) && !currentNodeIsContaining && hasFixedPositionAncestor(element, currentNode);
     if (shouldDropCurrentNode) {
       result = result.filter((ancestor) => ancestor !== currentNode);
     } else {
@@ -2782,42 +2519,38 @@ function getClippingElementAncestors(element, cache) {
   return result;
 }
 function getClippingRect(_ref) {
-  let { element, boundary, rootBoundary, strategy } = _ref;
-  const elementClippingAncestors =
-    boundary === "clippingAncestors"
-      ? isTopLayer(element)
-        ? []
-        : getClippingElementAncestors(element, this._c)
-      : [].concat(boundary);
+  let {
+    element,
+    boundary,
+    rootBoundary,
+    strategy
+  } = _ref;
+  const elementClippingAncestors = boundary === "clippingAncestors" ? isTopLayer(element) ? [] : getClippingElementAncestors(element, this._c) : [].concat(boundary);
   const clippingAncestors = [...elementClippingAncestors, rootBoundary];
   const firstClippingAncestor = clippingAncestors[0];
-  const clippingRect = clippingAncestors.reduce(
-    (accRect, clippingAncestor) => {
-      const rect = getClientRectFromClippingAncestor(
-        element,
-        clippingAncestor,
-        strategy,
-      );
-      accRect.top = max2(rect.top, accRect.top);
-      accRect.right = min2(rect.right, accRect.right);
-      accRect.bottom = min2(rect.bottom, accRect.bottom);
-      accRect.left = max2(rect.left, accRect.left);
-      return accRect;
-    },
-    getClientRectFromClippingAncestor(element, firstClippingAncestor, strategy),
-  );
+  const clippingRect = clippingAncestors.reduce((accRect, clippingAncestor) => {
+    const rect = getClientRectFromClippingAncestor(element, clippingAncestor, strategy);
+    accRect.top = max2(rect.top, accRect.top);
+    accRect.right = min2(rect.right, accRect.right);
+    accRect.bottom = min2(rect.bottom, accRect.bottom);
+    accRect.left = max2(rect.left, accRect.left);
+    return accRect;
+  }, getClientRectFromClippingAncestor(element, firstClippingAncestor, strategy));
   return {
     width: clippingRect.right - clippingRect.left,
     height: clippingRect.bottom - clippingRect.top,
     x: clippingRect.left,
-    y: clippingRect.top,
+    y: clippingRect.top
   };
 }
 function getDimensions(element) {
-  const { width, height } = getCssDimensions(element);
+  const {
+    width,
+    height
+  } = getCssDimensions(element);
   return {
     width,
-    height,
+    height
   };
 }
 function getRectRelativeToOffsetParent(element, offsetParent, strategy) {
@@ -2827,23 +2560,15 @@ function getRectRelativeToOffsetParent(element, offsetParent, strategy) {
   const rect = getBoundingClientRect(element, true, isFixed, offsetParent);
   let scroll = {
     scrollLeft: 0,
-    scrollTop: 0,
+    scrollTop: 0
   };
   const offsets = createCoords(0);
-  if (isOffsetParentAnElement || (!isOffsetParentAnElement && !isFixed)) {
-    if (
-      getNodeName(offsetParent) !== "body" ||
-      isOverflowElement(documentElement)
-    ) {
+  if (isOffsetParentAnElement || !isOffsetParentAnElement && !isFixed) {
+    if (getNodeName(offsetParent) !== "body" || isOverflowElement(documentElement)) {
       scroll = getNodeScroll(offsetParent);
     }
     if (isOffsetParentAnElement) {
-      const offsetRect = getBoundingClientRect(
-        offsetParent,
-        true,
-        isFixed,
-        offsetParent,
-      );
+      const offsetRect = getBoundingClientRect(offsetParent, true, isFixed, offsetParent);
       offsets.x = offsetRect.x + offsetParent.clientLeft;
       offsets.y = offsetRect.y + offsetParent.clientTop;
     } else if (documentElement) {
@@ -2856,17 +2581,14 @@ function getRectRelativeToOffsetParent(element, offsetParent, strategy) {
     x,
     y,
     width: rect.width,
-    height: rect.height,
+    height: rect.height
   };
 }
 function isStaticPositioned(element) {
   return getComputedStyle(element).position === "static";
 }
 function getTrueOffsetParent(element, polyfill) {
-  if (
-    !isHTMLElement(element) ||
-    getComputedStyle(element).position === "fixed"
-  ) {
+  if (!isHTMLElement(element) || getComputedStyle(element).position === "fixed") {
     return null;
   }
   if (polyfill) {
@@ -2890,39 +2612,26 @@ function getOffsetParent(element, polyfill) {
     return win;
   }
   let offsetParent = getTrueOffsetParent(element, polyfill);
-  while (
-    offsetParent &&
-    isTableElement(offsetParent) &&
-    isStaticPositioned(offsetParent)
-  ) {
+  while (offsetParent && isTableElement(offsetParent) && isStaticPositioned(offsetParent)) {
     offsetParent = getTrueOffsetParent(offsetParent, polyfill);
   }
-  if (
-    offsetParent &&
-    isLastTraversableNode(offsetParent) &&
-    isStaticPositioned(offsetParent) &&
-    !isContainingBlock(offsetParent)
-  ) {
+  if (offsetParent && isLastTraversableNode(offsetParent) && isStaticPositioned(offsetParent) && !isContainingBlock(offsetParent)) {
     return win;
   }
   return offsetParent || getContainingBlock(element) || win;
 }
-var getElementRects = async function (data) {
+var getElementRects = async function(data) {
   const getOffsetParentFn = this.getOffsetParent || getOffsetParent;
   const getDimensionsFn = this.getDimensions;
   const floatingDimensions = await getDimensionsFn(data.floating);
   return {
-    reference: getRectRelativeToOffsetParent(
-      data.reference,
-      await getOffsetParentFn(data.floating),
-      data.strategy,
-    ),
+    reference: getRectRelativeToOffsetParent(data.reference, await getOffsetParentFn(data.floating), data.strategy),
     floating: {
       x: 0,
       y: 0,
       width: floatingDimensions.width,
-      height: floatingDimensions.height,
-    },
+      height: floatingDimensions.height
+    }
   };
 };
 function isRTL(element) {
@@ -2938,7 +2647,7 @@ var platform = {
   getDimensions,
   getScale,
   isElement,
-  isRTL,
+  isRTL
 };
 function observeMove(element, onMove) {
   let io = null;
@@ -2958,7 +2667,12 @@ function observeMove(element, onMove) {
       threshold = 1;
     }
     cleanup();
-    const { left, top, width, height } = element.getBoundingClientRect();
+    const {
+      left,
+      top,
+      width,
+      height
+    } = element.getBoundingClientRect();
     if (!skip) {
       onMove();
     }
@@ -2969,18 +2683,10 @@ function observeMove(element, onMove) {
     const insetRight = floor(root.clientWidth - (left + width));
     const insetBottom = floor(root.clientHeight - (top + height));
     const insetLeft = floor(left);
-    const rootMargin =
-      -insetTop +
-      "px " +
-      -insetRight +
-      "px " +
-      -insetBottom +
-      "px " +
-      -insetLeft +
-      "px";
+    const rootMargin = -insetTop + "px " + -insetRight + "px " + -insetBottom + "px " + -insetLeft + "px";
     const options = {
       rootMargin,
-      threshold: max2(0, min2(1, threshold)) || 1,
+      threshold: max2(0, min2(1, threshold)) || 1
     };
     let isFirstUpdate = true;
     function handleObserve(entries) {
@@ -3003,7 +2709,7 @@ function observeMove(element, onMove) {
       io = new IntersectionObserver(handleObserve, {
         ...options,
         // Handle <iframe>s
-        root: root.ownerDocument,
+        root: root.ownerDocument
       });
     } catch (e) {
       io = new IntersectionObserver(handleObserve, options);
@@ -3022,25 +2728,17 @@ function autoUpdate(reference, floating, update, options) {
     ancestorResize = true,
     elementResize = typeof ResizeObserver === "function",
     layoutShift = typeof IntersectionObserver === "function",
-    animationFrame = false,
+    animationFrame = false
   } = options;
   const referenceEl = unwrapElement(reference);
-  const ancestors =
-    ancestorScroll || ancestorResize
-      ? [
-          ...(referenceEl ? getOverflowAncestors(referenceEl) : []),
-          ...getOverflowAncestors(floating),
-        ]
-      : [];
+  const ancestors = ancestorScroll || ancestorResize ? [...referenceEl ? getOverflowAncestors(referenceEl) : [], ...getOverflowAncestors(floating)] : [];
   ancestors.forEach((ancestor) => {
-    ancestorScroll &&
-      ancestor.addEventListener("scroll", update, {
-        passive: true,
-      });
+    ancestorScroll && ancestor.addEventListener("scroll", update, {
+      passive: true
+    });
     ancestorResize && ancestor.addEventListener("resize", update);
   });
-  const cleanupIo =
-    referenceEl && layoutShift ? observeMove(referenceEl, update) : null;
+  const cleanupIo = referenceEl && layoutShift ? observeMove(referenceEl, update) : null;
   let reobserveFrame = -1;
   let resizeObserver = null;
   if (elementResize) {
@@ -3051,8 +2749,7 @@ function autoUpdate(reference, floating, update, options) {
         cancelAnimationFrame(reobserveFrame);
         reobserveFrame = requestAnimationFrame(() => {
           var _resizeObserver;
-          (_resizeObserver = resizeObserver) == null ||
-            _resizeObserver.observe(floating);
+          (_resizeObserver = resizeObserver) == null || _resizeObserver.observe(floating);
         });
       }
       update();
@@ -3069,13 +2766,7 @@ function autoUpdate(reference, floating, update, options) {
   }
   function frameLoop() {
     const nextRefRect = getBoundingClientRect(reference);
-    if (
-      prevRefRect &&
-      (nextRefRect.x !== prevRefRect.x ||
-        nextRefRect.y !== prevRefRect.y ||
-        nextRefRect.width !== prevRefRect.width ||
-        nextRefRect.height !== prevRefRect.height)
-    ) {
+    if (prevRefRect && (nextRefRect.x !== prevRefRect.x || nextRefRect.y !== prevRefRect.y || nextRefRect.width !== prevRefRect.width || nextRefRect.height !== prevRefRect.height)) {
       update();
     }
     prevRefRect = nextRefRect;
@@ -3089,8 +2780,7 @@ function autoUpdate(reference, floating, update, options) {
       ancestorResize && ancestor.removeEventListener("resize", update);
     });
     cleanupIo == null || cleanupIo();
-    (_resizeObserver2 = resizeObserver) == null ||
-      _resizeObserver2.disconnect();
+    (_resizeObserver2 = resizeObserver) == null || _resizeObserver2.disconnect();
     resizeObserver = null;
     if (animationFrame) {
       cancelAnimationFrame(frameId);
@@ -3105,15 +2795,15 @@ var computePosition2 = (reference, floating, options) => {
   const cache = /* @__PURE__ */ new Map();
   const mergedOptions = {
     platform,
-    ...options,
+    ...options
   };
   const platformWithCache = {
     ...mergedOptions.platform,
-    _c: cache,
+    _c: cache
   };
   return computePosition(reference, floating, {
     ...mergedOptions,
-    platform: platformWithCache,
+    platform: platformWithCache
   });
 };
 
@@ -3137,7 +2827,7 @@ function usePopupControl(props) {
       } else {
         hide2();
       }
-    },
+    }
   );
   function addEventListeners() {
     const triggerRef = extractRefHTMLElement(props.triggerRef);
@@ -3151,12 +2841,12 @@ function usePopupControl(props) {
           on(
             triggerRef,
             "mouseenter",
-            props.componentProps.value.interactable ? hoverShow : show,
+            props.componentProps.value.interactable ? hoverShow : show
           );
           on(
             triggerRef,
             "mouseleave",
-            props.componentProps.value.interactable ? hoverHide : hide2,
+            props.componentProps.value.interactable ? hoverHide : hide2
           );
           if (props.componentProps.value.interactable) {
             on(popupRef, "mouseenter", hoverShow);
@@ -3189,12 +2879,12 @@ function usePopupControl(props) {
           off(
             triggerRef,
             "mouseenter",
-            props.componentProps.value.interactable ? hoverShow : show,
+            props.componentProps.value.interactable ? hoverShow : show
           );
           off(
             triggerRef,
             "mouseleave",
-            props.componentProps.value.interactable ? hoverHide : hide2,
+            props.componentProps.value.interactable ? hoverHide : hide2
           );
           if (props.componentProps.value.interactable) {
             off(popupRef, "mouseenter", hoverShow);
@@ -3216,11 +2906,7 @@ function usePopupControl(props) {
     });
   }
   function show() {
-    if (
-      props.componentProps.value.disabled ||
-      props.componentProps.value.readonly ||
-      visible.value
-    ) {
+    if (props.componentProps.value.disabled || props.componentProps.value.readonly || visible.value) {
       return;
     }
     triggerStack.value += 1;
@@ -3229,11 +2915,7 @@ function usePopupControl(props) {
     props.emit("update:visible", true);
   }
   function hide2() {
-    if (
-      props.componentProps.value.disabled ||
-      props.componentProps.value.readonly ||
-      !visible.value
-    ) {
+    if (props.componentProps.value.disabled || props.componentProps.value.readonly || !visible.value) {
       return;
     }
     triggerStack.value -= 1;
@@ -3241,10 +2923,7 @@ function usePopupControl(props) {
       triggerStack.value = 0;
       visible.value = false;
       props.emit("update:visible", false);
-      setTimeout(
-        () => destroyPopup(),
-        props.componentProps.value.animationDuration,
-      );
+      setTimeout(() => destroyPopup(), props.componentProps.value.animationDuration);
     }
   }
   function onClick() {
@@ -3292,31 +2971,29 @@ function usePopupControl(props) {
         middleware: [
           offset2(props.componentProps.value.offset),
           flip2(),
-          shift2({ padding: 6 }),
+          shift2({ padding: 6 })
         ].concat(arrowRef ? [arrow2({ element: arrowRef })] : []),
-        ...props.componentProps.value.popupOptions,
+        ...props.componentProps.value.popupOptions
       }).then(({ x, y, placement, middlewareData }) => {
         Object.assign(popupRef.style, {
           left: `${x}px`,
-          top: `${y}px`,
+          top: `${y}px`
         });
-        popupRef == null
-          ? void 0
-          : popupRef.setAttribute("data-popup-placement", placement);
+        popupRef == null ? void 0 : popupRef.setAttribute("data-popup-placement", placement);
         if (arrowRef) {
           const { x: arrowX, y: arrowY } = middlewareData.arrow;
           const staticSide = {
             top: "bottom",
             right: "left",
             bottom: "top",
-            left: "right",
+            left: "right"
           }[placement.split("-")[0]];
           Object.assign(arrowRef.style, {
             left: arrowX !== null ? `${arrowX}px` : "",
             top: arrowY !== null ? `${arrowY}px` : "",
             right: "",
             bottom: "",
-            [staticSide]: "-6px",
+            [staticSide]: "-6px"
           });
         }
       });
@@ -3349,7 +3026,7 @@ function usePopupControl(props) {
     onKeyEscape,
     focusTrigger,
     createPopup,
-    destroyPopup,
+    destroyPopup
   };
 }
 
@@ -3364,16 +3041,12 @@ function useValidation(options) {
   const inkline = useInkline();
   const form = inject(FormKey, null);
   const formGroup = inject(FormGroupKey, null);
-  const schema = form
-    ? computed(() => {
-        var _a2;
-        return (
-          form.schema &&
-          ((_a2 = options.validate) == null ? void 0 : _a2.value) &&
-          getValueByPath(form.schema.value, options.name.value)
-        );
-      })
-    : ref(((_a = options.schema) == null ? void 0 : _a.value) || null);
+  const schema = form ? computed(
+    () => {
+      var _a2;
+      return form.schema && ((_a2 = options.validate) == null ? void 0 : _a2.value) && getValueByPath(form.schema.value, options.name.value);
+    }
+  ) : ref(((_a = options.schema) == null ? void 0 : _a.value) || null);
   if (!form && ((_b = options.schema) == null ? void 0 : _b.value)) {
     watch(
       () => {
@@ -3382,7 +3055,7 @@ function useValidation(options) {
       },
       (value) => {
         schema.value = value;
-      },
+      }
     );
   }
   function shouldValidate(schema2, eventName) {
@@ -3390,11 +3063,7 @@ function useValidation(options) {
     if (!((_a2 = options.validate) == null ? void 0 : _a2.value)) {
       return;
     }
-    const events = schema2.validateOn
-      ? [].concat(schema2.validateOn)
-      : (_b2 = inkline == null ? void 0 : inkline.options) == null
-        ? void 0
-        : _b2.validateOn;
+    const events = schema2.validateOn ? [].concat(schema2.validateOn) : (_b2 = inkline == null ? void 0 : inkline.options) == null ? void 0 : _b2.validateOn;
     return events.includes(eventName);
   }
   async function setValue(name, value) {
@@ -3406,21 +3075,19 @@ function useValidation(options) {
     const targetSchema = getValueByPath(resolvedSchema, name);
     if (!targetSchema) {
       throw new Error(
-        'Schema to be validated not found. Did you forget to match the schema key to the input "name" prop?',
+        'Schema to be validated not found. Did you forget to match the schema key to the input "name" prop?'
       );
     }
     resolvedSchema = setValueByPath(resolvedSchema, `${name}.value`, value);
     resolvedSchema = setValuesAlongPath(resolvedSchema, name, {
       pristine: false,
-      dirty: true,
+      dirty: true
     });
     if (shouldValidate(targetSchema, "input")) {
       resolvedSchema = await validateSchema(resolvedSchema);
     }
     schema.value = resolvedSchema;
-    (_b2 = options.onUpdate) == null
-      ? void 0
-      : _b2.call(options, resolvedSchema);
+    (_b2 = options.onUpdate) == null ? void 0 : _b2.call(options, resolvedSchema);
   }
   async function setTouched(name, event) {
     var _a2, _b2;
@@ -3431,20 +3098,18 @@ function useValidation(options) {
     const targetSchema = getValueByPath(resolvedSchema, name);
     if (!targetSchema) {
       throw new Error(
-        'Schema to be validated not found. Did you forget to match the schema key to the input "name" prop?',
+        'Schema to be validated not found. Did you forget to match the schema key to the input "name" prop?'
       );
     }
     resolvedSchema = setValuesAlongPath(resolvedSchema, name, {
       untouched: false,
-      touched: true,
+      touched: true
     });
     if (shouldValidate(targetSchema, event.type)) {
       resolvedSchema = await validateSchema(resolvedSchema);
     }
     schema.value = resolvedSchema;
-    (_b2 = options.onUpdate) == null
-      ? void 0
-      : _b2.call(options, resolvedSchema);
+    (_b2 = options.onUpdate) == null ? void 0 : _b2.call(options, resolvedSchema);
   }
   async function onSubmit(event) {
     var _a2, _b2, _c;
@@ -3454,7 +3119,7 @@ function useValidation(options) {
     let resolvedSchema = await validateSchema(schema.value);
     resolvedSchema = setSchemaStateRecursively(resolvedSchema, {
       untouched: false,
-      touched: true,
+      touched: true
     });
     if (resolvedSchema.valid) {
       (_b2 = options.onSubmit) == null ? void 0 : _b2.call(options, event);
@@ -3551,16 +3216,14 @@ var OverlayController = {
     if (topOverlay && topOverlay.closeOnPressEscape) {
       topOverlay.hide();
     }
-  },
+  }
 };
 
 // node_modules/@inkline/inkline/plugins/colorMode.mjs
 var onChangeColorMode = (colorMode) => {
   let color;
   if (colorMode === "system") {
-    color = matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+    color = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   } else {
     color = colorMode;
   }
@@ -3578,10 +3241,7 @@ var ColorModePlugin = {
       };
       const darkModeMediaQuery = matchMedia("(prefers-color-scheme: dark)");
       if (darkModeMediaQuery.addEventListener) {
-        darkModeMediaQuery.addEventListener(
-          "change",
-          onDarkModeMediaQueryChange,
-        );
+        darkModeMediaQuery.addEventListener("change", onDarkModeMediaQueryChange);
       } else {
         darkModeMediaQuery.addListener(onDarkModeMediaQueryChange);
       }
@@ -3592,12 +3252,9 @@ var ColorModePlugin = {
           if (inkline.options.colorModeStrategy === "localStorage") {
             localStorage.setItem(colorModeLocalStorageKey, colorMode);
           }
-        },
+        }
       );
-      if (
-        inkline.options.colorModeStrategy === "localStorage" &&
-        renderMode === "client"
-      ) {
+      if (inkline.options.colorModeStrategy === "localStorage" && renderMode === "client") {
         const storedColorMode = localStorage.getItem(colorModeLocalStorageKey);
         if (storedColorMode) {
           inkline.options.colorMode = storedColorMode;
@@ -3606,7 +3263,7 @@ var ColorModePlugin = {
         onChangeColorMode(inkline.options.colorMode);
       }
     }
-  },
+  }
 };
 
 // node_modules/@inkline/inkline/icons.mjs
@@ -3628,7 +3285,7 @@ __export(icons_exports, {
   inkSortAsc: () => inkSortAsc,
   inkSortDesc: () => inkSortDesc,
   inkTimes: () => inkTimes,
-  inkWarning: () => inkWarning,
+  inkWarning: () => inkWarning
 });
 var inkCaretDown = {
   name: "svg",
@@ -3640,7 +3297,7 @@ var inkCaretDown = {
     width: "16",
     height: "28",
     viewBox: "0 0 16 28",
-    fill: "currentColor",
+    fill: "currentColor"
   },
   children: [
     {
@@ -3649,25 +3306,19 @@ var inkCaretDown = {
       value: "",
       attributes: {},
       children: [
-        {
-          name: "",
-          type: "text",
-          value: "caret-down",
-          attributes: {},
-          children: [],
-        },
-      ],
+        { name: "", type: "text", value: "caret-down", attributes: {}, children: [] }
+      ]
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M16 11c0 0.266-0.109 0.516-0.297 0.703l-7 7c-0.187 0.187-0.438 0.297-0.703 0.297s-0.516-0.109-0.703-0.297l-7-7c-0.187-0.187-0.297-0.438-0.297-0.703 0-0.547 0.453-1 1-1h14c0.547 0 1 0.453 1 1z",
+        d: "M16 11c0 0.266-0.109 0.516-0.297 0.703l-7 7c-0.187 0.187-0.438 0.297-0.703 0.297s-0.516-0.109-0.703-0.297l-7-7c-0.187-0.187-0.297-0.438-0.297-0.703 0-0.547 0.453-1 1-1h14c0.547 0 1 0.453 1 1z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkCheck = {
   name: "svg",
@@ -3679,7 +3330,7 @@ var inkCheck = {
     width: "28",
     height: "28",
     viewBox: "0 0 28 28",
-    fill: "currentColor",
+    fill: "currentColor"
   },
   children: [
     {
@@ -3687,26 +3338,18 @@ var inkCheck = {
       type: "element",
       value: "",
       attributes: {},
-      children: [
-        {
-          name: "",
-          type: "text",
-          value: "check",
-          attributes: {},
-          children: [],
-        },
-      ],
+      children: [{ name: "", type: "text", value: "check", attributes: {}, children: [] }]
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M23.625 3.5l-13.125 13.125-6.125-6.125-4.375 4.375 10.5 10.5 17.5-17.5z",
+        d: "M23.625 3.5l-13.125 13.125-6.125-6.125-4.375 4.375 10.5 10.5 17.5-17.5z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkChevronDown = {
   name: "svg",
@@ -3718,7 +3361,7 @@ var inkChevronDown = {
     width: "28",
     height: "28",
     viewBox: "0 0 28 28",
-    fill: "currentColor",
+    fill: "currentColor"
   },
   children: [
     {
@@ -3727,25 +3370,19 @@ var inkChevronDown = {
       value: "",
       attributes: {},
       children: [
-        {
-          name: "",
-          type: "text",
-          value: "chevron-down",
-          attributes: {},
-          children: [],
-        },
-      ],
+        { name: "", type: "text", value: "chevron-down", attributes: {}, children: [] }
+      ]
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M26.297 12.625l-11.594 11.578c-0.391 0.391-1.016 0.391-1.406 0l-11.594-11.578c-0.391-0.391-0.391-1.031 0-1.422l2.594-2.578c0.391-0.391 1.016-0.391 1.406 0l8.297 8.297 8.297-8.297c0.391-0.391 1.016-0.391 1.406 0l2.594 2.578c0.391 0.391 0.391 1.031 0 1.422z",
+        d: "M26.297 12.625l-11.594 11.578c-0.391 0.391-1.016 0.391-1.406 0l-11.594-11.578c-0.391-0.391-0.391-1.031 0-1.422l2.594-2.578c0.391-0.391 1.016-0.391 1.406 0l8.297 8.297 8.297-8.297c0.391-0.391 1.016-0.391 1.406 0l2.594 2.578c0.391 0.391 0.391 1.031 0 1.422z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkCircle = {
   name: "svg",
@@ -3757,7 +3394,7 @@ var inkCircle = {
     width: "24",
     height: "28",
     viewBox: "0 0 24 28",
-    fill: "currentColor",
+    fill: "currentColor"
   },
   children: [
     {
@@ -3765,26 +3402,18 @@ var inkCircle = {
       type: "element",
       value: "",
       attributes: {},
-      children: [
-        {
-          name: "",
-          type: "text",
-          value: "circle",
-          attributes: {},
-          children: [],
-        },
-      ],
+      children: [{ name: "", type: "text", value: "circle", attributes: {}, children: [] }]
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M24 14c0 6.625-5.375 12-12 12s-12-5.375-12-12 5.375-12 12-12 12 5.375 12 12z",
+        d: "M24 14c0 6.625-5.375 12-12 12s-12-5.375-12-12 5.375-12 12-12 12 5.375 12 12z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkDanger = {
   name: "svg",
@@ -3796,7 +3425,7 @@ var inkDanger = {
     width: "28",
     height: "28",
     viewBox: "0 0 28 28",
-    fill: "currentColor",
+    fill: "currentColor"
   },
   children: [
     {
@@ -3804,26 +3433,18 @@ var inkDanger = {
       type: "element",
       value: "",
       attributes: {},
-      children: [
-        {
-          name: "",
-          type: "text",
-          value: "danger",
-          attributes: {},
-          children: [],
-        },
-      ],
+      children: [{ name: "", type: "text", value: "danger", attributes: {}, children: [] }]
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M14 2.625c-3.038 0-5.895 1.183-8.043 3.332s-3.332 5.005-3.332 8.043c0 3.038 1.183 5.895 3.332 8.043s5.005 3.332 8.043 3.332c3.038 0 5.895-1.183 8.043-3.332s3.332-5.005 3.332-8.043c0-3.038-1.183-5.895-3.332-8.043s-5.005-3.332-8.043-3.332zM14 0v0c7.732 0 14 6.268 14 14s-6.268 14-14 14c-7.732 0-14-6.268-14-14s6.268-14 14-14zM12.25 19.25h3.5v3.5h-3.5zM12.25 5.25h3.5v10.5h-3.5z",
+        d: "M14 2.625c-3.038 0-5.895 1.183-8.043 3.332s-3.332 5.005-3.332 8.043c0 3.038 1.183 5.895 3.332 8.043s5.005 3.332 8.043 3.332c3.038 0 5.895-1.183 8.043-3.332s3.332-5.005 3.332-8.043c0-3.038-1.183-5.895-3.332-8.043s-5.005-3.332-8.043-3.332zM14 0v0c7.732 0 14 6.268 14 14s-6.268 14-14 14c-7.732 0-14-6.268-14-14s6.268-14 14-14zM12.25 19.25h3.5v3.5h-3.5zM12.25 5.25h3.5v10.5h-3.5z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkInfo = {
   name: "svg",
@@ -3835,7 +3456,7 @@ var inkInfo = {
     width: "28",
     height: "28",
     viewBox: "0 0 28 28",
-    fill: "currentColor",
+    fill: "currentColor"
   },
   children: [
     {
@@ -3843,38 +3464,34 @@ var inkInfo = {
       type: "element",
       value: "",
       attributes: {},
-      children: [
-        { name: "", type: "text", value: "info", attributes: {}, children: [] },
-      ],
+      children: [{ name: "", type: "text", value: "info", attributes: {}, children: [] }]
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M12.25 8.313c0-0.722 0.591-1.313 1.313-1.313h0.875c0.722 0 1.313 0.591 1.313 1.313v0.875c0 0.722-0.591 1.313-1.313 1.313h-0.875c-0.722 0-1.313-0.591-1.313-1.313v-0.875z",
+        d: "M12.25 8.313c0-0.722 0.591-1.313 1.313-1.313h0.875c0.722 0 1.313 0.591 1.313 1.313v0.875c0 0.722-0.591 1.313-1.313 1.313h-0.875c-0.722 0-1.313-0.591-1.313-1.313v-0.875z"
       },
-      children: [],
+      children: []
+    },
+    {
+      name: "path",
+      type: "element",
+      value: "",
+      attributes: { d: "M17.5 21h-7v-1.75h1.75v-5.25h-1.75v-1.75h5.25v7h1.75z" },
+      children: []
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M17.5 21h-7v-1.75h1.75v-5.25h-1.75v-1.75h5.25v7h1.75z",
+        d: "M14 0c-7.732 0-14 6.268-14 14s6.268 14 14 14 14-6.268 14-14-6.268-14-14-14zM14 25.375c-6.282 0-11.375-5.093-11.375-11.375s5.093-11.375 11.375-11.375 11.375 5.093 11.375 11.375-5.093 11.375-11.375 11.375z"
       },
-      children: [],
-    },
-    {
-      name: "path",
-      type: "element",
-      value: "",
-      attributes: {
-        d: "M14 0c-7.732 0-14 6.268-14 14s6.268 14 14 14 14-6.268 14-14-6.268-14-14-14zM14 25.375c-6.282 0-11.375-5.093-11.375-11.375s5.093-11.375 11.375-11.375 11.375 5.093 11.375 11.375-5.093 11.375-11.375 11.375z",
-      },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkMinus = {
   name: "svg",
@@ -3886,7 +3503,7 @@ var inkMinus = {
     width: "28",
     height: "28",
     viewBox: "0 0 28 28",
-    fill: "currentColor",
+    fill: "currentColor"
   },
   children: [
     {
@@ -3894,26 +3511,18 @@ var inkMinus = {
       type: "element",
       value: "",
       attributes: {},
-      children: [
-        {
-          name: "",
-          type: "text",
-          value: "minus",
-          attributes: {},
-          children: [],
-        },
-      ],
+      children: [{ name: "", type: "text", value: "minus", attributes: {}, children: [] }]
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M0 11.375v5.25c0 0.483 0.392 0.875 0.875 0.875h26.25c0.483 0 0.875-0.392 0.875-0.875v-5.25c0-0.483-0.392-0.875-0.875-0.875h-26.25c-0.483 0-0.875 0.392-0.875 0.875z",
+        d: "M0 11.375v5.25c0 0.483 0.392 0.875 0.875 0.875h26.25c0.483 0 0.875-0.392 0.875-0.875v-5.25c0-0.483-0.392-0.875-0.875-0.875h-26.25c-0.483 0-0.875 0.392-0.875 0.875z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkPlus = {
   name: "svg",
@@ -3925,7 +3534,7 @@ var inkPlus = {
     width: "28",
     height: "28",
     viewBox: "0 0 28 28",
-    fill: "currentColor",
+    fill: "currentColor"
   },
   children: [
     {
@@ -3933,20 +3542,18 @@ var inkPlus = {
       type: "element",
       value: "",
       attributes: {},
-      children: [
-        { name: "", type: "text", value: "plus", attributes: {}, children: [] },
-      ],
+      children: [{ name: "", type: "text", value: "plus", attributes: {}, children: [] }]
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M27.125 10.5h-9.625v-9.625c0-0.483-0.392-0.875-0.875-0.875h-5.25c-0.483 0-0.875 0.392-0.875 0.875v9.625h-9.625c-0.483 0-0.875 0.392-0.875 0.875v5.25c0 0.483 0.392 0.875 0.875 0.875h9.625v9.625c0 0.483 0.392 0.875 0.875 0.875h5.25c0.483 0 0.875-0.392 0.875-0.875v-9.625h9.625c0.483 0 0.875-0.392 0.875-0.875v-5.25c0-0.483-0.392-0.875-0.875-0.875z",
+        d: "M27.125 10.5h-9.625v-9.625c0-0.483-0.392-0.875-0.875-0.875h-5.25c-0.483 0-0.875 0.392-0.875 0.875v9.625h-9.625c-0.483 0-0.875 0.392-0.875 0.875v5.25c0 0.483 0.392 0.875 0.875 0.875h9.625v9.625c0 0.483 0.392 0.875 0.875 0.875h5.25c0.483 0 0.875-0.392 0.875-0.875v-9.625h9.625c0.483 0 0.875-0.392 0.875-0.875v-5.25c0-0.483-0.392-0.875-0.875-0.875z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkSearch = {
   name: "svg",
@@ -3958,7 +3565,7 @@ var inkSearch = {
     width: "28",
     height: "28",
     viewBox: "0 0 28 28",
-    fill: "currentColor",
+    fill: "currentColor"
   },
   children: [
     {
@@ -3966,26 +3573,18 @@ var inkSearch = {
       type: "element",
       value: "",
       attributes: {},
-      children: [
-        {
-          name: "",
-          type: "text",
-          value: "search",
-          attributes: {},
-          children: [],
-        },
-      ],
+      children: [{ name: "", type: "text", value: "search", attributes: {}, children: [] }]
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M27.132 23.827l-6.632-5.641c-0.686-0.617-1.419-0.9-2.011-0.873 1.566-1.834 2.511-4.213 2.511-6.813 0-5.799-4.701-10.5-10.5-10.5s-10.5 4.701-10.5 10.5 4.701 10.5 10.5 10.5c2.6 0 4.98-0.946 6.813-2.511-0.027 0.592 0.256 1.326 0.873 2.011l5.641 6.632c0.966 1.073 2.544 1.164 3.506 0.201s0.872-2.54-0.201-3.506zM10.5 17.5c-3.866 0-7-3.134-7-7s3.134-7 7-7 7 3.134 7 7-3.134 7-7 7z",
+        d: "M27.132 23.827l-6.632-5.641c-0.686-0.617-1.419-0.9-2.011-0.873 1.566-1.834 2.511-4.213 2.511-6.813 0-5.799-4.701-10.5-10.5-10.5s-10.5 4.701-10.5 10.5 4.701 10.5 10.5 10.5c2.6 0 4.98-0.946 6.813-2.511-0.027 0.592 0.256 1.326 0.873 2.011l5.641 6.632c0.966 1.073 2.544 1.164 3.506 0.201s0.872-2.54-0.201-3.506zM10.5 17.5c-3.866 0-7-3.134-7-7s3.134-7 7-7 7 3.134 7 7-3.134 7-7 7z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkSortAsc = {
   name: "svg",
@@ -3997,7 +3596,7 @@ var inkSortAsc = {
     width: "16",
     height: "28",
     viewBox: "0 0 16 28",
-    fill: "currentColor",
+    fill: "currentColor"
   },
   children: [
     {
@@ -4005,26 +3604,18 @@ var inkSortAsc = {
       type: "element",
       value: "",
       attributes: {},
-      children: [
-        {
-          name: "",
-          type: "text",
-          value: "sort-asc",
-          attributes: {},
-          children: [],
-        },
-      ],
+      children: [{ name: "", type: "text", value: "sort-asc", attributes: {}, children: [] }]
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M16 11c0 0.547-0.453 1-1 1h-14c-0.547 0-1-0.453-1-1 0-0.266 0.109-0.516 0.297-0.703l7-7c0.187-0.187 0.438-0.297 0.703-0.297s0.516 0.109 0.703 0.297l7 7c0.187 0.187 0.297 0.438 0.297 0.703z",
+        d: "M16 11c0 0.547-0.453 1-1 1h-14c-0.547 0-1-0.453-1-1 0-0.266 0.109-0.516 0.297-0.703l7-7c0.187-0.187 0.438-0.297 0.703-0.297s0.516 0.109 0.703 0.297l7 7c0.187 0.187 0.297 0.438 0.297 0.703z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkSortDesc = {
   name: "svg",
@@ -4036,7 +3627,7 @@ var inkSortDesc = {
     width: "16",
     height: "28",
     viewBox: "0 0 16 28",
-    fill: "currentColor",
+    fill: "currentColor"
   },
   children: [
     {
@@ -4044,26 +3635,18 @@ var inkSortDesc = {
       type: "element",
       value: "",
       attributes: {},
-      children: [
-        {
-          name: "",
-          type: "text",
-          value: "sort-desc",
-          attributes: {},
-          children: [],
-        },
-      ],
+      children: [{ name: "", type: "text", value: "sort-desc", attributes: {}, children: [] }]
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M16 17c0 0.266-0.109 0.516-0.297 0.703l-7 7c-0.187 0.187-0.438 0.297-0.703 0.297s-0.516-0.109-0.703-0.297l-7-7c-0.187-0.187-0.297-0.438-0.297-0.703 0-0.547 0.453-1 1-1h14c0.547 0 1 0.453 1 1z",
+        d: "M16 17c0 0.266-0.109 0.516-0.297 0.703l-7 7c-0.187 0.187-0.438 0.297-0.703 0.297s-0.516-0.109-0.703-0.297l-7-7c-0.187-0.187-0.297-0.438-0.297-0.703 0-0.547 0.453-1 1-1h14c0.547 0 1 0.453 1 1z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkSort = {
   name: "svg",
@@ -4075,7 +3658,7 @@ var inkSort = {
     width: "16",
     height: "28",
     viewBox: "0 0 16 28",
-    fill: "currentColor",
+    fill: "currentColor"
   },
   children: [
     {
@@ -4083,20 +3666,18 @@ var inkSort = {
       type: "element",
       value: "",
       attributes: {},
-      children: [
-        { name: "", type: "text", value: "sort", attributes: {}, children: [] },
-      ],
+      children: [{ name: "", type: "text", value: "sort", attributes: {}, children: [] }]
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M16 17c0 0.266-0.109 0.516-0.297 0.703l-7 7c-0.187 0.187-0.438 0.297-0.703 0.297s-0.516-0.109-0.703-0.297l-7-7c-0.187-0.187-0.297-0.438-0.297-0.703 0-0.547 0.453-1 1-1h14c0.547 0 1 0.453 1 1zM16 11c0 0.547-0.453 1-1 1h-14c-0.547 0-1-0.453-1-1 0-0.266 0.109-0.516 0.297-0.703l7-7c0.187-0.187 0.438-0.297 0.703-0.297s0.516 0.109 0.703 0.297l7 7c0.187 0.187 0.297 0.438 0.297 0.703z",
+        d: "M16 17c0 0.266-0.109 0.516-0.297 0.703l-7 7c-0.187 0.187-0.438 0.297-0.703 0.297s-0.516-0.109-0.703-0.297l-7-7c-0.187-0.187-0.297-0.438-0.297-0.703 0-0.547 0.453-1 1-1h14c0.547 0 1 0.453 1 1zM16 11c0 0.547-0.453 1-1 1h-14c-0.547 0-1-0.453-1-1 0-0.266 0.109-0.516 0.297-0.703l7-7c0.187-0.187 0.438-0.297 0.703-0.297s0.516 0.109 0.703 0.297l7 7c0.187 0.187 0.297 0.438 0.297 0.703z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkTimes = {
   name: "svg",
@@ -4108,7 +3689,7 @@ var inkTimes = {
     width: "28",
     height: "28",
     viewBox: "0 0 28 28",
-    fill: "currentColor",
+    fill: "currentColor"
   },
   children: [
     {
@@ -4116,26 +3697,18 @@ var inkTimes = {
       type: "element",
       value: "",
       attributes: {},
-      children: [
-        {
-          name: "",
-          type: "text",
-          value: "times",
-          attributes: {},
-          children: [],
-        },
-      ],
+      children: [{ name: "", type: "text", value: "times", attributes: {}, children: [] }]
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M27.745 22.495c-0-0-0-0-0-0l-8.494-8.494 8.494-8.494c0-0 0-0 0-0 0.091-0.091 0.158-0.198 0.2-0.312 0.116-0.311 0.050-0.675-0.2-0.925l-4.013-4.013c-0.25-0.25-0.614-0.316-0.925-0.2-0.114 0.042-0.221 0.109-0.312 0.2 0 0-0 0-0 0l-8.494 8.494-8.494-8.494c-0-0-0-0-0-0-0.091-0.091-0.198-0.158-0.312-0.2-0.311-0.116-0.675-0.050-0.925 0.2l-4.013 4.013c-0.25 0.25-0.316 0.614-0.2 0.925 0.042 0.114 0.109 0.221 0.2 0.312 0 0 0 0 0 0l8.494 8.494-8.494 8.494c-0 0-0 0-0 0-0.091 0.091-0.157 0.198-0.2 0.312-0.116 0.311-0.050 0.675 0.2 0.925l4.013 4.013c0.25 0.25 0.614 0.316 0.925 0.2 0.114-0.042 0.221-0.109 0.312-0.2 0-0 0-0 0-0l8.494-8.494 8.494 8.494c0 0 0 0 0 0 0.092 0.091 0.198 0.158 0.312 0.2 0.311 0.116 0.675 0.050 0.925-0.2l4.013-4.013c0.25-0.25 0.316-0.614 0.2-0.925-0.042-0.114-0.109-0.221-0.2-0.312z",
+        d: "M27.745 22.495c-0-0-0-0-0-0l-8.494-8.494 8.494-8.494c0-0 0-0 0-0 0.091-0.091 0.158-0.198 0.2-0.312 0.116-0.311 0.050-0.675-0.2-0.925l-4.013-4.013c-0.25-0.25-0.614-0.316-0.925-0.2-0.114 0.042-0.221 0.109-0.312 0.2 0 0-0 0-0 0l-8.494 8.494-8.494-8.494c-0-0-0-0-0-0-0.091-0.091-0.198-0.158-0.312-0.2-0.311-0.116-0.675-0.050-0.925 0.2l-4.013 4.013c-0.25 0.25-0.316 0.614-0.2 0.925 0.042 0.114 0.109 0.221 0.2 0.312 0 0 0 0 0 0l8.494 8.494-8.494 8.494c-0 0-0 0-0 0-0.091 0.091-0.157 0.198-0.2 0.312-0.116 0.311-0.050 0.675 0.2 0.925l4.013 4.013c0.25 0.25 0.614 0.316 0.925 0.2 0.114-0.042 0.221-0.109 0.312-0.2 0-0 0-0 0-0l8.494-8.494 8.494 8.494c0 0 0 0 0 0 0.092 0.091 0.198 0.158 0.312 0.2 0.311 0.116 0.675 0.050 0.925-0.2l4.013-4.013c0.25-0.25 0.316-0.614 0.2-0.925-0.042-0.114-0.109-0.221-0.2-0.312z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkWarning = {
   name: "svg",
@@ -4147,7 +3720,7 @@ var inkWarning = {
     width: "28",
     height: "28",
     viewBox: "0 0 28 28",
-    fill: "currentColor",
+    fill: "currentColor"
   },
   children: [
     {
@@ -4155,44 +3728,36 @@ var inkWarning = {
       type: "element",
       value: "",
       attributes: {},
-      children: [
-        {
-          name: "",
-          type: "text",
-          value: "warning",
-          attributes: {},
-          children: [],
-        },
-      ],
+      children: [{ name: "", type: "text", value: "warning", attributes: {}, children: [] }]
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M14 2.537l11.733 23.385h-23.467l11.733-23.385zM14 0c-0.603 0-1.207 0.407-1.665 1.221l-11.951 23.819c-0.916 1.628-0.137 2.96 1.731 2.96h23.77c1.868 0 2.647-1.332 1.731-2.96h0l-11.951-23.819c-0.458-0.814-1.061-1.221-1.665-1.221v0z",
+        d: "M14 2.537l11.733 23.385h-23.467l11.733-23.385zM14 0c-0.603 0-1.207 0.407-1.665 1.221l-11.951 23.819c-0.916 1.628-0.137 2.96 1.731 2.96h23.77c1.868 0 2.647-1.332 1.731-2.96h0l-11.951-23.819c-0.458-0.814-1.061-1.221-1.665-1.221v0z"
       },
-      children: [],
+      children: []
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M15.75 22.75c0 0.966-0.784 1.75-1.75 1.75s-1.75-0.784-1.75-1.75c0-0.966 0.784-1.75 1.75-1.75s1.75 0.784 1.75 1.75z",
+        d: "M15.75 22.75c0 0.966-0.784 1.75-1.75 1.75s-1.75-0.784-1.75-1.75c0-0.966 0.784-1.75 1.75-1.75s1.75 0.784 1.75 1.75z"
       },
-      children: [],
+      children: []
     },
     {
       name: "path",
       type: "element",
       value: "",
       attributes: {
-        d: "M14 19.25c-0.966 0-1.75-0.784-1.75-1.75v-5.25c0-0.966 0.784-1.75 1.75-1.75s1.75 0.784 1.75 1.75v5.25c0 0.966-0.784 1.75-1.75 1.75z",
+        d: "M14 19.25c-0.966 0-1.75-0.784-1.75-1.75v-5.25c0-0.966 0.784-1.75 1.75-1.75s1.75 0.784 1.75 1.75v5.25c0 0.966-0.784 1.75-1.75 1.75z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkEye = {
   name: "svg",
@@ -4202,7 +3767,7 @@ var inkEye = {
     xmlns: "http://www.w3.org/2000/svg",
     width: "22",
     height: "22",
-    viewBox: "0 0 22 22",
+    viewBox: "0 0 22 22"
   },
   children: [
     {
@@ -4211,11 +3776,11 @@ var inkEye = {
       value: "",
       attributes: {
         fill: "currentColor",
-        d: "M12 9a3 3 0 0 1 3 3a3 3 0 0 1-3 3a3 3 0 0 1-3-3a3 3 0 0 1 3-3m0-4.5c5 0 9.27 3.11 11 7.5c-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12c1.73-4.39 6-7.5 11-7.5M3.18 12a9.821 9.821 0 0 0 17.64 0a9.821 9.821 0 0 0-17.64 0Z",
+        d: "M12 9a3 3 0 0 1 3 3a3 3 0 0 1-3 3a3 3 0 0 1-3-3a3 3 0 0 1 3-3m0-4.5c5 0 9.27 3.11 11 7.5c-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12c1.73-4.39 6-7.5 11-7.5M3.18 12a9.821 9.821 0 0 0 17.64 0a9.821 9.821 0 0 0-17.64 0Z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkEyeOff = {
   name: "svg",
@@ -4225,7 +3790,7 @@ var inkEyeOff = {
     xmlns: "http://www.w3.org/2000/svg",
     width: "22",
     height: "22",
-    viewBox: "0 0 22 22",
+    viewBox: "0 0 22 22"
   },
   children: [
     {
@@ -4234,11 +3799,11 @@ var inkEyeOff = {
       value: "",
       attributes: {
         fill: "currentColor",
-        d: "M2 5.27L3.28 4L20 20.72L18.73 22l-3.08-3.08c-1.15.38-2.37.58-3.65.58c-5 0-9.27-3.11-11-7.5c.69-1.76 1.79-3.31 3.19-4.54L2 5.27M12 9a3 3 0 0 1 3 3a3 3 0 0 1-.17 1L11 9.17A3 3 0 0 1 12 9m0-4.5c5 0 9.27 3.11 11 7.5a11.79 11.79 0 0 1-4 5.19l-1.42-1.43A9.862 9.862 0 0 0 20.82 12A9.821 9.821 0 0 0 12 6.5c-1.09 0-2.16.18-3.16.5L7.3 5.47c1.44-.62 3.03-.97 4.7-.97M3.18 12A9.821 9.821 0 0 0 12 17.5c.69 0 1.37-.07 2-.21L11.72 15A3.064 3.064 0 0 1 9 12.28L5.6 8.87c-.99.85-1.82 1.91-2.42 3.13Z",
+        d: "M2 5.27L3.28 4L20 20.72L18.73 22l-3.08-3.08c-1.15.38-2.37.58-3.65.58c-5 0-9.27-3.11-11-7.5c.69-1.76 1.79-3.31 3.19-4.54L2 5.27M12 9a3 3 0 0 1 3 3a3 3 0 0 1-.17 1L11 9.17A3 3 0 0 1 12 9m0-4.5c5 0 9.27 3.11 11 7.5a11.79 11.79 0 0 1-4 5.19l-1.42-1.43A9.862 9.862 0 0 0 20.82 12A9.821 9.821 0 0 0 12 6.5c-1.09 0-2.16.18-3.16.5L7.3 5.47c1.44-.62 3.03-.97 4.7-.97M3.18 12A9.821 9.821 0 0 0 12 17.5c.69 0 1.37-.07 2-.21L11.72 15A3.064 3.064 0 0 1 9 12.28L5.6 8.87c-.99.85-1.82 1.91-2.42 3.13Z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 var inkClear = {
   name: "svg",
@@ -4248,7 +3813,7 @@ var inkClear = {
     xmlns: "http://www.w3.org/2000/svg",
     width: "22",
     height: "22",
-    viewBox: "0 0 22 22",
+    viewBox: "0 0 22 22"
   },
   children: [
     {
@@ -4257,11 +3822,11 @@ var inkClear = {
       value: "",
       attributes: {
         fill: "currentColor",
-        d: "M15.71 8.29a1 1 0 0 0-1.42 0L12 10.59l-2.29-2.3a1 1 0 0 0-1.42 1.42l2.3 2.29l-2.3 2.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l2.29-2.3l2.29 2.3a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42L13.41 12l2.3-2.29a1 1 0 0 0 0-1.42Zm3.36-3.36A10 10 0 1 0 4.93 19.07A10 10 0 1 0 19.07 4.93Zm-1.41 12.73A8 8 0 1 1 20 12a7.95 7.95 0 0 1-2.34 5.66Z",
+        d: "M15.71 8.29a1 1 0 0 0-1.42 0L12 10.59l-2.29-2.3a1 1 0 0 0-1.42 1.42l2.3 2.29l-2.3 2.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l2.29-2.3l2.29 2.3a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42L13.41 12l2.3-2.29a1 1 0 0 0 0-1.42Zm3.36-3.36A10 10 0 1 0 4.93 19.07A10 10 0 1 0 19.07 4.93Zm-1.41 12.73A8 8 0 1 1 20 12a7.95 7.95 0 0 1-2.34 5.66Z"
       },
-      children: [],
-    },
-  ],
+      children: []
+    }
+  ]
 };
 
 // node_modules/@inkline/inkline/plugins/icons.mjs
@@ -4269,9 +3834,9 @@ var IconsPlugin = {
   install: (app, { icons } = { icons: {} }) => {
     app.provide(InklineIconsKey, {
       ...icons_exports,
-      ...icons,
+      ...icons
     });
-  },
+  }
 };
 
 // node_modules/@inkline/inkline/plugins/modal.mjs
@@ -4292,14 +3857,14 @@ var ModalPlugin = {
     }
     if (!container.hasAttribute(containerDataAttrbiute)) {
       const modalApp = createApp(default39, {
-        eventBus: modalEventBus,
+        eventBus: modalEventBus
       });
       modalApp.provide(InklineKey, inkline);
       modalApp.use(IconsPlugin);
       container.setAttribute(containerDataAttrbiute, "");
       modalApp.mount(container);
     }
-  },
+  }
 };
 
 // node_modules/@inkline/inkline/plugins/overlay.mjs
@@ -4312,7 +3877,7 @@ var OverlayPlugin = {
         }
       });
     }
-  },
+  }
 };
 
 // node_modules/@inkline/inkline/plugins/toast.mjs
@@ -4333,14 +3898,14 @@ var ToastPlugin = {
     }
     if (!container.hasAttribute(containerDataAttribute)) {
       const toastApp = createApp(default63, {
-        eventBus: toastEventBus,
+        eventBus: toastEventBus
       });
       toastApp.provide(InklineKey, inkline);
       toastApp.use(IconsPlugin);
       container.setAttribute(containerDataAttribute, "");
       toastApp.mount(container);
     }
-  },
+  }
 };
 
 // node_modules/@inkline/inkline/plugin.mjs
@@ -4358,7 +3923,7 @@ function createInklineService({
     setLocale(locale) {
       setLocale(locale);
     },
-    options: reactive(options),
+    options: reactive(options)
   };
 }
 var defaultOptions = {
@@ -4375,16 +3940,16 @@ var defaultOptions = {
   validateOn: ["input", "blur"],
   toast: {
     position: "bottom-right",
-    duration: 3500,
+    duration: 3500
   },
-  modal: {},
+  modal: {}
 };
 var Inkline = {
   install(app, options = {}) {
     const { components, icons, renderMode, ...overrideOptions } = options;
     const extendedOptions = {
       ...defaultOptions,
-      ...overrideOptions,
+      ...overrideOptions
     };
     for (const componentIndex in components) {
       app.component(componentIndex, components[componentIndex]);
@@ -4400,7 +3965,7 @@ var Inkline = {
     app.use(ModalPlugin, { inkline: inklineService });
     app.use(OverlayPlugin);
     app.use(ToastPlugin, { inkline: inklineService });
-  },
+  }
 };
 export {
   ButtonGroupKey,
@@ -4564,6 +4129,6 @@ export {
   validateFormField,
   validateFormFieldArray,
   validateSchema,
-  validators,
+  validators
 };
 //# sourceMappingURL=@inkline_inkline.js.map

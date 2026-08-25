@@ -26,11 +26,14 @@ function groupByYear(acc, item) {
   return acc;
 }
 
-function filterByTechnology(technologyFilter) {
+function filterByTechnology(technologyFilters) {
   return (item) =>
-    !technologyFilter ||
-    item.technologies?.top?.includes(technologyFilter) ||
-    item.technologies?.additional?.includes(technologyFilter);
+    !technologyFilters.length ||
+    technologyFilters.some(
+      (technologyFilter) =>
+        item.technologies?.top?.includes(technologyFilter) ||
+        item.technologies?.additional?.includes(technologyFilter),
+    );
 }
 
 function sortByYear(a, b) {
@@ -41,7 +44,7 @@ function sortEntriesByYear([_a, [a]], [_b, [b]]) {
   return sortByYear(a, b);
 }
 
-function groupDisplayedItems(items, type = "year", filteredBy = undefined) {
+function groupDisplayedItems(items, type = "year", filteredBy = []) {
   if (!items) {
     return [];
   }
@@ -87,9 +90,20 @@ const { page } = useData();
 
 const route = useRoute();
 
+const TOP_TECHNOLOGY_COUNT = 2;
+
 const timelineMode = ref("year");
 
-const filteredBy = ref(undefined);
+const radioFilter = ref(undefined);
+const checkboxFilters = ref([]);
+const moreFilterText = ref("");
+const moreOpen = ref(false);
+
+const activeFilters = computed(() =>
+  radioFilter.value
+    ? [radioFilter.value, ...checkboxFilters.value]
+    : checkboxFilters.value,
+);
 
 const publishedMenuItems = computed(() =>
   menuItems.filter((item) => item.published).sort(sortByYear),
@@ -101,11 +115,28 @@ const selectedItem = computed(() =>
 
 const allTechnologies = computed(() => talleyTechnologies(publishedMenuItems));
 
+const topTechnologies = computed(() =>
+  allTechnologies.value.slice(0, TOP_TECHNOLOGY_COUNT),
+);
+
+const moreTechnologies = computed(() =>
+  allTechnologies.value.slice(TOP_TECHNOLOGY_COUNT),
+);
+
+const filteredMoreTechnologies = computed(() => {
+  const query = moreFilterText.value.trim().toLowerCase();
+  return query
+    ? moreTechnologies.value.filter((tech) =>
+        tech.id.toLowerCase().includes(query),
+      )
+    : moreTechnologies.value;
+});
+
 const groupedMenuItems = computed(() =>
   groupDisplayedItems(
     publishedMenuItems.value,
     timelineMode.value,
-    filteredBy.value,
+    activeFilters.value,
   ),
 );
 
@@ -126,7 +157,9 @@ const handleKeyPress = (event) => {
 };
 
 const clearFilters = () => {
-  filteredBy.value = undefined;
+  radioFilter.value = undefined;
+  checkboxFilters.value = [];
+  moreFilterText.value = "";
 };
 
 onMounted(() => setTimeout(() => scrollToCurrent(route.path)));
@@ -140,18 +173,61 @@ watch(
 </script>
 
 <template>
-  <IForm class="nav-list-controls" aria-controls="#timeline">
+  <IForm class="nav-list-controls" aria-controls="#timeline" role="form">
     <IFormGroup class="filter">
       <label>
         <span class="label">Filter by technology</span>
-        <ISelect
-          v-model="filteredBy"
-          :options="allTechnologies"
-          placeholder="Select..."
-          clearable
-          size="sm"
-          id="filterBy"
-        />
+        <span class="filter__controls">
+          <IRadioButtons
+            id="filterByTop"
+            size="sm"
+            class="buttons-group"
+            v-model="radioFilter"
+            :options="topTechnologies"
+          >
+            <template #append>
+              <IDropdown
+                v-if="moreTechnologies.length >= 6"
+                placement="bottom-end"
+                class="buttons-group__overflow"
+                @update:visible="
+                  (visible) => {
+                    moreOpen = visible;
+                    if (!visible) moreFilterText = '';
+                  }
+                "
+              >
+                <IButton
+                  size="sm"
+                  :class="`buttons-group__overflow-toggle ${moreOpen ? '-open' : ''}`"
+                >
+                  More{{
+                    checkboxFilters.length ? ` (${checkboxFilters.length})` : ""
+                  }}
+                  <IIcon name="ink-chevron-down" size="xs" />
+                </IButton>
+                <template #body>
+                  <IInput
+                    v-model="moreFilterText"
+                    size="sm"
+                    placeholder="Filter..."
+                    clearable
+                    class="buttons-group__overflow-filter"
+                  />
+                  <ICheckboxGroup
+                    v-if="filteredMoreTechnologies.length"
+                    size="sm"
+                    id="filterByMore"
+                    class="_padding:0!"
+                    v-model="checkboxFilters"
+                    :options="filteredMoreTechnologies"
+                  />
+                  <p v-else class="buttons-group__overflow-empty">No matches</p>
+                </template>
+              </IDropdown>
+            </template>
+          </IRadioButtons>
+        </span>
       </label>
     </IFormGroup>
     <IFormGroup class="mode">
@@ -192,21 +268,21 @@ watch(
             :aria-current="item.title === page.title ? 'page' : undefined"
             tabindex="0"
           >
-            <div class="item__details">
+            <section class="item__details">
               <dl class="stats">
                 <dt class="_visually-hidden">Year</dt>
                 <dd>{{ item.year }}</dd>
                 <dt class="_visually-hidden">Organisation</dt>
                 <dd class="org">{{ item.org }}</dd>
               </dl>
-              <strong class="item__title">{{ item.title }}</strong>
+              <h3 class="item__title">{{ item.title }}</h3>
               <p class="item__summary">{{ item.summary }}</p>
               <PortfolioTags
                 label="key technologies"
                 :tags="item.technologies.top"
                 v-if="item.title !== page.title"
               />
-            </div>
+            </section>
             <div
               :class="`= image -thumbnail thumbnail thumbnail--${item.thumbnailOrientation}`"
               v-if="item.title !== page.title"
@@ -235,7 +311,7 @@ watch(
   <div class="clear-action">
     <IButton
       size="sm"
-      v-if="filteredBy"
+      v-if="radioFilter || checkboxFilters.length"
       aria-controls="#timeline"
       @click="clearFilters"
       >Clear filters</IButton
@@ -251,6 +327,7 @@ watch(
 
 .nav-list-controls {
   .checkable-button-group.radio-buttons {
+    margin-left: var(--gap-1-2);
     .button {
       border: var(--border-top-width) solid var(--body--color-alt);
       background: var(--body--color-alt);
@@ -280,26 +357,78 @@ watch(
           var(--border-radius-rounded) 0;
       }
     }
-  }
 
-  .select-wrapper {
-    .input-wrapper {
-      .input-suffix {
-        padding: 0 var(--gap-1-4);
+    // When a "More" trigger is appended, it becomes the final pill instead
+    // of the last radio option. Scoped to a direct child so it doesn't also
+    // match the "More" trigger button nested inside .dropdown-wrapper.
+    &:has(.dropdown-wrapper) > .button:last-of-type {
+      border-radius: 0;
+      border-right: 0;
+    }
 
-        .select-caret {
-          margin-left: 0;
+    .dropdown-wrapper {
+      display: flex;
+
+      .buttons-group__overflow-toggle {
+        border: var(--border-top-width) solid var(--body--color-alt);
+        margin: 0;
+        padding: var(--gap-1-2) var(--gap-3-4);
+        padding-right: var(--gap-2-3);
+        border-bottom-right-radius: var(--border-radius-rounded) !important;
+        border-top-right-radius: var(--border-radius-rounded) !important;
+
+        &,
+        &:hover,
+        &:focus {
+          border-color: var(--body--color-alt);
+          background: var(--body--background) !important;
         }
       }
-
-      .input-icon.input-clear {
-        margin-right: var(--gap-1-3);
-        position: relative;
-        top: -0.1rem;
-        height: 1.2rem;
-        width: 1.2rem;
-      }
     }
+  }
+
+  .filter__controls {
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-1-4);
+      padding: var(--gap-1-2);
+      max-height: 18rem;
+      overflow-y: auto;
+      white-space: nowrap;
+    }
+  }
+}
+
+.buttons-group {
+  &__overflow-toggle {
+    .inkline-icon {
+      transition: var(--transition-transform);
+      margin-right: calc(var(--gap-1-5) * -1.5);
+    }
+
+    &.-open .inkline-icon {
+      transform: rotate(180deg);
+    }
+  }
+  &__overflow {
+    .dropdown-body {
+      padding: var(--gap-1-3) !important;
+    }
+  }
+
+  &__overflow-filter {
+    margin-bottom: var(--gap-1-3);
+    [type="text"] {
+      padding: var(--gap-1-5) var(--gap-1-3) !important;
+    }
+  }
+
+  &__overflow-empty {
+    margin: 0;
+    padding: var(--gap-1-2);
+    font-size: var(--font-size-sm);
+    color: var(--body--color-alt);
   }
 }
 </style>
@@ -309,22 +438,35 @@ watch(
 
 .nav-list-controls {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: var(--gap-1-2);
+  row-gap: 0;
   padding: 0;
   border: var(--border-width-bold) solid var(--body--color);
   border-radius: var(--border-radius-rounded) var(--border-radius-rounded)
     var(--border-radius-rounded) 0;
 
+  @include breakpoint-md-up {
+    flex-wrap: nowrap;
+  }
+
   label {
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
     padding: var(--gap-1-3) 0 var(--gap-1-4);
+    row-gap: var(--gap-1-4);
 
     .label {
       font-size: var(--font-size-sm);
       margin-bottom: 0;
       padding: 0 var(--gap-1-2);
       max-width: fit-content;
+    }
+
+    @include breakpoint-sm-up {
+      flex-wrap: nowrap;
     }
   }
 
@@ -345,6 +487,10 @@ watch(
     padding: 0;
     display: flex;
     min-width: fit-content;
+
+    button {
+      border-radius: 0 !important;
+    }
   }
 }
 
@@ -459,6 +605,7 @@ watch(
 
   &.image.-thumbnail {
     padding: 0;
+    align-self: start;
   }
 
   img {

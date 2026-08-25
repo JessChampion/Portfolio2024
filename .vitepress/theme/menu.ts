@@ -28,7 +28,7 @@ export default [
     year: "2019",
     sort: 1,
     title: "StudyIt",
-    menu: "work",
+
     thumbnail: "/work-media/studyit-phone.jpg",
     thumbnailOrientation: "portrait",
     published: true,
@@ -68,7 +68,7 @@ export default [
     year: "2020-2022",
     sort: 1,
     title: "ChannelFireball Marketplace",
-    menu: "work",
+
     thumbnail: "/work-media/cfb-marketplace-desktop.png",
     thumbnailOrientation: "portrait",
     published: true,
@@ -99,7 +99,7 @@ export default [
     year: "2014",
     sort: 5,
     title: "Employee cost calculator",
-    menu: "work",
+
     thumbnail: "/work-media/ECC-Thumbnail2.png",
     thumbnailOrientation: "portrait",
     published: true,
@@ -116,7 +116,7 @@ export default [
     year: "2013-2015",
     sort: 5,
     title: "Farm Source",
-    menu: "work",
+
     thumbnail: "/work-media/FarmSourceThumbnail.png",
     thumbnailOrientation: "portrait",
     published: true,
@@ -157,7 +157,7 @@ export default [
     year: "2012",
     sort: 5,
     title: "MetConnect International",
-    menu: "work",
+
     thumbnail: "/work-media/metconnectThumbnail.jpg",
     thumbnailOrientation: "landscape",
     classNames: "work--met",
@@ -175,7 +175,7 @@ export default [
     year: "2018-2019",
     sort: 2,
     title: "School Leavers Toolkit",
-    menu: "work",
+
     thumbnail: "/work-media/sltk-phone.png",
     thumbnailOrientation: "portrait",
     published: true,
@@ -192,7 +192,7 @@ export default [
     year: "2017-2018",
     sort: 2,
     title: "The Hub",
-    menu: "work",
+
     thumbnail: "/work-media/hub-phone.png",
     thumbnailOrientation: "portrait",
     published: true,
@@ -210,7 +210,7 @@ export default [
     year: "2017",
     sort: 5,
     title: "Trustees Webapp",
-    menu: "work",
+
     thumbnail: "/work-media/Trustees-Account.jpg",
     thumbnailOrientation: "portrait",
     published: true,
@@ -228,5 +228,38 @@ export default [
       ],
     },
     summary: "A wealth management with a modern user experience.",
+  },
+  {
+    link: "/work/honors/",
+    org: "University of Waikato",
+    year: "2011",
+    sort: 1,
+    title: "Honors project",
+    thumbnail: "/work-media/honors1.png",
+    thumbnailOrientation: "portrait",
+    published: true,
+    tasks: ["Research", "Development"],
+    technologies: {
+      top: ["C#", "MsSQL"],
+      additional: [],
+    },
+    summary: " - Honors dissertation project",
+  },
+  {
+    link: "/work/taiao/",
+    org: "University of Waikato",
+    year: "2011",
+    sort: 2,
+    title: "Taiao",
+    thumbnail: "/work-media/taiaoThumbnail.jpg",
+    thumbnailOrientation: "portrait",
+    published: false,
+    tasks: ["Frontend Dev", "Backend Dev"],
+    technologies: {
+      top: ["C#", "MsSQL"],
+      additional: [],
+    },
+    summary:
+      "Image recognition technology for conversation - Microsoft Imagine Cup 2011 entry",
   },
 ] as WorkItems;
