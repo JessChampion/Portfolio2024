@@ -36,9 +36,9 @@ User writes on an Anoto paper card with the Anoto pen:
 </jc-gallery>
 The physical card is replicated in the system:
 <jc-gallery>
-    <jc-mockup type="desktop">
-        <img class="post-image" alt="image" src="\work-media\honors4.png"/>
-    </jc-mockup>
+<jc-mockup type="desktop">
+<img class="post-image" alt="image" src="\work-media\honors4.png"/>
+</jc-mockup>
 </jc-gallery>
 The annotated user attaching the card to the wall by drawing a line across the corner:
 
@@ -48,11 +48,11 @@ The annotated user attaching the card to the wall by drawing a line across the c
 
 This means that an exact replication of the physical board can be maintained by the system:
 <jc-gallery>
-    <img class="post-image" alt="image" src="\work-media\honors6.png"/>
+<img class="post-image" alt="image" src="\work-media\honors6.png"/>
 </jc-gallery>
 <jc-gallery>
 <jc-mockup type="desktop">
-    <img class="post-image" alt="image" src="\work-media\honors7.png"/>
+<img class="post-image" alt="image" src="\work-media\honors7.png"/>
 </jc-mockup>
 </jc-gallery>
 
@@ -60,6 +60,6 @@ There is also a deck view which allows the user to flip through all the cards en
 the text recognition results and view the history of the cards position on the board:
 <jc-gallery>
 <jc-mockup type="desktop">
-    <img class="post-image" alt="image" src="\work-media\honors8.png"/>
+<img class="post-image" alt="image" src="\work-media\honors8.png"/>
 </jc-mockup>
 </jc-gallery>

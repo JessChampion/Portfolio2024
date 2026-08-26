@@ -447,7 +447,7 @@ watch(
   border-radius: var(--border-radius-rounded) var(--border-radius-rounded)
     var(--border-radius-rounded) 0;
 
-  @include breakpoint-md-up {
+  @include breakpoint-lg-up {
     flex-wrap: nowrap;
   }
 

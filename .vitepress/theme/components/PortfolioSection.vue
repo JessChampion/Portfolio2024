@@ -82,9 +82,10 @@ const toggle = () => {
   &__content {
     max-width: 100%;
     padding: 0;
+    padding-bottom: var(--gap);
 
     @include breakpoint-sm-up {
-      padding: 0 calc(var(--gap-175)) 0 var(--gap);
+      padding: 0 calc(var(--gap-175)) var(--gap) var(--gap);
     }
   }
 }

@@ -29,7 +29,7 @@ const { isLanding } = reactive({ isLanding: frontmatter.value.home === true });
       <a href="/" class="heading-link">
         <h1 class="heading">
           <span class="name">Jess Champion</span>
-          <span class="vocation">Web product engineer</span>
+          <span class="vocation">Web Product Engineer</span>
         </h1>
       </a>
       <ColorModeSwitcher class="switcher" />
@@ -161,6 +161,7 @@ const { isLanding } = reactive({ isLanding: frontmatter.value.home === true });
       display: grid;
       justify-content: start;
       gap: var(--gap-1-4);
+      margin-bottom: 0;
       @include breakpoint-sm-down {
         font-size: var(--h2--font-size);
       }
