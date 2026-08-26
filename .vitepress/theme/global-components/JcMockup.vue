@@ -42,7 +42,7 @@ onMounted(() => {
 
     // Cleanup
     onUnmounted(() => {
-      wrapRef.value.removeEventListener("scroll", handleScroll);
+      wrapRef?.value?.removeEventListener("scroll", handleScroll);
       resizeObserver.disconnect();
     });
   }

@@ -51,7 +51,7 @@ const toggleColorMode = () => {
 </template>
 
 <style lang="scss">
-@import "../inkline-variables/mixins.scss";
+@use "../inkline-variables/mixins.scss" as *;
 
 .switcher.button {
   background: var(--body--background);

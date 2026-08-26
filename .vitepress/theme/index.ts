@@ -8,10 +8,13 @@ import JcGallery from "./global-components/JcGallery.vue";
 import ComponentSafeMailTo from "./global-components/ComponentSafeMailTo.vue";
 import {
   IButton,
+  ICheckboxGroup,
+  IDropdown,
   IForm,
   IFormLabel,
   IHeader,
   IIcon,
+  IInput,
   ILayout,
   ILayoutAside,
   ILayoutContent,
@@ -21,7 +24,6 @@ import {
   IModalContainer,
   IRadioButtons,
   IFormGroup,
-  ISelect,
 } from "@inkline/inkline/components";
 
 export default {
@@ -30,8 +32,11 @@ export default {
     app.use(Inkline, {
       components: {
         IButton,
+        ICheckboxGroup,
+        IDropdown,
         IHeader,
         IIcon,
+        IInput,
         ILayout,
         ILayoutAside,
         ILayoutContent,
@@ -43,7 +48,6 @@ export default {
         IFormLabel,
         IFormGroup,
         IRadioButtons,
-        ISelect,
       },
       color: "",
       colorMode: "dark",

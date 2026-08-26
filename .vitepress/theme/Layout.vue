@@ -29,7 +29,7 @@ const { isLanding } = reactive({ isLanding: frontmatter.value.home === true });
       <a href="/" class="heading-link">
         <h1 class="heading">
           <span class="name">Jess Champion</span>
-          <span class="vocation">Software developer</span>
+          <span class="vocation">Web Product Engineer</span>
         </h1>
       </a>
       <ColorModeSwitcher class="switcher" />
@@ -44,7 +44,7 @@ const { isLanding } = reactive({ isLanding: frontmatter.value.home === true });
     </PortfolioSection>
     <span class="ar" role="presentation" />
     <span class="pl" role="presentation" />
-    <PortfolioSection class="portfolio pm" id="portfolio" :is-open="!isLanding">
+    <PortfolioSection class="portfolio pm" id="portfolio" is-open>
       <template #header
         ><h2 id="portfolio" class="h4 _margin-bottom:0">PORTFOLIO</h2></template
       >
@@ -65,7 +65,7 @@ const { isLanding } = reactive({ isLanding: frontmatter.value.home === true });
 </template>
 
 <style lang="scss">
-@import "./inkline-variables/mixins.scss";
+@use "./inkline-variables/mixins.scss" as *;
 
 .layout.layout-grid {
   display: grid;
@@ -161,15 +161,17 @@ const { isLanding } = reactive({ isLanding: frontmatter.value.home === true });
       display: grid;
       justify-content: start;
       gap: var(--gap-1-4);
+      margin-bottom: 0;
       @include breakpoint-sm-down {
         font-size: var(--h2--font-size);
       }
     }
 
     .vocation {
-      font-size: var(--h3--font-size);
+      margin-top: var(--gap-1-2);
+      font-size: var(--h4--font-size);
       @include breakpoint-sm-down {
-        font-size: var(--h4--font-size);
+        font-size: var(--h5--font-size);
       }
     }
   }

@@ -21,15 +21,7 @@ const toggle = () => {
 </script>
 
 <template>
-  <div
-    class="section"
-    @click="
-      (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    "
-  >
+  <div class="section" @click="(e) => e.stopPropagation()">
     <button
       :class="`section__toggle ${data.open && 'open'}`"
       @click="toggle"
@@ -46,7 +38,7 @@ const toggle = () => {
 </template>
 
 <style lang="scss" scoped>
-@import "../inkline-variables/mixins.scss";
+@use "../inkline-variables/mixins.scss" as *;
 
 .section {
   &__toggle {
@@ -55,6 +47,7 @@ const toggle = () => {
     align-items: center;
     padding: var(--gap) var(--gap-3-4) var(--gap) var(--gap);
     width: 100%;
+    max-width: 100%;
     background: none;
     border: none;
     color: var(--body--color);
@@ -87,10 +80,12 @@ const toggle = () => {
   }
 
   &__content {
+    max-width: 100%;
     padding: 0;
+    padding-bottom: var(--gap);
 
-    @include breakpoint-md-up {
-      padding: 0 var(--gap-15);
+    @include breakpoint-sm-up {
+      padding: 0 calc(var(--gap-175)) var(--gap) var(--gap);
     }
   }
 }
