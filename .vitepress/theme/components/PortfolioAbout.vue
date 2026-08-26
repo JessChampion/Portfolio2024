@@ -1,5 +1,6 @@
 <script setup>
 import PortfolioSection from "./PortfolioSection.vue";
+import PortfolioRow from "./PortfolioRow.vue";
 </script>
 
 <template>
@@ -36,57 +37,64 @@ import PortfolioSection from "./PortfolioSection.vue";
       pressure. When the environment is well set up, quality and delivery go
       hand in hand rather than trade off against each other.
     </p>
-    <h3 class="h4 _margin-top:2 _margin-bottom:1">Where I add value</h3>
-    <ul>
-      <li>
-        <strong>Legacy codebases:</strong> getting up to speed quickly in an
-        unfamiliar or legacy codebase, working out where the most urgent
-        technical debt is and paying it down through strategic, progressive
-        refactoring while still delivering features.
-      </li>
-      <li>
-        <strong>Frontend architecture:</strong> architecting frontend
-        applications that stay fast and maintainable as they grow, so the
-        technical foundations hold up over time.
-      </li>
-      <li>
-        <strong>Accessibility and discoverability:</strong> building to WCAG 2.1
-        AA and NZ government accessibility standards, with the structured,
-        semantic foundations (schema data, clean semantic HTML, well-formed
-        content) that serve both traditional SEO and emerging AI-driven
-        discovery (GEO).
-      </li>
-      <li>
-        <strong>Client collaboration:</strong> working directly with clients and
-        stakeholders to understand the business, elicit requirements and evolve
-        the product through feedback cycles.
-      </li>
-      <li>
-        <strong>Product measurement:</strong> setting up custom analytics and
-        event tracking, from page loads and scroll depth to conversion events,
-        navigation and journey mapping, and key feature interactions, so product
-        decisions are grounded in real user behaviour rather than assumptions.
-      </li>
-      <li>
-        <strong>Bridging design and engineering:</strong> working closely with
-        designers so UX decisions stay technically feasible and the edge cases
-        get caught in the design stage rather than in production.
-      </li>
-      <li>
-        <strong>Design systems:</strong> building design systems and reusable
-        component libraries that keep a product consistent and speed delivery
-        up, with accessibility built in at the component level. UX research from
-        scratch: standing up a UX research practice where there isn't one, from
-        surveys and interviews to weighting feedback into a prioritised list, so
-        product decisions reflect real user needs.
-      </li>
-      <li>
-        <strong>Project and development leadership:</strong> managing delivery
-        with pragmatic, agile-based methods and getting involved from the start,
-        gathering requirements, co-designing with stakeholders, and surfacing
-        costs, benefits and trade-offs early.
-      </li>
-    </ul>
+    <h3 class="h4 _margin-top:2 _margin-bottom:0">Where I add value</h3>
+    <PortfolioRow>
+      <ul>
+        <li class="col-span4">
+          <strong>Project and development leadership:</strong>
+          Managing delivery with pragmatic, agile-based methods and getting
+          involved from the start, gathering requirements, co-designing with
+          stakeholders, and surfacing costs, benefits and trade-offs early.
+        </li>
+        <li class="col-span2">
+          <strong>Frontend architecture:</strong>
+          Architecting frontend applications that stay fast and maintainable as
+          they grow, so the technical foundations hold up over time.
+        </li>
+        <li class="col-span2">
+          <strong>Bridging design and engineering:</strong>
+          Working closely with designers so UX decisions stay technically
+          feasible and the edge cases get caught in the design stage rather than
+          in production.
+        </li>
+        <li class="col-span4">
+          <strong>Legacy codebases:</strong>
+          Getting up to speed quickly in an unfamiliar or legacy codebase,
+          working out where the most urgent technical debt is and paying it down
+          through strategic, progressive refactoring while still delivering
+          features.
+        </li>
+        <li class="col-span4">
+          <strong>Design systems:</strong>
+          Building design systems and reusable component libraries that keep a
+          product consistent and speed delivery up, with accessibility built in
+          at the component level. UX research from scratch: standing up a UX
+          research practice where there isn't one, from surveys and interviews
+          to weighting feedback into a prioritised list, so product decisions
+          reflect real user needs.
+        </li>
+        <li class="col-span2">
+          <strong>Accessibility and discoverability:</strong>
+          Building to WCAG 2.1 AA and NZ government accessibility standards,
+          with the structured, semantic foundations (schema data, clean semantic
+          HTML, well-formed content) that serve both traditional SEO and
+          emerging AI-driven discovery (GEO).
+        </li>
+        <li class="col-span3">
+          <strong>Product measurement:</strong>
+          Setting up custom analytics and event tracking, from page loads and
+          scroll depth to conversion events, navigation and journey mapping, and
+          key feature interactions, so product decisions are grounded in real
+          user behaviour rather than assumptions.
+        </li>
+        <li class="col-span3">
+          <strong>Client collaboration:</strong>
+          Working directly with clients and stakeholders to understand the
+          business, elicit requirements and evolve the product through feedback
+          cycles.
+        </li>
+      </ul>
+    </PortfolioRow>
     <h3 class="h4 _margin-top:2 _margin-bottom:1">Passionate about</h3>
     <div>
       <PortfolioSection class="passions" is-open>
