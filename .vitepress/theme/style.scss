@@ -37,6 +37,7 @@
   --border-width-bold: 0.15rem;
   --border: var(--border-width-bold) solid var(--body--border-top-color);
   --border-radius-rounded: 1rem;
+  --border-radius-lg: 2rem;
 }
 
 @include breakpoint-down(sm) {
