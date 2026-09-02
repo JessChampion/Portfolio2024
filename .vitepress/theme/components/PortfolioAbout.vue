@@ -7,12 +7,12 @@ import PortfolioMasonaryGrid from "./PortfolioMasonaryGrid.vue";
   <div class="_max-width:100%">
     <p>
       I specialise in JavaScript and web technologies, with strong experience in
-      Node.js, TypeScript and React, with a deep focus on the frontend but
-      comfortable across the stack. I'll take full-stack ownership where a stack
-      is familiar; on less familiar ground or complex backends, I'd rather
-      partner with specialists and lean on their depth. I graduated in 2011 with
-      a Bachelor of Computing and Mathematical Science with First Class Honours,
-      and bring both technical depth and product thinking to my work.
+      Node.js, TypeScript and React. I graduated in 2011 with a Bachelor of
+      Computing and Mathematical Science with First Class Honours, and bring
+      both technical depth and product thinking to my work. I'm strongest on the
+      frontend and work across the full stack. For more complex architecture,
+      I'll bring in a domain expert and follow their lead. When I know the tools
+      well, I'm happy to own the solution end to end.
     </p>
     <p>
       I spent five years of my early career in operational development,
