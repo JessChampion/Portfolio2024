@@ -23,6 +23,24 @@ type WorkItems = WorkItem[];
 
 export default [
   {
+    link: "/work/noted-components/",
+    org: "Noted Ltd",
+    year: "2023-2024",
+    sort: 1,
+    title: "Noted Components - Component Library",
+    menu: "work",
+    thumbnail: "/work-media/noted-components-thumb.webp",
+    thumbnailOrientation: "landscape",
+    published: false,
+    tasks: ["Frontend Dev", "Design System"],
+    technologies: {
+      top: ["React", "React Aria", "TypeScript"],
+      additional: ["SCSS"],
+    },
+    summary:
+      "A shared component library and design system for the Noted platform",
+  },
+  {
     link: "/work/study-it/",
     org: "The Ministry of Education",
     year: "2019",

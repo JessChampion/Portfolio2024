@@ -1,8 +1,8 @@
 <script setup></script>
 
 <template>
-  <div class="row">
-    <div class="row__content">
+  <div class="masonry">
+    <div class="masonry__content">
       <slot />
     </div>
   </div>
@@ -11,7 +11,7 @@
 <style lang="scss">
 @use "../inkline-variables/mixins.scss" as *;
 
-.row {
+.masonry {
   max-width: 100%;
   overflow-x: auto;
   margin-bottom: var(--gap);
@@ -19,20 +19,22 @@
 
   &__content {
     min-width: fit-content;
-    margin: var(--gap-3-4);
 
     & > ul {
       list-style: none;
       display: grid;
       grid-template-columns: 1fr;
       justify-items: center;
-      align-items: center;
-      gap: var(--gap);
+      align-items: start;
+      gap: calc(var(--gap) * 1.25);
+      //row-gap: var(--gap-1-2);
       row-gap: 0;
       padding: 0;
       margin: 0;
+      width: 100%;
+      max-width: 100%;
       @include breakpoint-sm-up {
-        grid-template-columns: repeat(6, minmax(10%, 1fr));
+        grid-template-columns: repeat(12, 1fr);
       }
       li {
         display: block;
@@ -41,22 +43,41 @@
         transition:
           var(--transition-background-color), var(--transition-border-color);
         border-radius: var(--border-radius-lg);
-        font-size: var(--font-size-sm);
+        font-size: var(--font-size-md);
         padding: var(--gap);
         margin: 0;
         strong {
           display: block;
-          font-size: var(--font-size-md);
+          font-size: var(--font-size-lg);
           margin-bottom: var(--gap-1-3);
         }
-        &.col-span2 {
-          grid-column: span 2;
-        }
+        grid-column: span 2;
         &.col-span3 {
           grid-column: span 3;
         }
         &.col-span4 {
           grid-column: span 4;
+        }
+        &.col-span5 {
+          grid-column: span 5;
+        }
+        &.col-span6 {
+          grid-column: span 6;
+        }
+        &.col-span7 {
+          grid-column: span 7;
+        }
+        &.col-span8 {
+          grid-column: span 8;
+        }
+        &.col-span9 {
+          grid-column: span 9;
+        }
+        &.col-span10 {
+          grid-column: span 10;
+        }
+        &.top-negative-gap {
+          margin-top: calc(-7.5 * var(--gap)) !important;
         }
       }
     }

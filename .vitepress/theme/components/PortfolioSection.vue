@@ -85,7 +85,7 @@ const toggle = () => {
     padding-bottom: var(--gap);
 
     @include breakpoint-sm-up {
-      padding: 0 calc(var(--gap-175)) var(--gap) var(--gap);
+      padding: 0 calc(var(--gap-2)) var(--gap) var(--gap);
     }
   }
 }

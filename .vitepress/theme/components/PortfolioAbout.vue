@@ -1,26 +1,21 @@
 <script setup>
 import PortfolioSection from "./PortfolioSection.vue";
-import PortfolioRow from "./PortfolioRow.vue";
+import PortfolioMasonaryGrid from "./PortfolioMasonaryGrid.vue";
 </script>
 
 <template>
   <div class="_max-width:100%">
     <p>
-      I'm a digital product engineer specialising in JavaScript and web
-      technologies, with strong experience in Node.js, TypeScript and React. I
-      graduated in 2011 with a Bachelor of Computing and Mathematical Science
-      with First Class Honours, and bring both technical depth and product
-      thinking to my work.
+      I specialise in JavaScript and web technologies, with strong experience in
+      Node.js, TypeScript and React, with a deep focus on the frontend but
+      comfortable across the stack. I'll take full-stack ownership where a stack
+      is familiar; on less familiar ground or complex backends, I'd rather
+      partner with specialists and lean on their depth. I graduated in 2011 with
+      a Bachelor of Computing and Mathematical Science with First Class Honours,
+      and bring both technical depth and product thinking to my work.
     </p>
     <p>
-      While my expertise is deepest on the frontend, I'm comfortable working
-      across the stack: where a stack is familiar, I can take full-stack
-      ownership from infrastructure through to the UI. On less familiar ground
-      or on complex backends, I'd rather partner with engineers who specialise
-      in them and lean on their depth.
-    </p>
-    <p>
-      I spent the first five years of my career in operational development,
+      I spent five years of my early career in operational development,
       ITIL-certified, diagnosing and fixing production issues in high-traffic
       codebases for some of New Zealand's leading brands. It gave me a close-up
       view of how development practices, patterns and anti-patterns play out
@@ -37,64 +32,75 @@ import PortfolioRow from "./PortfolioRow.vue";
       pressure. When the environment is well set up, quality and delivery go
       hand in hand rather than trade off against each other.
     </p>
-    <h3 class="h4 _margin-top:2 _margin-bottom:0">Where I add value</h3>
-    <PortfolioRow>
+    <h3 class="h4 _margin-top:2 _margin-bottom:1">Where I add value</h3>
+    <PortfolioMasonaryGrid>
       <ul>
-        <li class="col-span4">
-          <strong>Project and development leadership:</strong>
-          Managing delivery with pragmatic, agile-based methods and getting
-          involved from the start, gathering requirements, co-designing with
-          stakeholders, and surfacing costs, benefits and trade-offs early.
+        <li class="col-span5 _margin-bottom:1/2!">
+          <strong>Client collaboration</strong>
+          Working directly with clients and stakeholders to understand the
+          business, elicit requirements and evolve the product through feedback
+          cycles.
         </li>
-        <li class="col-span2">
-          <strong>Frontend architecture:</strong>
+        <li class="col-span7 _margin-bottom:1/2!">
+          <strong>Research and measurement</strong>
+          Grounding product decisions in evidence, through user research such as
+          surveys or interviews, direct user feedback and usage analytics.
+          Designing and setting up the custom measurement strategy: from page
+          load event tracking and scroll depth to conversion and key feature
+          interactions.
+        </li>
+        <li
+          class="accent-above col-span7 _margin-top:2/3! _margin-bottom:1/2! _margin-bottom:1/2!"
+        >
+          <strong>Bridging design and engineering</strong>
+          Working closely with designers so that UX decisions remain technically
+          feasible and edge cases are caught in the design stage rather than in
+          production. Able to step in and run the basics of these practices in
+          lean teams such as a startup where design specialists aren't in the
+          budget.
+        </li>
+        <li
+          class="col-span5 _margin-top:2/3! _margin-bottom:1/2! _margin-bottom:1/2!"
+        >
+          <strong>Design systems</strong>
+          Building design systems and reusable component libraries that keep a
+          product consistent and speed up delivery, with accessibility built in
+          at the component level.
+        </li>
+        <li class="col-span5 _margin-top:2/3! _margin-bottom:1/2!">
+          <strong>Frontend architecture</strong>
           Architecting frontend applications that stay fast and maintainable as
-          they grow, so the technical foundations hold up over time.
+          they grow, so the technical foundations hold up over time. Performance
+          is a first-class concern here, measured against metrics such as Core
+          Web Vitals and production load times.
         </li>
-        <li class="col-span2">
-          <strong>Bridging design and engineering:</strong>
-          Working closely with designers so UX decisions stay technically
-          feasible and the edge cases get caught in the design stage rather than
-          in production.
+        <li class="col-span7 _margin-top:2/3! _align-self:center!">
+          <strong>Accessibility and discoverability</strong>
+          Building to WCAG 2.1 AA and NZ government accessibility standards,
+          with the structural foundations such as clean semantic HTML,
+          well-formed content and schema structured data, which serve both
+          traditional SEO and emerging AI-driven discovery (GEO).
         </li>
-        <li class="col-span4">
-          <strong>Legacy codebases:</strong>
+        <li class="col-span8 _margin-top:2/3! _margin-bottom:1/2!">
+          <strong>Privacy and sensitive data </strong>
+          Privacy-conscious engineering in regulated domains, with access
+          controls, data masking and careful handling of sensitive data.
+        </li>
+        <li class="col-span4 _margin-top:2/3! _margin-bottom:1/2!">
+          <strong>Legacy codebases</strong>
           Getting up to speed quickly in an unfamiliar or legacy codebase,
           working out where the most urgent technical debt is and paying it down
           through strategic, progressive refactoring while still delivering
           features.
         </li>
-        <li class="col-span4">
-          <strong>Design systems:</strong>
-          Building design systems and reusable component libraries that keep a
-          product consistent and speed delivery up, with accessibility built in
-          at the component level. UX research from scratch: standing up a UX
-          research practice where there isn't one, from surveys and interviews
-          to weighting feedback into a prioritised list, so product decisions
-          reflect real user needs.
-        </li>
-        <li class="col-span2">
-          <strong>Accessibility and discoverability:</strong>
-          Building to WCAG 2.1 AA and NZ government accessibility standards,
-          with the structured, semantic foundations (schema data, clean semantic
-          HTML, well-formed content) that serve both traditional SEO and
-          emerging AI-driven discovery (GEO).
-        </li>
-        <li class="col-span3">
-          <strong>Product measurement:</strong>
-          Setting up custom analytics and event tracking, from page loads and
-          scroll depth to conversion events, navigation and journey mapping, and
-          key feature interactions, so product decisions are grounded in real
-          user behaviour rather than assumptions.
-        </li>
-        <li class="col-span3">
-          <strong>Client collaboration:</strong>
-          Working directly with clients and stakeholders to understand the
-          business, elicit requirements and evolve the product through feedback
-          cycles.
+        <li class="col-span8 top-negative-gap">
+          <strong>Project and development leadership</strong>
+          Getting involved from the start to gather requirements, co-design with
+          stakeholders and surface costs, benefits and trade-offs early, then
+          managing delivery with pragmatic, agile-based methods.
         </li>
       </ul>
-    </PortfolioRow>
+    </PortfolioMasonaryGrid>
     <h3 class="h4 _margin-top:2 _margin-bottom:1">Passionate about</h3>
     <div>
       <PortfolioSection class="passions" is-open>
@@ -102,38 +108,32 @@ import PortfolioRow from "./PortfolioRow.vue";
           <h4 class="h5 _margin-bottom:0">Quality and maintainability</h4>
         </template>
         <p>
-          Upfront investment in quality drastically improves the lifespan of a
-          solution. Most of what I do comes back to maintainability, building
-          systems that are straightforward to understand, evolve and support
-          over time. That means continuous improvement through regular
-          refactoring, a modular, reusable architecture, functional programming
-          principles such as small, focused functions and few side effects, and
-          automated checks against agreed-upon code standards. But quality is a
-          set of trade-offs rather than a checklist, so I match the depth of
-          investment to the problem and to where deeper rigour actually pays
-          off.
+          Quality is a set of trade-offs; my years in production support taught
+          me to prioritise readability and easy-to-reason-about code in the
+          initial delivery stages, so we can change and evolve the system over
+          time, informed by feedback and data from real-world user scenarios and
+          bugs. To deliver this, I favour a modular, loosely coupled
+          architecture with a clear separation of concerns and functional
+          programming principles such as small, focused functions. I back that
+          with automated test harnesses that focus coverage on core business
+          logic and specified functionality, while allowing flexibility in the
+          presentation layer. With a test harness in place, we can ship a first
+          cut of a feature and refine it through continuous improvement and
+          refactoring once real users have validated it rather than
+          over-optimising something unproven.
         </p>
         <p>
-          My years in 24/7 production support taught me to design for
-          operational readiness: building systems that can be monitored,
-          diagnosed and recovered quickly when something goes wrong. Automated
-          testing is the safety net I'll advocate for hardest. It catches bugs
-          early, forces me to work through the edge cases and sad paths, and
-          makes change faster and safer by protecting the functionality that
-          already works. Tests double as living documentation of how the code is
-          meant to behave. I back that up with shared documentation, readmes,
-          wikis and design records, so new team members and, increasingly, AI
-          agents can get up to speed quickly. I take the same pragmatic view of
-          AI-assisted tooling: I use Claude, Cursor and Copilot day-to-day, but,
-          critically, I lean on them where they genuinely improve quality and
-          speed, keeping human judgement at the centre of technical decisions.
-        </p>
-        <p>
-          I treat performance as a first-class concern rather than an
-          afterthought, and I measure it against real-world numbers, from Core
-          Web Vitals to load times under production conditions. In sensitive
-          domains, I know how to take a privacy-conscious approach, with proper
-          access controls, data masking and careful handling of regulated data.
+          Tests also double as living documentation of how the code is meant to
+          behave. I reinforce this with shared development documentation such as
+          READMEs or wikis, to record key design decisions and agreed code
+          standards. This also helps new team members and, increasingly, AI
+          agents get up to speed in the codebase quickly. Claude and Cursor are
+          part of my daily workflow for speed and quality; I find they're better
+          at reasoning about and modifying existing code than creating from
+          scratch. When I do use them from a clean slate, I get the best results
+          by breaking development into smaller, discrete requests, closer to a
+          pair-programming workflow: I still drive the code architecture and
+          patterns myself, testing and refining at each step.
         </p>
       </PortfolioSection>
       <PortfolioSection class="passions" is-open>
@@ -141,32 +141,24 @@ import PortfolioRow from "./PortfolioRow.vue";
           <h4 class="h5 _margin-bottom:0">Product and Design</h4>
         </template>
         <p>
-          I love to build beautiful, robust and performant web applications that
-          make a real difference for the people who use them. I've seen how even
-          small UX issues or code inefficiencies turn into real pain points for
-          thousands of people once a system is under load, so I like bringing
-          engineering thinking into product decisions early rather than picking
-          up a finished design at the end. The goal I keep coming back to is
-          using my creativity and problem-solving to build products that have a
-          real, positive impact on people's lives.
+          I've seen how even small UX issues or code inefficiencies can turn
+          into pain points for thousands of people once a system is under load.
+          That's why I enjoy bringing engineering thinking into product
+          development, to help build beautiful, robust and performant web
+          applications that make a real difference for the people who use them.
+          I ground design decisions in real user research: surveys, interviews
+          and usage data to shape and test ideas. I believe in anchoring designs
+          around user journeys and optimising workflows for core tasks to reduce
+          the administrative overhead in users' daily work. On larger projects,
+          changing course later is expensive. I'd rather find the problems in
+          wireframes or prototypes, where they're cheap to fix, and only move to
+          implementation in code once the design has held up to real scrutiny.
         </p>
         <p>
-          I ground design decisions in real user research and data rather than
-          intuition alone, using surveys, interviews and usage data to shape and
-          test ideas. I'd iterate on wireframes and prototypes before jumping
-          into implementation, so a design actually solves the user's problem
-          rather than just looking right. A lot of my focus goes on cutting
-          administrative overhead, designing interfaces that let people get on
-          with their core work instead of wrestling with the tool meant to help
-          them.
-        </p>
-        <p>
-          I care about the craft of the interface too. I've got an eye for
-          visual design and information visualisation, and I like making
-          products that are not just usable but delightful. Performant CSS
-          animations and transitions are part of that, adding polish and a sense
-          of feeling to an interface so it comes across as considered rather
-          than mechanical.
+          Beyond getting the UX basics right, I enjoy creating user delight by
+          adding the finishing touches that make a product feel considered:
+          performant CSS animations and transitions, and accessibility details
+          like full keyboard navigation.
         </p>
       </PortfolioSection>
       <PortfolioSection class="passions" is-open>
@@ -174,35 +166,29 @@ import PortfolioRow from "./PortfolioRow.vue";
           <h4 class="h5 _margin-bottom:0">Collaboration</h4>
         </template>
         <p>
-          I enjoy solving complex problems with elegant, pragmatic solutions,
-          whether they're technical, client-related or down to team dynamics. As
-          an experienced project and development lead, I manage delivery with
-          agile-based methods that fit the project and the people on it. I like
-          being hands-on from the earliest stages, working with stakeholders to
-          gather requirements and co-design solutions, and surfacing the costs,
-          benefits and trade-offs early so a project avoids surprises down the
-          track.
+          I relish the opportunity to be closely involved from the earliest
+          stages, collaborating with clients, stakeholders, design and
+          architecture functions to co-design solutions. I start by building an
+          understanding of the domain context, problem space, user needs and
+          pain points, from which to surface requirements, opportunities, risks
+          and trade-offs. Where it's not feasible for the whole team to be
+          involved throughout the design process, we can backfill some of that
+          context by sharing what we learned in user research and design
+          sessions, and creating resources like personas that tie what's being
+          built to real user scenarios. Programmers make thousands of
+          microdecisions a day, and in my experience, we get better product
+          outcomes when those decisions are made with a deep understanding of
+          the end users and the context in which the product is used.
         </p>
         <p>
-          Through delivery I stay hands-on, managing the agile process, liaising
-          with business units and suppliers, and supporting the other developers
-          on the build. I shape patterns, tooling and architecture through
-          demonstration, code review and building consensus rather than through
-          formal authority. Mentoring matters to me: it's central to developing
-          engineers' skills and confidence, and I provide a safety net through
-          pairing and constructive code reviews - so people feel able to take on
-          harder tasks and grow.
-        </p>
-        <p>
-          Knowledge sharing runs through all of this. I help teams deliver by
-          sharing the practices and methods that work. In code reviews, I'd
-          rather let automated tooling like linters handle basic stylistic and
-          common-practice issues a team has agreed on, so reviews can focus on
-          what matters: real opportunities to improve the code or the UX, like
-          reducing duplication, improving performance, or making something more
-          reusable. And I love working closely with good designers. When design
-          and engineering work together, we get better results faster, and we
-          each learn from the other.
+          As a project and development lead, I stay hands-on in delivery while
+          managing the agile process, liaising with clients or suppliers, and
+          mentoring and supporting other developers on the build. I shape code
+          patterns, tooling and architecture through knowledge sharing,
+          demonstrations, code reviews and building consensus. I find growth
+          opportunities within the work itself that align with developers'
+          personal goals and provide a safety net and escalation point so they
+          feel empowered to take on new challenges.
         </p>
       </PortfolioSection>
       <PortfolioSection class="passions" is-open>
@@ -210,38 +196,34 @@ import PortfolioRow from "./PortfolioRow.vue";
           <h4 class="h5 _margin-bottom:0">High-performing teams</h4>
         </template>
         <p class="_margin-bottom:0">
-          Teams do their best work when they own and experiment with their
-          practices, building a habit of continuous reflection and improvement,
-          and adapting how they work to the challenges and personalities in the
-          room. Done well, that gives you more than speed. It gives you more
-          stable, maintainable systems that last.
+          The most effective teams I've been a part of had an active practice of
+          continuous reflection and improvement. When standards and practices
+          are collaboratively agreed upon, and people feel they have a genuine
+          say and influence, it leads to greater personal commitment to showing
+          up for the team and upholding agreements.
         </p>
         <p>
-          A lot of it comes down to psychological safety and open knowledge
-          sharing. I'd keep incident reviews blameless and solution-focused,
+          Psychological safety is what keeps a team resilient: an environment
+          where people feel safe to share ideas, raise issues early and
+          pressure-test concepts through healthy debate. For this reason, I
+          believe in keeping incident reviews blameless and solution-focused,
           treating a failure as something for the team and the system to learn
-          from rather than grounds to blame an individual. That's what makes it
-          safe for people to raise issues early and to be wrong, which is where
-          curiosity and healthy debate come from. Crediting people openly when
-          they bring a good technique, and keeping ideas moving, is how a
-          culture of learning actually grows.
+          from rather than drawing attention to or blaming any particular
+          individual.
         </p>
         <p>
-          Technical standards hold up when the whole team is learning and
-          adopting good practice, so I put time into that: educating and
-          encouraging it, mentoring graduate developers, helping with
-          recruitment, and providing technical leadership and escalation when
-          it's needed. And by keeping the business and technical processes under
-          regular review, I help build teams that are effective and productive,
-          but also creative, resilient and good fun to be part of.
+          That safety depends on open communication and knowledge sharing. I
+          establish it by circulating useful articles or videos on patterns
+          relevant to the current work, or by preparing talks to explain more
+          complex ideas I want to introduce. When the rest of the team does the
+          same, and people are openly credited for the good ideas they bring, a
+          culture of learning grows on its own. That's what builds teams that
+          are productive, supportive, and creative, where we have fun while
+          delivering great products.
         </p>
       </PortfolioSection>
     </div>
   </div>
-  <!--  <div class="section _margin-bottom:2">-->
-  <!--    <h3 class="h4 _margin-top:2 _margin-bottom:1">Recent projects</h3>-->
-  <!--    <PortfolioRow></PortfolioRow>-->
-  <!--  </div>-->
 </template>
 <style lang="scss" scoped>
 @use "../inkline-variables/mixins.scss" as *;
