@@ -501,13 +501,17 @@ watch(
   border-left: var(--border-width-bold) solid var(--body--color);
   transition: var(--transition-border-color);
   max-width: var(--container-max-width);
+  width: 100%;
 
   &--nested {
     list-style: none;
     margin: var(--gap-1-2) auto;
-    padding: var(--gap) 0 var(--gap) var(--gap-15);
+    padding: var(--gap-1-4) 0 var(--gap-1-4) var(--gap-2-3);
 
     max-width: 100%;
+    @include breakpoint-sm-up {
+      padding: var(--gap) 0 var(--gap) var(--gap-15);
+    }
   }
 
   &__group-label {
@@ -522,6 +526,7 @@ watch(
     padding: var(--gap-1-2);
     margin-bottom: var(--gap);
     position: relative;
+    max-width: calc(100% - var(--gap));
 
     &:last-of-type {
       margin-bottom: 0;
@@ -615,7 +620,9 @@ watch(
 
 .stats {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--gap);
+  row-gap: var(--gap-1-5);
   margin: 0;
 
   dd {

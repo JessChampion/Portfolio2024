@@ -45,13 +45,16 @@ const toggle = () => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--gap) var(--gap-3-4) var(--gap) var(--gap);
+    padding: var(--gap-3-4) var(--gap-1-2) var(--gap-3-4) var(--gap);
     width: 100%;
     max-width: 100%;
     background: none;
     border: none;
     color: var(--body--color);
     transition: var(--transition-color);
+    @include breakpoint-sm-up {
+      padding: var(--gap) var(--gap-3-4) var(--gap) var(--gap);
+    }
 
     .inkline-icon {
       transform: rotate(-90deg);
@@ -81,9 +84,11 @@ const toggle = () => {
 
   &__content {
     max-width: 100%;
-    padding: 0;
-    padding-bottom: var(--gap);
+    padding: 0 calc(var(--gap-1-4)) var(--gap-1-4) var(--gap-1-4);
 
+    .section__content {
+      padding: 0 calc(var(--gap)) var(--gap-1-4) var(--gap);
+    }
     @include breakpoint-sm-up {
       padding: 0 calc(var(--gap-2)) var(--gap) var(--gap);
     }

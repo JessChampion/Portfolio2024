@@ -27,14 +27,14 @@
       justify-items: center;
       align-items: start;
       gap: calc(var(--gap) * 1.25);
-      //row-gap: var(--gap-1-2);
-      row-gap: 0;
+      row-gap: var(--gap-1-2);
       padding: 0;
       margin: 0;
       width: 100%;
       max-width: 100%;
       @include breakpoint-sm-up {
         grid-template-columns: repeat(12, 1fr);
+        row-gap: 0;
       }
       li {
         display: block;
@@ -51,33 +51,65 @@
           font-size: var(--font-size-lg);
           margin-bottom: var(--gap-1-3);
         }
-        grid-column: span 2;
-        &.col-span3 {
-          grid-column: span 3;
-        }
-        &.col-span4 {
-          grid-column: span 4;
-        }
-        &.col-span5 {
-          grid-column: span 5;
-        }
-        &.col-span6 {
-          grid-column: span 6;
-        }
-        &.col-span7 {
-          grid-column: span 7;
-        }
-        &.col-span8 {
-          grid-column: span 8;
-        }
-        &.col-span9 {
-          grid-column: span 9;
-        }
-        &.col-span10 {
-          grid-column: span 10;
-        }
-        &.top-negative-gap {
-          margin-top: calc(-7.5 * var(--gap)) !important;
+        @include breakpoint-sm-up {
+          grid-column: span 2;
+          &.col-span3 {
+            grid-column: span 3;
+          }
+          &.col-span4 {
+            grid-column: span 4;
+          }
+          &.col-span5 {
+            grid-column: span 5;
+          }
+          &.col-span6 {
+            grid-column: span 6;
+          }
+          &.col-span7 {
+            grid-column: span 7;
+          }
+          &.col-span8 {
+            grid-column: span 8;
+          }
+          &.col-span9 {
+            grid-column: span 9;
+          }
+          &.col-span10 {
+            grid-column: span 10;
+          }
+          &.top-negative-gap {
+            margin-top: calc(-7.5 * var(--gap)) !important;
+          }
+          &.client-collaboration {
+            margin-bottom: var(--gap-1-2);
+          }
+          &.research-measurement {
+            margin-bottom: var(--gap-1-2);
+          }
+          &.design-engineering-bridge {
+            margin-top: var(--gap-2-3);
+            margin-bottom: var(--gap-1-2);
+          }
+          &.design-systems {
+            margin-top: var(--gap-2-3);
+            margin-bottom: var(--gap-1-2);
+          }
+          &.frontend-architecture {
+            margin-top: var(--gap-2-3);
+            margin-bottom: var(--gap-1-2);
+          }
+          &.accessibility-discoverability {
+            margin-top: var(--gap-2-3);
+            align-self: center;
+          }
+          &.privacy-sensitive-data {
+            margin-top: var(--gap-2-3);
+            margin-bottom: var(--gap-1-2);
+          }
+          &.legacy-codebases {
+            margin-top: var(--gap-2-3);
+            margin-bottom: var(--gap-1-2);
+          }
         }
       }
     }

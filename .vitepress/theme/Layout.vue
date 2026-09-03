@@ -69,11 +69,14 @@ const { isLanding } = reactive({ isLanding: frontmatter.value.home === true });
 
 .layout.layout-grid {
   display: grid;
-  grid-template-columns: minmax(2rem, 1fr) auto minmax(2rem, 1fr);
+  grid-template-columns: var(--gap) auto var(--gap);
   grid-template-rows: auto auto 1fr auto;
   min-height: 100vh;
-  min-width: 25rem;
   max-width: 100vw;
+  @include breakpoint-sm-up {
+    min-width: 25rem;
+    grid-template-columns: minmax(2rem, 1fr) auto minmax(2rem, 1fr);
+  }
 
   .tl,
   .tr,
@@ -113,7 +116,8 @@ const { isLanding } = reactive({ isLanding: frontmatter.value.home === true });
   .am,
   .pm,
   .fm {
-    width: calc(100vw - 4rem);
+    //width: calc(100vw - 4rem);
+    width: 100%;
     max-width: 100%;
 
     @include breakpoint-sm-up {
@@ -188,7 +192,7 @@ const { isLanding } = reactive({ isLanding: frontmatter.value.home === true });
     content: "";
     position: absolute;
     top: 0;
-    right: -1rem;
+    right: -0.75rem;
     width: 1rem;
     height: 100%;
     background: var(--body--background);

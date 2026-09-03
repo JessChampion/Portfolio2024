@@ -10,9 +10,9 @@ import PortfolioMasonaryGrid from "./PortfolioMasonaryGrid.vue";
       Node.js, TypeScript and React. I graduated in 2011 with a Bachelor of
       Computing and Mathematical Science with First Class Honours, and bring
       both technical depth and product thinking to my work. I'm strongest on the
-      frontend and work across the full stack. For more complex architecture,
-      I'll bring in a domain expert and follow their lead. When I know the tools
-      well, I'm happy to own the solution end to end.
+      frontend but work across the full stack. For more complex architecture,
+      I'll partner with domain experts and lean on their depth. When I know the
+      tools well, I'm happy to own the solution end to end.
     </p>
     <p>
       I spent five years of my early career in operational development,
@@ -35,13 +35,13 @@ import PortfolioMasonaryGrid from "./PortfolioMasonaryGrid.vue";
     <h3 class="h4 _margin-top:2 _margin-bottom:1">Where I add value</h3>
     <PortfolioMasonaryGrid>
       <ul>
-        <li class="col-span5 _margin-bottom:1/2!">
+        <li class="col-span5 client-collaboration">
           <strong>Client collaboration</strong>
           Working directly with clients and stakeholders to understand the
           business, elicit requirements and evolve the product through feedback
           cycles.
         </li>
-        <li class="col-span7 _margin-bottom:1/2!">
+        <li class="col-span7 research-measurement">
           <strong>Research and measurement</strong>
           Grounding product decisions in evidence, through user research such as
           surveys or interviews, direct user feedback and usage analytics.
@@ -49,9 +49,7 @@ import PortfolioMasonaryGrid from "./PortfolioMasonaryGrid.vue";
           load event tracking and scroll depth to conversion and key feature
           interactions.
         </li>
-        <li
-          class="accent-above col-span7 _margin-top:2/3! _margin-bottom:1/2! _margin-bottom:1/2!"
-        >
+        <li class="accent-above col-span7 design-engineering-bridge">
           <strong>Bridging design and engineering</strong>
           Working closely with designers so that UX decisions remain technically
           feasible and edge cases are caught in the design stage rather than in
@@ -59,34 +57,32 @@ import PortfolioMasonaryGrid from "./PortfolioMasonaryGrid.vue";
           lean teams such as a startup where design specialists aren't in the
           budget.
         </li>
-        <li
-          class="col-span5 _margin-top:2/3! _margin-bottom:1/2! _margin-bottom:1/2!"
-        >
+        <li class="col-span5 design-systems">
           <strong>Design systems</strong>
           Building design systems and reusable component libraries that keep a
           product consistent and speed up delivery, with accessibility built in
           at the component level.
         </li>
-        <li class="col-span5 _margin-top:2/3! _margin-bottom:1/2!">
+        <li class="col-span5 frontend-architecture">
           <strong>Frontend architecture</strong>
           Architecting frontend applications that stay fast and maintainable as
           they grow, so the technical foundations hold up over time. Performance
           is a first-class concern here, measured against metrics such as Core
           Web Vitals and production load times.
         </li>
-        <li class="col-span7 _margin-top:2/3! _align-self:center!">
+        <li class="col-span7 accessibility-discoverability">
           <strong>Accessibility and discoverability</strong>
           Building to WCAG 2.1 AA and NZ government accessibility standards,
           with the structural foundations such as clean semantic HTML,
           well-formed content and schema structured data, which serve both
           traditional SEO and emerging AI-driven discovery (GEO).
         </li>
-        <li class="col-span8 _margin-top:2/3! _margin-bottom:1/2!">
+        <li class="col-span8 privacy-sensitive-data">
           <strong>Privacy and sensitive data </strong>
           Privacy-conscious engineering in regulated domains, with access
           controls, data masking and careful handling of sensitive data.
         </li>
-        <li class="col-span4 _margin-top:2/3! _margin-bottom:1/2!">
+        <li class="col-span4 legacy-codebases">
           <strong>Legacy codebases</strong>
           Getting up to speed quickly in an unfamiliar or legacy codebase,
           working out where the most urgent technical debt is and paying it down
