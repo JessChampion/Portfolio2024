@@ -326,6 +326,7 @@ watch(
 }
 
 .nav-list-controls {
+  margin-right: var(--gap-1-3);
   .checkable-button-group.radio-buttons {
     margin-left: var(--gap-1-2);
     .button {
@@ -465,7 +466,7 @@ watch(
       max-width: fit-content;
     }
 
-    @include breakpoint-sm-up {
+    @include breakpoint-md-up {
       flex-wrap: nowrap;
     }
   }
@@ -526,7 +527,11 @@ watch(
     padding: var(--gap-1-2);
     margin-bottom: var(--gap);
     position: relative;
-    max-width: calc(100% - var(--gap));
+    max-width: calc(100% - var(--gap-1-2));
+
+    @include breakpoint-sm-up {
+      max-width: calc(100% - var(--gap));
+    }
 
     &:last-of-type {
       margin-bottom: 0;

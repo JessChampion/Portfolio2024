@@ -73,6 +73,9 @@ const { isLanding } = reactive({ isLanding: frontmatter.value.home === true });
   grid-template-rows: auto auto 1fr auto;
   min-height: 100vh;
   max-width: 100vw;
+  @include breakpoint-xs-down {
+    grid-template-columns: var(--gap) minmax(0, 1fr) var(--gap);
+  }
   @include breakpoint-sm-up {
     min-width: 25rem;
     grid-template-columns: minmax(2rem, 1fr) auto minmax(2rem, 1fr);
@@ -151,6 +154,10 @@ const { isLanding } = reactive({ isLanding: frontmatter.value.home === true });
     transition: var(--transition-color);
     text-decoration: none;
 
+    @include breakpoint-xs-down {
+      padding: var(--gap) 0 var(--gap-15) var(--gap-1-4);
+    }
+
     &:hover,
     &:focus,
     &:active {
@@ -202,7 +209,7 @@ const { isLanding } = reactive({ isLanding: frontmatter.value.home === true });
     pointer-events: none;
 
     @include breakpoint-sm-up {
-      width: 4rem;
+      width: 3.5rem;
     }
   }
 }

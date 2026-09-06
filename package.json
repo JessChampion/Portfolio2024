@@ -21,7 +21,7 @@
   "scripts": {
     "dev": "yarn generate:scss && vitepress dev",
     "generate:scss": "inkline generate scss -o .vitepress/theme/inkline-variables",
-    "format": "prettier --read .",
+    "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint": "eslint -c eslint.config.mjs .vitepress/theme/**/*.{ts,vue}",
     "lint:fix": "eslint . --ignore-pattern .gitignore --fix",

@@ -16,10 +16,11 @@ defineProps({
 <style lang="scss" scoped>
 .tags {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: var(--gap-1-2);
+  gap: var(--gap-1-4);
   font-size: var(--font-size-sm);
 
   li {

@@ -37,6 +37,15 @@ const toggle = () => {
   </div>
 </template>
 
+<style lang="scss">
+@use "../inkline-variables/mixins.scss" as *;
+
+.section__toggle {
+  h4 {
+    line-height: 1.5 !important;
+  }
+}
+</style>
 <style lang="scss" scoped>
 @use "../inkline-variables/mixins.scss" as *;
 
@@ -45,13 +54,19 @@ const toggle = () => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--gap-3-4) var(--gap-1-2) var(--gap-3-4) var(--gap);
+    padding: var(--gap) var(--gap-1-4) var(--gap-3-4) var(--gap-1-4);
     width: 100%;
     max-width: 100%;
     background: none;
     border: none;
     color: var(--body--color);
     transition: var(--transition-color);
+    text-align: left;
+
+    .section.portfolio & {
+      padding-left: var(--gap-3-4);
+    }
+
     @include breakpoint-sm-up {
       padding: var(--gap) var(--gap-3-4) var(--gap) var(--gap);
     }
@@ -86,9 +101,18 @@ const toggle = () => {
     max-width: 100%;
     padding: 0 calc(var(--gap-1-4)) var(--gap-1-4) var(--gap-1-4);
 
+    .section.portfolio & {
+      padding-left: var(--gap-2-3);
+    }
+
+    .section__toggle {
+      padding: var(--gap) var(--gap-3-4) var(--gap) var(--gap);
+    }
+
     .section__content {
       padding: 0 calc(var(--gap)) var(--gap-1-4) var(--gap);
     }
+
     @include breakpoint-sm-up {
       padding: 0 calc(var(--gap-2)) var(--gap) var(--gap);
     }
